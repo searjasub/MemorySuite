@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.Button?>
-<BorderPane xmlns="http://javafx.com/javafx"
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="view.MainMenuView"
-            prefHeight="400.0" prefWidth="600.0"
-            stylesheets="MainMenuView.css">
-    <center>
-        <HBox fx:id="hbox" styleClass="hbox">
-            <Button fx:id="memoryGame" styleClass="game"> </Button>
-            <Button fx:id="sequenceGame" styleClass="game"> </Button>
-            <Button fx:id="numberGame" styleClass="game"> </Button>
-        </HBox>
-    </center>
-</BorderPane>
+            fx:controller="MainMenuView"
+            prefHeight="400.0" prefWidth="600.0">
+
+</AnchorPane>

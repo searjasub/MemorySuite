@@ -72,11 +72,11 @@ public class MainView {
         memGame = loaderMemGame.load();
 
         menuView = loaderMainMenu.getController();
-        menuView.setStage(s);
+        menuView.setStage(stage);
         menuController = new MainMenuController(menuView);
 
         memGameView = loaderMemGame.getController();
-        memGameView.setStage(s);
+        memGameView.setStage(stage);
         memoryGameController = new MemoryGameController(memGameView);
 
 
