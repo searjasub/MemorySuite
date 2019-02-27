@@ -1,8 +1,8 @@
 package model;
 
 public class MemBoard {
-    private int width;
-    private int height;
+    private int width = 6;
+    private int height = 6;
     private MemBoardSquares[][] boardSquares = new MemBoardSquares[width][height];
 
     public int getWidth() {

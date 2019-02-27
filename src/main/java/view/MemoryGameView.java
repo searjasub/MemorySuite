@@ -1,26 +1,32 @@
 package view;
 
-import controller.MemoryController;
+import controller.MemoryGameController;
 import javafx.stage.Stage;
 
-public class MemoryGameView {
+public class MemoryGameView{
 
-    private MemoryController controller;
+    private MemoryGameController controller;
     private Stage stage;
 
     public void setStage(Stage stage) {
         this.stage = stage;
     }
 
-    public void registerController(MemoryController memoryController) {
-        controller = memoryController;
+    public void registerController(MemoryGameController memoryGameController) {
+        controller = memoryGameController;
     }
 
     public void init() {
-
+        stage.setTitle("Memory Suite");
+        stage.centerOnScreen();
+        stage.setMinWidth(900);
+        stage.setMinHeight(800);
+        stage.show();
     }
 
     public int getWidth() {
         return 0;
     }
+
+
 }

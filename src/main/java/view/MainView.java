@@ -1,7 +1,7 @@
 package view;
 
-import controller.MainViewController;
-import controller.MemoryController;
+import controller.MainMenuController;
+import controller.MemoryGameController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,13 +16,13 @@ import java.net.URL;
 public class MainView {
 
     private static MemoryGameView memGameView;
-    private static MemoryController memoryController;
+    private static MemoryGameController memoryGameController;
 
     private static MainMenuView menuView;
-    private static MainViewController menuController;
+    private static MainMenuController menuController;
 
-    private static Stage stage;
     private static Parent root, memGame;
+    private static Stage stage;
 
     /**
      * Show main menu.
@@ -38,7 +38,7 @@ public class MainView {
     public static void showMemoryGame() {
         Scene scene = new Scene(memGame);
         stage.setScene(scene);
-        memoryController.run();
+        memoryGameController.run();
     }
 
     /**
@@ -69,12 +69,15 @@ public class MainView {
         FXMLLoader loaderMemGame = new FXMLLoader(locationMemGame);
 
         root = loaderMainMenu.load();
-        menuView = loaderMainMenu.getController();
-
         memGame = loaderMemGame.load();
+
+        menuView = loaderMainMenu.getController();
+        menuView.setStage(s);
+        menuController = new MainMenuController(menuView);
+
         memGameView = loaderMemGame.getController();
         memGameView.setStage(s);
-        memoryController = new MemoryController(memGameView);
+        memoryGameController = new MemoryGameController(memGameView);
 
 
     }

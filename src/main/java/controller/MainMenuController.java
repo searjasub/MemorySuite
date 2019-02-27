@@ -2,11 +2,11 @@ package controller;
 
 import view.MainMenuView;
 
-public class MainViewController {
+public class MainMenuController {
 
     private MainMenuView view;
 
-    public MainViewController(MainMenuView ui){
+    public MainMenuController(MainMenuView ui){
         this.view = ui;
         this.view.registerController(this);
     }

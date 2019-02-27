@@ -1,6 +1,6 @@
 package view;
 
-import controller.MainViewController;
+import controller.MainMenuController;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -9,24 +9,33 @@ import javafx.stage.Stage;
 
 public class MainMenuView {
 
+    public HBox hbox;
     public Button memoryGame;
     public Button sequenceGame;
     public Button numberGame;
-    public HBox hbox;
 
     private Stage stage;
-    private MainViewController controller;
+    private MainMenuController controller;
 
     public void setStage(Stage stage) {
         this.stage = stage;
     }
 
-    public void registerController(MainViewController mainViewController) {
-        this.controller = mainViewController;
+    public void registerController(MainMenuController mainMenuController) {
+        this.controller = mainMenuController;
     }
 
     public void init() {
+
+        stage.setTitle("Memory Suite");
+        stage.centerOnScreen();
+        stage.setMinWidth(900);
+        stage.setMinHeight(800);
+        stage.show();
+
+
         hbox.setSpacing(30);
+
         EventHandler<ActionEvent> memoryGame = event -> {
             MainView.showMemoryGame();
         };

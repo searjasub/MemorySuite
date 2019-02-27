@@ -1,16 +1,18 @@
 package controller;
 
 import model.MemBoard;
+import model.Player;
 import view.MemoryGameView;
 
-public class MemoryController {
+public class MemoryGameController {
 
     private MemoryGameView view;
+    Player player = new Player();
 
     private MemBoard board = new MemBoard();
 
-    public MemoryController(MemoryGameView memGameView) {
-        view = memGameView;
+    public MemoryGameController(MemoryGameView ui) {
+        view = ui;
         view.registerController(this);
     }
 
