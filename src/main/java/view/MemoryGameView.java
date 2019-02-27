@@ -19,4 +19,8 @@ public class MemoryGameView {
     public void init() {
 
     }
+
+    public int getWidth() {
+        return 0;
+    }
 }
