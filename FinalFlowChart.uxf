@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>15</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>840</x>
+      <y>0</y>
+      <w>225</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>Application is started</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>750</x>
+      <y>75</y>
+      <w>405</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>Main panel is displayed with three labels 
+displaying the names of all the games</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>165</x>
+      <y>180</y>
+      <w>510</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>If the memory game label is clicked,
+the scene is updated to display the memory
+game display showing predefined settings
+(easy, medium, hard) and a custom settings option</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>690</x>
+      <y>180</y>
+      <w>510</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>If the sequence game label is clicked,
+the scene is updated to display the sequince
+game display showing predefined settings
+(easy, medium, hard) and a custom settings option</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1215</x>
+      <y>180</y>
+      <w>510</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>If the number game label is clicked,
+the scene is updated to display the number
+game display showing predefined settings
+(easy, medium, hard) and a custom settings option</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>945</x>
+      <y>30</y>
+      <w>45</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;30.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>375</x>
+      <y>90</y>
+      <w>405</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;60.0;50.0;10.0;250.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1140</x>
+      <y>90</y>
+      <w>360</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>220.0;60.0;190.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>945</x>
+      <y>135</y>
+      <w>45</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;30.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>165</x>
+      <y>345</y>
+      <w>510</w>
+      <h>255</h>
+    </coordinates>
+    <panel_attributes>Once the preffered settings are selected the memory
+game will launch and cards will be displayed
+in a grid for a period of time defined in the settings
+chosen by the user. Once the time has elapsed
+the cards will flip over and the user will begin to 
+attempt to match pairs. With every pair they match
+their score will go up, and with every incorrect match
+they will lose a life. The game will continue to
+shuffle and deal upon the board being cleared until
+the player runs out of lives.
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>690</y>
+      <w>795</w>
+      <h>165</h>
+    </coordinates>
+    <panel_attributes>Once the player runs out of lives, if they used predefined
+setting their score will be taken and compaired to the scores on the leaderboard.
+If their score beats out one of the scores it will take that place
+and all the lower scores will move one place down resulting in the bottom
+score being removed from the games leaderboard. Then the leaderboard will
+be shown to the player.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>375</x>
+      <y>285</y>
+      <w>45</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>945</x>
+      <y>285</y>
+      <w>45</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1455</x>
+      <y>285</y>
+      <w>45</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>945</x>
+      <y>585</y>
+      <w>45</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>690</x>
+      <y>345</y>
+      <w>510</w>
+      <h>255</h>
+    </coordinates>
+    <panel_attributes>Once the preffered settings are selected the sequence
+game will launch and shapes with colors will be
+flashed on the game display. Once all the shapes
+have been shown the player will be prompted with
+images of shapes and colors and be asked to
+select the shapes in the order they were
+displayed to the user. If the user gets it
+correct they will be awarded points, and if they get 
+it wrong they will lose a life. The game will continue
+until the player runs out of lives.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1215</x>
+      <y>345</y>
+      <w>510</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes>Once the preffered settings are selected the number
+game will launch and colored numbers of
+different values will be shown on
+the game display. Once the time has elapsed
+the numbers will dissapear and the player will
+be prompted with a question like, 
+"How many yellow numbers were shown?", "How
+many even numbers were displayed?", or
+"How many triple digit numbers were displayed?"
+If the user gets it correct they will be awarded points,
+and if they get  it wrong they will lose a life.
+The game will continue
+until the player runs out of lives.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>885</y>
+      <w>795</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>Once the user is done looking at the leaderboard they will be taken back to 
+the respective menu of the game they were playing. From here they can choose
+to play the game again with the same or new settings or they can exit the game
+menu and go back to the main menu. From here they can exit the application
+or select a new game to play.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>945</x>
+      <y>840</y>
+      <w>45</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;30.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
