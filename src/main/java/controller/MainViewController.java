@@ -10,4 +10,8 @@ public class MainViewController {
         this.view = ui;
         this.view.registerController(this);
     }
+
+    public void run() {
+        view.init();
+    }
 }
