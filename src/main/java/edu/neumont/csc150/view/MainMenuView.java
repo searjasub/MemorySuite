@@ -2,7 +2,6 @@ package edu.neumont.csc150.view;
 
 import edu.neumont.csc150.controller.MainMenuController;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -21,7 +20,7 @@ public class MainMenuView {
     private MainMenuController controller;
     private Stage stage;
 
-    public void init(Stage stage, MainMenuController controller){
+    public void init(Stage stage, MainMenuController controller) {
         this.stage = stage;
         this.controller = controller;
 
