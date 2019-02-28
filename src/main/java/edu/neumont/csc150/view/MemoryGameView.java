@@ -62,10 +62,10 @@ public class MemoryGameView {
     }
 
     public void returnBtn(ActionEvent actionEvent) {
-        System.out.println("Return button");
-        Stage newStage = (Stage) returnBtn.getScene().getWindow();
-        this.stage.setScene(newStage.getScene());
-        MainMenuView view = new MainMenuView();
-        view.init(this.stage);
+//        System.out.println("Return button");
+//        Stage newStage = (Stage) returnBtn.getScene().getWindow();
+//        this.stage.setScene(newStage.getScene());
+//        MainMenuView view = new MainMenuView();
+//        view.init(this.stage);
     }
 }
