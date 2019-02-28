@@ -1,5 +1,6 @@
 package edu.neumont.csc150.view;
 
+import edu.neumont.csc150.MemorySuite;
 import edu.neumont.csc150.controller.MainMenuController;
 import edu.neumont.csc150.controller.MemoryGameController;
 import javafx.event.ActionEvent;
@@ -20,8 +21,8 @@ public class MemoryGameView {
     public Button openSavedGame;
     public Button returnBtn;
 
+    private Stage stage;
     private Scene scene;
-    private Stage stage = new Stage();
 
     private MemoryGameController controller = new MemoryGameController();
 
@@ -33,6 +34,11 @@ public class MemoryGameView {
         this.stage.setTitle("Memory Game");
         this.stage.setScene(scene);
         this.stage.show();
+    }
+
+    public void returnBtn(ActionEvent actionEvent) throws Exception {
+
+        ViewNavigator.getInstance().showMainMenu();
     }
 
     public void onSave(ActionEvent actionEvent) {
@@ -48,9 +54,7 @@ public class MemoryGameView {
     }
 
     public void onExit(ActionEvent actionEvent) throws IOException {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("MainMenuView.fxml"));
-        Parent root = loader.load();
-        scene = new Scene(root, 900, 800);
+        stage.close();
     }
 
     public void onAbout(ActionEvent actionEvent) {
@@ -59,13 +63,5 @@ public class MemoryGameView {
 
     public void showSaveScreen(ActionEvent actionEvent) {
 
-    }
-
-    public void returnBtn(ActionEvent actionEvent) {
-//        System.out.println("Return button");
-//        Stage newStage = (Stage) returnBtn.getScene().getWindow();
-//        this.stage.setScene(newStage.getScene());
-//        MainMenuView view = new MainMenuView();
-//        view.init(this.stage);
     }
 }

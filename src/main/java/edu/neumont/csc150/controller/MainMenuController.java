@@ -10,7 +10,4 @@ public class MainMenuController {
         this.view = view;
     }
 
-    public void run() {
-
-    }
 }
