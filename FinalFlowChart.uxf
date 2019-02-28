@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>15</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>840</x>
-      <y>0</y>
-      <w>225</w>
-      <h>45</h>
+      <x>720</x>
+      <y>90</y>
+      <w>135</w>
+      <h>27</h>
     </coordinates>
     <panel_attributes>Application is started</panel_attributes>
     <additional_attributes/>
@@ -15,22 +15,22 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>750</x>
-      <y>75</y>
-      <w>405</w>
-      <h>75</h>
+      <x>666</x>
+      <y>135</y>
+      <w>243</w>
+      <h>45</h>
     </coordinates>
-    <panel_attributes>MemorySuite panel is displayed with three labels
+    <panel_attributes>Main panel is displayed with three labels 
 displaying the names of all the games</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>165</x>
-      <y>180</y>
-      <w>510</w>
-      <h>120</h>
+      <x>315</x>
+      <y>198</y>
+      <w>306</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>If the memory game label is clicked,
 the scene is updated to display the memory
@@ -41,10 +41,10 @@ game display showing predefined settings
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>690</x>
-      <y>180</y>
-      <w>510</w>
-      <h>120</h>
+      <x>630</x>
+      <y>198</y>
+      <w>306</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>If the sequence game label is clicked,
 the scene is updated to display the sequince
@@ -55,10 +55,10 @@ game display showing predefined settings
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1215</x>
-      <y>180</y>
-      <w>510</w>
-      <h>120</h>
+      <x>945</x>
+      <y>198</y>
+      <w>306</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>If the number game label is clicked,
 the scene is updated to display the number
@@ -69,54 +69,21 @@ game display showing predefined settings
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>945</x>
-      <y>30</y>
-      <w>45</w>
-      <h>75</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;30.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>375</x>
-      <y>90</y>
-      <w>405</w>
-      <h>120</h>
+      <x>441</x>
+      <y>144</y>
+      <w>243</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;60.0;50.0;10.0;250.0;10.0</additional_attributes>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1140</x>
-      <y>90</y>
-      <w>360</w>
-      <h>120</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>220.0;60.0;190.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>945</x>
-      <y>135</y>
-      <w>45</w>
-      <h>75</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;30.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>165</x>
-      <y>345</y>
-      <w>510</w>
-      <h>255</h>
+      <x>315</x>
+      <y>297</y>
+      <w>306</w>
+      <h>153</h>
     </coordinates>
     <panel_attributes>Once the preffered settings are selected the memory
 game will launch and cards will be displayed
@@ -135,9 +102,9 @@ the player runs out of lives.
     <id>UMLClass</id>
     <coordinates>
       <x>540</x>
-      <y>690</y>
-      <w>795</w>
-      <h>165</h>
+      <y>504</y>
+      <w>477</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>Once the player runs out of lives, if they used predefined
 setting their score will be taken and compaired to the scores on the leaderboard.
@@ -150,10 +117,10 @@ be shown to the player.</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>375</x>
-      <y>285</y>
-      <w>45</w>
-      <h>90</h>
+      <x>441</x>
+      <y>261</y>
+      <w>27</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
@@ -161,10 +128,10 @@ be shown to the player.</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>945</x>
-      <y>285</y>
-      <w>45</w>
-      <h>90</h>
+      <x>783</x>
+      <y>261</y>
+      <w>27</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
@@ -172,10 +139,10 @@ be shown to the player.</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1455</x>
-      <y>285</y>
-      <w>45</w>
-      <h>90</h>
+      <x>1089</x>
+      <y>261</y>
+      <w>27</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
@@ -183,10 +150,10 @@ be shown to the player.</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>945</x>
-      <y>585</y>
-      <w>45</w>
-      <h>135</h>
+      <x>783</x>
+      <y>441</y>
+      <w>27</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
@@ -194,10 +161,10 @@ be shown to the player.</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>690</x>
-      <y>345</y>
-      <w>510</w>
-      <h>255</h>
+      <x>630</x>
+      <y>297</y>
+      <w>306</w>
+      <h>153</h>
     </coordinates>
     <panel_attributes>Once the preffered settings are selected the sequence
 game will launch and shapes with colors will be
@@ -214,10 +181,10 @@ until the player runs out of lives.</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1215</x>
-      <y>345</y>
-      <w>510</w>
-      <h>330</h>
+      <x>945</x>
+      <y>297</y>
+      <w>306</w>
+      <h>198</h>
     </coordinates>
     <panel_attributes>Once the preffered settings are selected the number
 game will launch and colored numbers of
@@ -238,9 +205,9 @@ until the player runs out of lives.</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>540</x>
-      <y>885</y>
-      <w>795</w>
-      <h>135</h>
+      <y>621</y>
+      <w>477</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>Once the user is done looking at the leaderboard they will be taken back to 
 the respective menu of the game they were playing. From here they can choose
@@ -252,10 +219,43 @@ or select a new game to play.</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>945</x>
-      <y>840</y>
-      <w>45</w>
-      <h>75</h>
+      <x>783</x>
+      <y>594</y>
+      <w>27</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;30.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>900</x>
+      <y>144</y>
+      <w>216</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>220.0;60.0;190.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>783</x>
+      <y>171</y>
+      <w>27</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;30.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>783</x>
+      <y>108</y>
+      <w>27</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;30.0;10.0;10.0</additional_attributes>

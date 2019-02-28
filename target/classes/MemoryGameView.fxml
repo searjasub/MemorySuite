@@ -1,14 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="edu.neumont.csc150.view.MemoryGameView"
-            prefHeight="400.0" prefWidth="600.0">
+            prefHeight="400.0" prefWidth="600.0"
+            stylesheets="MemoryGameView.css">
+    <top>
+        <MenuBar>
+            <Menu text="Game">
+                <MenuItem text="Save" onAction="#onSave"/>
+                <MenuItem text="Load" onAction="#onLoad"/>
+                <MenuItem text="Restart" onAction="#onRestart"/>
+                <MenuItem text="Exit" onAction="#onExit"/>
+            </Menu>
+            <Menu text="Help">
+                <MenuItem text="About" onAction="#onAbout"/>
+            </Menu>
+        </MenuBar>
+    </top>
+
+    <center>
+        <VBox>
+            <Text>Memory Game</Text>
+            <HBox>
+                <Button fx:id="startGameBtn">Start Game</Button>
+                <Button fx:id="openSavedGame" onAction="#showSaveScreen">Open Saved Game</Button>
+                <Button fx:id="returnBtn" onAction="#returnBtn">Return to Main Menu</Button>
+            </HBox>
+            <Text>Settings</Text>
+            <HBox>
+                <Button fx:id="cardSettings">
+                </Button>
+                <Button fx:id="timerSettings">
+                </Button>
+                <Button fx:id="gridSizeSettings">
+                </Button>
+            </HBox>
+        </VBox>
+    </center>
 
 </BorderPane>

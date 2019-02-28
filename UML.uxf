@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>8</zoom_level>
+  <zoom_level>7</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>712</x>
-      <y>616</y>
-      <w>288</w>
-      <h>184</h>
+      <x>700</x>
+      <y>630</y>
+      <w>252</w>
+      <h>161</h>
     </coordinates>
     <panel_attributes>MainMenuView
 --
@@ -28,10 +28,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>712</x>
-      <y>208</y>
-      <w>272</w>
-      <h>72</h>
+      <x>700</x>
+      <y>175</y>
+      <w>238</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>MainMenuController
 --
@@ -45,10 +45,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>696</x>
-      <y>88</y>
-      <w>192</w>
-      <h>72</h>
+      <x>686</x>
+      <y>70</y>
+      <w>168</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>MemorySuite
 --
@@ -60,10 +60,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>712</x>
-      <y>296</y>
-      <w>272</w>
-      <h>48</h>
+      <x>700</x>
+      <y>252</y>
+      <w>238</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>MemoryGameController
 --
@@ -73,23 +73,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>712</x>
-      <y>552</y>
-      <w>248</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>MemoryGameView
---
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>152</x>
-      <y>320</y>
-      <w>408</w>
-      <h>152</h>
+      <x>210</x>
+      <y>273</y>
+      <w>357</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>MemBoard
 --
@@ -110,10 +97,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>152</x>
-      <y>152</y>
-      <w>256</w>
-      <h>88</h>
+      <x>210</x>
+      <y>182</y>
+      <w>224</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>:MemBoardSquares
 --
@@ -125,52 +112,12 @@
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>152</x>
-      <y>256</y>
-      <w>232</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>NumberBoard
---
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>152</x>
-      <y>88</y>
-      <w>192</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>Player
---
--name: String
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>152</x>
-      <y>504</y>
-      <w>240</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>SequenceBoard
---
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>112</x>
-      <y>56</y>
-      <w>488</w>
-      <h>608</h>
+      <x>175</x>
+      <y>42</y>
+      <w>427</w>
+      <h>665</h>
     </coordinates>
     <panel_attributes>model
 --
@@ -180,10 +127,10 @@ bg=green</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>696</x>
-      <y>520</y>
-      <w>320</w>
-      <h>296</h>
+      <x>686</x>
+      <y>448</y>
+      <w>280</w>
+      <h>469</h>
     </coordinates>
     <panel_attributes>view
 --
@@ -193,10 +140,10 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>696</x>
-      <y>176</y>
-      <w>328</w>
-      <h>312</h>
+      <x>686</x>
+      <y>147</y>
+      <w>287</w>
+      <h>273</h>
     </coordinates>
     <panel_attributes>controller
 --
@@ -206,10 +153,10 @@ bg=red</panel_attributes>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>88</x>
-      <y>24</y>
-      <w>1000</w>
-      <h>864</h>
+      <x>154</x>
+      <y>14</y>
+      <w>875</w>
+      <h>924</h>
     </coordinates>
     <panel_attributes>edu.neumont.csc150
 --
@@ -219,10 +166,10 @@ bg=orange</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>152</x>
-      <y>568</y>
-      <w>240</w>
-      <h>72</h>
+      <x>210</x>
+      <y>623</y>
+      <w>210</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>CardType
 &lt;&lt;enum&gt;&gt;
@@ -235,10 +182,10 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>648</x>
-      <y>104</y>
-      <w>80</w>
-      <h>152</h>
+      <x>644</x>
+      <y>84</y>
+      <w>70</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
@@ -247,32 +194,32 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>400</x>
-      <y>192</y>
-      <w>200</w>
-      <h>240</h>
+      <x>427</x>
+      <y>217</y>
+      <w>175</w>
+      <h>154</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>200.0;280.0;230.0;280.0;230.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>200.0;200.0;230.0;200.0;230.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>112</x>
-      <y>192</y>
-      <w>56</w>
-      <h>408</h>
+      <x>175</x>
+      <y>217</y>
+      <w>49</w>
+      <h>434</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>50.0;10.0;10.0;10.0;10.0;490.0;50.0;490.0</additional_attributes>
+    <additional_attributes>50.0;10.0;10.0;10.0;10.0;600.0;50.0;600.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>632</x>
-      <y>304</y>
-      <w>96</w>
-      <h>296</h>
+      <x>630</x>
+      <y>259</y>
+      <w>84</w>
+      <h>259</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
@@ -281,22 +228,22 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>624</x>
-      <y>248</y>
-      <w>104</w>
-      <h>504</h>
+      <x>623</x>
+      <y>210</y>
+      <w>91</w>
+      <h>539</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
-    <additional_attributes>110.0;10.0;10.0;10.0;10.0;610.0;110.0;610.0</additional_attributes>
+    <additional_attributes>110.0;10.0;10.0;10.0;10.0;750.0;110.0;750.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>552</x>
-      <y>320</y>
-      <w>176</w>
-      <h>64</h>
+      <x>560</x>
+      <y>273</y>
+      <w>154</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
@@ -305,22 +252,22 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>336</x>
-      <y>104</y>
-      <w>392</w>
-      <h>216</h>
+      <x>371</x>
+      <y>91</y>
+      <w>343</w>
+      <h>182</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
-    <additional_attributes>10.0;10.0;350.0;10.0;350.0;250.0;470.0;250.0</additional_attributes>
+    <additional_attributes>10.0;10.0;350.0;10.0;350.0;240.0;470.0;240.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>712</x>
-      <y>360</y>
-      <w>272</w>
-      <h>48</h>
+      <x>700</x>
+      <y>308</y>
+      <w>238</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>SequenceGameController
 --
@@ -331,10 +278,10 @@ layer=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>712</x>
-      <y>424</y>
-      <w>272</w>
-      <h>48</h>
+      <x>700</x>
+      <y>364</y>
+      <w>238</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>NumberGameController
 --
@@ -345,25 +292,158 @@ layer=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>384</x>
-      <y>384</y>
-      <w>344</w>
-      <h>168</h>
+      <x>434</x>
+      <y>329</y>
+      <w>280</w>
+      <h>147</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
-    <additional_attributes>10.0;190.0;290.0;190.0;290.0;10.0;410.0;10.0</additional_attributes>
+    <additional_attributes>10.0;190.0;260.0;190.0;260.0;10.0;380.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>376</x>
-      <y>272</y>
-      <w>352</w>
-      <h>200</h>
+      <x>427</x>
+      <y>385</y>
+      <w>287</w>
+      <h>196</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
-    <additional_attributes>10.0;10.0;350.0;10.0;350.0;230.0;420.0;230.0</additional_attributes>
+    <additional_attributes>10.0;260.0;230.0;260.0;320.0;10.0;390.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>700</x>
+      <y>861</y>
+      <w>217</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>SequenceGameView
+--
+
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>700</x>
+      <y>812</y>
+      <w>217</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>NumberGameView
+--
+
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>651</x>
+      <y>392</y>
+      <w>63</w>
+      <h>462</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;10.0;10.0;640.0;70.0;640.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>658</x>
+      <y>336</y>
+      <w>56</w>
+      <h>567</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;10.0;10.0;790.0;60.0;790.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>210</x>
+      <y>70</y>
+      <w>168</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>:Player
+--
+-name: String
+-score: double
+--
++getName(): String
++setName(String name): void
++getScore(): double
++setScore(double score): void
+
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>210</x>
+      <y>525</y>
+      <w>224</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>NumberBoard
+--
+-numbers = new ArrayList(): List&lt;CardTypes&gt;
+--
++getNumbers(): List&lt;CardTypes&gt;
++setNumbers(List&lt;CardTypes&gt; numbers): void
+
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>210</x>
+      <y>427</y>
+      <w>231</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>SequenceBoard
+--
+-sequence = new ArrayList(): List&lt;CardTypes&gt;
+--
++getSequence(): List&lt;CardTypes&gt;
++setSequence(List&lt;CardTypes&gt; sequence): void
+
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>700</x>
+      <y>476</y>
+      <w>217</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>edu.neumont.csc150.view::MemoryGameView
+--
++cardSettings: Button
++timerSettings: Button
++gridSizeSettings: Button
+--
++onSave(ActionEvent actionEvent): void
++onLoad(ActionEvent actionEvent): void
++onRestart(ActionEvent actionEvent): void
++onExit(ActionEvent actionEvent): void
++onAbout(ActionEvent actionEvent): void
+--
+
+layer=1</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>

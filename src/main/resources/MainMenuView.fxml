@@ -8,6 +8,8 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="edu.neumont.csc150.view.MainMenuView"
@@ -30,13 +32,14 @@
 
     <center>
         <VBox styleClass="vbox">
-            <Text fx:id="topText" styleClass="topText">Memory Game</Text>
+            <Label fx:id="topLabel" styleClass="topLabel">Memory Suite
+            </Label>
             <HBox fx:id="hbox" styleClass="hbox">
-                <Button fx:id="memoryGame" styleClass="game" onAction="#onMemoryGameClick">
+                <Button fx:id="memoryGame" styleClass="game" onAction="#onMemoryGameClicked">
                 </Button>
-                <Button fx:id="SequenceGame" styleClass="game">
+                <Button fx:id="SequenceGame" styleClass="game" onAction="#onSequenceGameClicked">
                 </Button>
-                <Button fx:id="NumberGame" styleClass="game">
+                <Button fx:id="NumberGame" styleClass="game" onAction="#onNumberGameClicked">
                 </Button>
             </HBox>
         </VBox>

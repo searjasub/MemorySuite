@@ -22,6 +22,7 @@ public class MemorySuite extends Application {
         MainMenuView viewController = loader.getController();
         MainMenuController controller = new MainMenuController();
         controller.setView(viewController);
-        viewController.init(primaryStage, controller);
+        viewController.setController(controller);
+        viewController.init(primaryStage);
     }
 }

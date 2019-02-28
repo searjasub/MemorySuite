@@ -31,9 +31,9 @@
         <VBox>
             <Text>Memory Game</Text>
             <HBox>
-                <Button>Start Game</Button>
-                <Button>Open Saved Game</Button>
-                <Button>Return to Main Menu</Button>
+                <Button fx:id="startGameBtn">Start Game</Button>
+                <Button fx:id="openSavedGame" onAction="#showSaveScreen">Open Saved Game</Button>
+                <Button fx:id="returnBtn" onAction="#returnBtn">Return to Main Menu</Button>
             </HBox>
             <Text>Settings</Text>
             <HBox>

@@ -1,5 +1,6 @@
 .root{
     -fx-alignment: center;
+    -fx-background-image: url("main_menu_background.jpg");
 }
 
 .game {
@@ -18,7 +19,10 @@
     -fx-alignment: center;
 }
 
-.topText {
-    -fx-font-family: "HP Simplified Light";
+.topLabel {
+    -fx-padding: 10px;
     -fx-font-size: 26px;
+    -fx-background-color: #2F2F2D;
+    -fx-text-fill: #00BACF;
+    -fx-background-radius: 20;
 }
