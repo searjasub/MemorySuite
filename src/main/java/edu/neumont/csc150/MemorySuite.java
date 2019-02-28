@@ -16,6 +16,5 @@ public class MemorySuite extends Application {
         viewNavigator.setStage(primaryStage);
         ViewNavigatorController controller = new ViewNavigatorController(viewNavigator);
         controller.run();
-
     }
 }

@@ -10,7 +10,6 @@ public class ViewNavigatorController {
 
     public ViewNavigatorController(ViewNavigator viewNavigator) {
         this.viewNavigator = viewNavigator;
-        this.viewNavigator.registerController(this);
     }
 
     public void run() throws IOException {

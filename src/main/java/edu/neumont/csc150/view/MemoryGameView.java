@@ -1,14 +1,9 @@
 package edu.neumont.csc150.view;
 
-import edu.neumont.csc150.MemorySuite;
-import edu.neumont.csc150.controller.MainMenuController;
 import edu.neumont.csc150.controller.MemoryGameController;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
+import javafx.scene.layout.HBox;
 
 import java.io.IOException;
 
@@ -20,48 +15,48 @@ public class MemoryGameView {
     public Button startGameBtn;
     public Button openSavedGame;
     public Button returnBtn;
+    public HBox bottomPart;
 
-    private Stage stage;
-    private Scene scene;
+    private ViewNavigator viewNavigator;
 
     private MemoryGameController controller = new MemoryGameController();
 
-    public void init(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameView.fxml"));
-        Parent root = loader.load();
-        scene = new Scene(root, 900, 800);
-        this.stage = stage;
-        this.stage.setTitle("Memory Game");
-        this.stage.setScene(scene);
-        this.stage.show();
+    public void init(ViewNavigator viewNavigator) {
+        bottomPart.setSpacing(640);
+        bottomPart.setPadding(new Insets(400, 20, 0, 20));
+        registerViewNavigator(viewNavigator);
     }
 
-    public void returnBtn(ActionEvent actionEvent) throws Exception {
-
-        ViewNavigator.getInstance().showMainMenu();
+    public void returnBtn() throws Exception {
+        viewNavigator.showMainMenu();
     }
 
-    public void onSave(ActionEvent actionEvent) {
+    public void onSave() {
 
     }
 
-    public void onLoad(ActionEvent actionEvent) {
+    public void onLoad() {
 
     }
 
-    public void onRestart(ActionEvent actionEvent) {
+    public void onRestart() {
 
     }
 
-    public void onExit(ActionEvent actionEvent) throws IOException {
-        stage.close();
+    public void onExit() throws IOException {
+        viewNavigator.showMainMenu();
     }
 
-    public void onAbout(ActionEvent actionEvent) {
+    public void onAbout() {
 
     }
 
-    public void showSaveScreen(ActionEvent actionEvent) {
+    public void showSaveScreen() {
 
     }
+
+    private void registerViewNavigator(ViewNavigator viewNavigator) {
+        this.viewNavigator = viewNavigator;
+    }
+
 }

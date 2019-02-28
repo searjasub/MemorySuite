@@ -1,6 +1,5 @@
 package edu.neumont.csc150.view;
 
-import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -23,7 +22,7 @@ public class MainMenuView {
     public Label topLabel;
     private ViewNavigator viewNavigator;
 
-    public void init(ViewNavigator viewNavigator) {
+    void init(ViewNavigator viewNavigator) {
         topLabel.setFont(Font.font("HP Simplified Light", FontWeight.BOLD, 14));
         hbox.setSpacing(40);
         hbox.setPadding(new Insets(50, 0, 0, 0));
@@ -35,31 +34,31 @@ public class MainMenuView {
         viewNavigator.showMemoryGame();
     }
 
-    public void onSequenceGameClicked(ActionEvent actionEvent) {
+    public void onSequenceGameClicked() {
 
     }
 
-    public void onNumberGameClicked(ActionEvent actionEvent) {
+    public void onNumberGameClicked() {
 
     }
 
-    public void onSave(ActionEvent actionEvent) {
+    public void onSave() {
 
     }
 
-    public void onLoad(ActionEvent actionEvent) {
+    public void onLoad() {
 
     }
 
-    public void onRestart(ActionEvent actionEvent) {
+    public void onRestart() {
 
     }
 
-    public void onExit(ActionEvent actionEvent) {
-
+    public void onExit() {
+        viewNavigator.closeStage();
     }
 
-    public void onAbout(ActionEvent actionEvent) {
+    public void onAbout() {
         Alert popup = new Alert(Alert.AlertType.NONE, "Memory Suite by Felix, Jeff and Sear.", ButtonType.CLOSE);
         popup.setTitle("About Memory Suite");
         popup.show();

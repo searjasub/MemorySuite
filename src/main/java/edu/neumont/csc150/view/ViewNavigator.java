@@ -1,6 +1,5 @@
 package edu.neumont.csc150.view;
 
-import edu.neumont.csc150.controller.ViewNavigatorController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,37 +11,15 @@ import java.util.Objects;
 
 public class ViewNavigator {
 
-    private static ViewNavigator instance;
-    private ViewNavigatorController controller;
-
     private Stage stage;
     private Scene mainMenuScene;
     private Scene memoryGameScene;
     private Scene numberGameScene;
     private Scene sequenceGameScene;
 
-    public ViewNavigator() {
-        setInstance(this);
-    }
-
-    public static ViewNavigator getInstance() {
-        return instance;
-    }
-
-    public static void setInstance(ViewNavigator instance) {
-        ViewNavigator.instance = instance;
-    }
-
-    public Stage getStage() {
-        return stage;
-    }
 
     public void setStage(Stage stage) {
         this.stage = stage;
-    }
-
-    public void registerController(ViewNavigatorController viewNavigatorController) {
-        this.controller = viewNavigatorController;
     }
 
     public void init() throws IOException {
@@ -55,20 +32,19 @@ public class ViewNavigator {
         showMainMenu();
     }
 
-    public void showMainMenu() throws IOException {
+    void showMainMenu() throws IOException {
         initMainMenu();
         this.stage.setScene(mainMenuScene);
         this.stage.show();
     }
 
-    public void showMemoryGame() throws IOException {
+    void showMemoryGame() throws IOException {
         initMemoryGame();
         this.stage.setScene(memoryGameScene);
         this.stage.show();
     }
 
     private void initMainMenu() throws IOException {
-        //URL location = getClass().getResource("MainMenuView.fxml");
         FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("MainMenuView.fxml"));
         Parent root = loader.load();
         MainMenuView viewController = loader.getController();
@@ -78,11 +54,16 @@ public class ViewNavigator {
     }
 
     private void initMemoryGame() throws IOException {
-
         FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameView.fxml"));
         Parent root = loader.load();
+        MemoryGameView viewController = loader.getController();
+        viewController.init(this);
         memoryGameScene = new Scene(root);
 
+    }
+
+    void closeStage() {
+        this.stage.close();
     }
 
 

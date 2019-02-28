@@ -16,10 +16,10 @@
     <top>
         <MenuBar>
             <Menu text="Game">
+                <MenuItem text="Main Menu" onAction="#onExit"/>
                 <MenuItem text="Save" onAction="#onSave"/>
                 <MenuItem text="Load" onAction="#onLoad"/>
                 <MenuItem text="Restart" onAction="#onRestart"/>
-                <MenuItem text="Exit" onAction="#onExit"/>
             </Menu>
             <Menu text="Help">
                 <MenuItem text="About" onAction="#onAbout"/>
@@ -28,21 +28,23 @@
     </top>
 
     <center>
-        <VBox>
+        <VBox styleClass="vbox">
             <Text>Memory Game</Text>
-            <HBox>
-                <Button fx:id="startGameBtn">Start Game</Button>
+            <HBox styleClass="hbox">
                 <Button fx:id="openSavedGame" onAction="#showSaveScreen">Open Saved Game</Button>
-                <Button fx:id="returnBtn" onAction="#returnBtn">Return to Main Menu</Button>
             </HBox>
             <Text>Settings</Text>
-            <HBox>
+            <HBox styleClass="hbox">
                 <Button fx:id="cardSettings">
                 </Button>
                 <Button fx:id="timerSettings">
                 </Button>
                 <Button fx:id="gridSizeSettings">
                 </Button>
+            </HBox>
+            <HBox fx:id="bottomPart">
+                <Button fx:id="returnBtn" onAction="#returnBtn">Return to Main Menu</Button>
+                <Button fx:id="startGameBtn">Start Game</Button>
             </HBox>
         </VBox>
     </center>
