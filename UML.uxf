@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>712</x>
+      <y>616</y>
+      <w>288</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>MainMenuView
+--
++memoryGame: Button
++SequenceGame: Button
++NumberGame: Button
++hbox: HBox
++borderPane: BorderPane
++topText: Text
+-controller: MainMenuController
+-stage: Stage
+--
++init(Stage stage, MainMenuController controller): void
++onMemoryGameClick(ActionEvent actionEvent): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>712</x>
+      <y>208</y>
+      <w>272</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>MainMenuController
+--
+~view: MainMenuView
+--
++setView(MainMenuView view): void
++run(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>696</x>
+      <y>88</y>
+      <w>192</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>MemorySuite
+--
++main(String[] args): void
++start(Stage primaryStage): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>712</x>
+      <y>296</y>
+      <w>272</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>MemoryGameController
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>712</x>
+      <y>552</y>
+      <w>248</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>MemoryGameView
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>152</x>
+      <y>320</y>
+      <w>408</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>MemBoard
+--
+-width = 6: int
+-height = 6: int
+-boardSquares = new MemBoardSquares[width][height]: MemBoardSquares[][]
+--
++getWidth(): int
++setWidth(int width): void
++getHeight(): int
++setHeight(int height): void
++getBoardSquares(): MemBoardSquares[][]
++setBoardSquares(MemBoardSquares[][] boardSquares): void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>152</x>
+      <y>152</y>
+      <w>256</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>:MemBoardSquares
+--
+-type: CardTypes
+--
++getType(): CardTypes
++setType(CardTypes type): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>152</x>
+      <y>256</y>
+      <w>232</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>NumberBoard
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>152</x>
+      <y>88</y>
+      <w>192</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>Player
+--
+-name: String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>152</x>
+      <y>504</y>
+      <w>240</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>SequenceBoard
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>112</x>
+      <y>56</y>
+      <w>488</w>
+      <h>608</h>
+    </coordinates>
+    <panel_attributes>model
+--
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>696</x>
+      <y>520</y>
+      <w>320</w>
+      <h>296</h>
+    </coordinates>
+    <panel_attributes>view
+--
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>696</x>
+      <y>176</y>
+      <w>328</w>
+      <h>312</h>
+    </coordinates>
+    <panel_attributes>controller
+--
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>88</x>
+      <y>24</y>
+      <w>1000</w>
+      <h>864</h>
+    </coordinates>
+    <panel_attributes>edu.neumont.csc150
+--
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>152</x>
+      <y>568</y>
+      <w>240</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>CardType
+&lt;&lt;enum&gt;&gt;
+--
+1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,
+19,20,21,22,23,24,25,26,27,28,29,30,31,32
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>648</x>
+      <y>104</y>
+      <w>80</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;10.0;10.0;170.0;80.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>400</x>
+      <y>192</y>
+      <w>200</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>200.0;280.0;230.0;280.0;230.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>112</x>
+      <y>192</y>
+      <w>56</w>
+      <h>408</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;10.0;10.0;490.0;50.0;490.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>632</x>
+      <y>304</y>
+      <w>96</w>
+      <h>296</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>100.0;10.0;10.0;10.0;10.0;350.0;100.0;350.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>624</x>
+      <y>248</y>
+      <w>104</w>
+      <h>504</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;10.0;10.0;610.0;110.0;610.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>552</x>
+      <y>320</y>
+      <w>176</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;60.0;80.0;10.0;200.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>336</x>
+      <y>104</y>
+      <w>392</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;350.0;10.0;350.0;250.0;470.0;250.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>712</x>
+      <y>360</y>
+      <w>272</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>SequenceGameController
+--
+
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>712</x>
+      <y>424</y>
+      <w>272</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>NumberGameController
+--
+
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>384</y>
+      <w>344</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;190.0;290.0;190.0;290.0;10.0;410.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>376</x>
+      <y>272</y>
+      <w>352</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;10.0;350.0;10.0;350.0;230.0;420.0;230.0</additional_attributes>
+  </element>
+</diagram>

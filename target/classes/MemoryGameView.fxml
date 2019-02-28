@@ -8,8 +8,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controller.MemoryController"
+            fx:controller="edu.neumont.csc150.view.MemoryGameView"
             prefHeight="400.0" prefWidth="600.0">
-
 
 </BorderPane>

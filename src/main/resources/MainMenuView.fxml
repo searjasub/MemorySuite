@@ -1,18 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="view.MainMenuView"
+            fx:controller="edu.neumont.csc150.view.MainMenuView"
+            stylesheets="MainMenuView.css"
             prefHeight="400.0" prefWidth="600.0"
-            stylesheets="MainMenuView.css">
+            fx:id="borderPane">
+    <top>
+
+    </top>
+
     <center>
-        <HBox fx:id="hbox" styleClass="hbox">
-            <Button fx:id="memoryGame" styleClass="game"> </Button>
-            <Button fx:id="sequenceGame" styleClass="game"> </Button>
-            <Button fx:id="numberGame" styleClass="game"> </Button>
-        </HBox>
+        <VBox styleClass="vbox">
+            <Text fx:id="topText" styleClass="topText">Memory Game</Text>
+            <HBox fx:id="hbox" styleClass="hbox">
+                <Button fx:id="memoryGame" styleClass="game" onAction="#onMemoryGameClick">
+                </Button>
+                <Button fx:id="SequenceGame" styleClass="game">
+                </Button>
+                <Button fx:id="NumberGame" styleClass="game">
+                </Button>
+            </HBox>
+        </VBox>
     </center>
+
 </BorderPane>

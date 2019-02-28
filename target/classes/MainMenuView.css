@@ -1,18 +1,24 @@
 .root{
-    -fx-background-size: 900px, 700px;
+    -fx-alignment: center;
 }
 
 .game {
     -fx-text-alignment: center;
-    -fx-min-width: 200;
-    -fx-min-height: 500;
+    -fx-min-width: 230;
+    -fx-min-height: 350;
     -fx-font-family: "HP Simplified Light", Verdana, Monospaced;
     -fx-background-color: lightblue;
 }
 
-Hbox{
+.hbox {
     -fx-alignment: center;
 }
 
-.hbox {
+.vbox{
+    -fx-alignment: center;
+}
+
+.topText {
+    -fx-font-family: "HP Simplified Light";
+    -fx-font-size: 26px;
 }
