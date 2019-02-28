@@ -5,6 +5,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="edu.neumont.csc150.view.MainMenuView"
@@ -12,7 +15,17 @@
             prefHeight="400.0" prefWidth="600.0"
             fx:id="borderPane">
     <top>
-
+        <MenuBar>
+            <Menu text="Game">
+                <MenuItem text="Save" onAction="#onSave"/>
+                <MenuItem text="Load" onAction="#onLoad"/>
+                <MenuItem text="Restart" onAction="#onRestart"/>
+                <MenuItem text="Exit" onAction="#onExit"/>
+            </Menu>
+            <Menu text="Help">
+                <MenuItem text="About" onAction="#onAbout"/>
+            </Menu>
+        </MenuBar>
     </top>
 
     <center>

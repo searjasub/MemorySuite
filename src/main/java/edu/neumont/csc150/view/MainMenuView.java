@@ -2,7 +2,9 @@ package edu.neumont.csc150.view;
 
 import edu.neumont.csc150.controller.MainMenuController;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
@@ -36,5 +38,27 @@ public class MainMenuView {
 
     public void onMemoryGameClick(ActionEvent actionEvent) {
 
+    }
+
+    public void onSave(ActionEvent actionEvent) {
+
+    }
+
+    public void onLoad(ActionEvent actionEvent) {
+
+    }
+
+    public void onRestart(ActionEvent actionEvent) {
+
+    }
+
+    public void onExit(ActionEvent actionEvent) {
+        this.stage.close();
+    }
+
+    public void onAbout(ActionEvent actionEvent) {
+        Alert popup = new Alert(Alert.AlertType.NONE, "Memory Suite by Felix, Jeff and Sear.", ButtonType.CLOSE);
+        popup.setTitle("About Memory Suite");
+        popup.show();
     }
 }
