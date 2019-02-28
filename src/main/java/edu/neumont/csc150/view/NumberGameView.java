@@ -1,5 +1,4 @@
 package edu.neumont.csc150.view;
 
-public class MemoryGameView {
-    
+public class NumberGameView {
 }
