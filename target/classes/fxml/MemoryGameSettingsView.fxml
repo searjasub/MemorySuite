@@ -6,7 +6,7 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="edu.neumont.csc150.view.MemoryGameSettingsView"
             prefHeight="400.0" prefWidth="600.0"
-            stylesheets="MemoryGameSettingsView.css">
+            stylesheets="../css/MemoryGameSettingsView.css">
     <top>
         <MenuBar>
             <Menu text="Game">
