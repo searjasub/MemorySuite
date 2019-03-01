@@ -1,5 +1,6 @@
 package edu.neumont.csc150.view;
 
+import edu.neumont.csc150.controller.MemoryGameController;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -17,21 +18,23 @@ public class MemoryGameView {
     public Button livesSettings;
     public Button timerSettings;
     public Button gridSizeSettings;
-
+    public Label topLabel;
     public HBox bottomPart;
     public Button startGameBtn;
     public Button returnBtn;
-    public Button openSavedGame;
-
     public Button easy;
     public Button Medium;
     public Button hard;
 
-    public int gridSize = 6;
-    public double timer = 2;
-    public int lives = 5;
-    public Label topLabel;
+    private int gridSize = 6;
+    private double timer = 2;
+    private int lives = 5;
+    private MemoryGameController controller;
     private ViewNavigator viewNavigator;
+
+    public void registerController(MemoryGameController controller){
+        this.controller = controller;
+    }
 
     void init(ViewNavigator viewNavigator) {
         vbox.setSpacing(30);
