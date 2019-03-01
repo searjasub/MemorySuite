@@ -31,7 +31,7 @@ public class MainMenuView {
     }
 
     public void onMemoryGameClicked() throws IOException {
-        viewNavigator.showMemoryGame();
+        viewNavigator.showMemoryGameSettings();
     }
 
     public void onSequenceGameClicked() {
