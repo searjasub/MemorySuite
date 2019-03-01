@@ -7,7 +7,8 @@
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="edu.neumont.csc150.view.MainMenuView"
-            stylesheets="../css/MainMenuView.css"
+            stylesheets="@MainMenuView.css"
+
             prefHeight="400.0" prefWidth="600.0"
             fx:id="borderPane">
     <top>
