@@ -35,12 +35,16 @@ public class ViewNavigator {
     void showMainMenu() throws IOException {
         initMainMenu();
         this.stage.setScene(mainMenuScene);
+        this.stage.setWidth(900);
+        this.stage.setHeight(800);
         this.stage.show();
     }
 
     void showMemoryGame() throws IOException {
         initMemoryGame();
         this.stage.setScene(memoryGameScene);
+        this.stage.setWidth(600);
+        this.stage.setHeight(450);
         this.stage.show();
     }
 

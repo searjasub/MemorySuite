@@ -1,7 +1,8 @@
 .root{
     -fx-alignment: center;
-    -fx-background-image: url("main_menu_background.jpg");
+    -fx-background-image: url("memory_game_background.jpg");
 }
+
 
 .hbox {
     -fx-alignment: center;
@@ -9,4 +10,48 @@
 
 .vbox{
     -fx-alignment: center;
+}
+
+.returnBtn {
+    -fx-text-alignment: center;
+    -fx-font-family: "HP Simplified Light", Verdana, Monospaced;
+    -fx-background-color: lightblue;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+}
+
+.returnBtn:hover{
+    -fx-text-alignment: center;
+    -fx-font-family: "HP Simplified Light", Verdana, Monospaced;
+    -fx-background-color: pink;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+}
+
+.startGame {
+    -fx-text-alignment: center;
+    -fx-font-family: "HP Simplified Light", Verdana, Monospaced;
+    -fx-background-color: lightblue;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+}
+
+.startGame:hover{
+    -fx-text-alignment: center;
+    -fx-font-family: "HP Simplified Light", Verdana, Monospaced;
+    -fx-background-color: lightgreen;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+}
+
+.topLabelGame {
+    -fx-padding: 10px;
+    -fx-font-size: 20px;
+    -fx-background-color: #2F2F2D;
+    -fx-text-fill: #00BACF;
+    -fx-background-radius: 20;
 }

@@ -42,15 +42,7 @@ public class MainMenuView {
 
     }
 
-    public void onSave() {
-
-    }
-
     public void onLoad() {
-
-    }
-
-    public void onRestart() {
 
     }
 
