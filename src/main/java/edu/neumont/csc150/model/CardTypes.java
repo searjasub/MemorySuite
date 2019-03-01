@@ -1,4 +1,36 @@
 package edu.neumont.csc150.model;
 
 public enum CardTypes {
+    ONE,
+    TWO,
+    THREE,
+    FIVE,
+    SIX,
+    SEVEM,
+    EIGHT,
+    NINE,
+    TEN,
+    ELEVEN,
+    TWELVE,
+    THIRTEEN,
+    FOURTEEN,
+    FIVETEEN,
+    SIXTEEN,
+    SEVENTEEN,
+    EIGHTEEN,
+    NINETEEN,
+    TWENTY,
+    TWENTYONE,
+    TWENTYTWO,
+    TWENTYTHREE,
+    TWENTYFOUR,
+    TWENTYFIVE,
+    TWENTYSIX,
+    TWENTYSEVEN,
+    TWENTYEIGHT,
+    TWENTYNINCE,
+    THIRTY,
+    THIRTYONE,
+    THIRTYTWO
+
 }
