@@ -13,9 +13,7 @@
     <top>
         <MenuBar>
             <Menu text="Game">
-                <MenuItem text="Save" onAction="#onSave"/>
                 <MenuItem text="Load" onAction="#onLoad"/>
-                <MenuItem text="Restart" onAction="#onRestart"/>
                 <MenuItem text="Exit" onAction="#onExit"/>
             </Menu>
             <Menu text="Help">
