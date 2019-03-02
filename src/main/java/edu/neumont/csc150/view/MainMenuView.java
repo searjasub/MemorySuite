@@ -27,7 +27,6 @@ public class MainMenuView {
         hbox.setSpacing(40);
         hbox.setPadding(new Insets(50, 0, 0, 0));
         registerViewNavigator(viewNavigator);
-
     }
 
     public void onMemoryGameClicked() throws IOException {
@@ -51,9 +50,7 @@ public class MainMenuView {
     }
 
     public void onAbout() {
-        Alert popup = new Alert(Alert.AlertType.NONE, "Memory Suite by Felix, Jeff and Sear.", ButtonType.CLOSE);
-        popup.setTitle("About Memory Suite");
-        popup.show();
+        viewNavigator.aboutAlert();
     }
 
     private void registerViewNavigator(ViewNavigator viewNavigator) {

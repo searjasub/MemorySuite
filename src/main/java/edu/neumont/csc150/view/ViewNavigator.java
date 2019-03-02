@@ -3,6 +3,8 @@ package edu.neumont.csc150.view;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
@@ -17,7 +19,6 @@ public class ViewNavigator {
     private Scene memoryGameScene;
     private Scene numberGameScene;
     private Scene sequenceGameScene;
-
 
     public void setStage(Stage stage) {
         this.stage = stage;
@@ -35,6 +36,7 @@ public class ViewNavigator {
 
     void showMainMenu() throws IOException {
         initMainMenu();
+
         this.stage.setScene(mainMenuScene);
         this.stage.setWidth(900);
         this.stage.setHeight(800);
@@ -88,6 +90,10 @@ public class ViewNavigator {
         this.stage.close();
     }
 
-
+    public void aboutAlert(){
+        Alert popup = new Alert(Alert.AlertType.NONE, "Memory Suite by Felix, Jeff and Sear.", ButtonType.CLOSE);
+        popup.setTitle("About Memory Suite");
+        popup.show();
+    }
 
 }

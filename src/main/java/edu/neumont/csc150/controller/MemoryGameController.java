@@ -27,4 +27,5 @@ public class MemoryGameController {
     public void setGridSize(int gridSize) {
         this.gridSize = gridSize;
     }
+
 }

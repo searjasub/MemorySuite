@@ -3,7 +3,9 @@ package edu.neumont.csc150.view;
 import edu.neumont.csc150.controller.MemoryGameController;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -147,7 +149,7 @@ public class MemoryGameSettingsView {
     }
 
     public void onAbout() {
-
+        viewNavigator.aboutAlert();
     }
 
     private void registerViewNavigator(ViewNavigator viewNavigator) {
