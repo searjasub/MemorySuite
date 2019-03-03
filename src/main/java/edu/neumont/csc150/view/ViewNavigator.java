@@ -1,5 +1,6 @@
 package edu.neumont.csc150.view;
 
+import edu.neumont.csc150.controller.MemoryGameController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,6 +14,7 @@ import java.util.Objects;
 
 public class ViewNavigator {
 
+    private MemoryGameController controller = new MemoryGameController();
     private Stage stage;
     private Scene mainMenuScene;
     private Scene memoryGameSettingsScene;
@@ -60,10 +62,10 @@ public class ViewNavigator {
     }
 
     private void initMemoryGame() throws IOException {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource(""));
+        FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameView.fxml"));
         Parent root = loader.load();
         MemoryGameView viewController = loader.getController();
-        viewController.init(this);
+        viewController.init(this, controller);
         memoryGameScene = new Scene(root);
 
     }
@@ -81,7 +83,7 @@ public class ViewNavigator {
 
         Parent root = loader.load();
         MemoryGameSettingsView viewController = loader.getController();
-        viewController.init(this);
+        viewController.init(this, controller);
         memoryGameSettingsScene = new Scene(root);
 
     }

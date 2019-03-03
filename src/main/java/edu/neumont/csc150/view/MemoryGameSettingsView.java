@@ -38,7 +38,7 @@ public class MemoryGameSettingsView {
         this.controller = controller;
     }
 
-    void init(ViewNavigator viewNavigator) {
+    void init(ViewNavigator viewNavigator, MemoryGameController controller) {
         vbox.setSpacing(30);
         vbox.setPadding(new Insets(20, 0, 0, 0));
         settings.setSpacing(20);
@@ -46,16 +46,17 @@ public class MemoryGameSettingsView {
         bottomPart.setSpacing(320);
         bottomPart.setPadding(new Insets(80, 20, 0, 20));
         registerViewNavigator(viewNavigator);
+        registerController(controller);
     }
 
     public void returnBtn() throws Exception {
         viewNavigator.showMainMenu();
     }
     public void startGame() throws IOException {
+        viewNavigator.showMemoryGame();
         controller.setGridSize(gridSize);
         controller.setLives(lives);
         controller.setTimer(timer);
-        viewNavigator.showMemoryGame();
     }
 
     public void gridSizeClicked() {
