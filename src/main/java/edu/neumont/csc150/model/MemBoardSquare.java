@@ -1,6 +1,6 @@
 package edu.neumont.csc150.model;
 
-public class MemBoardSquares {
+public class MemBoardSquare {
     private CardTypes type;
 
     public CardTypes getType() {
