@@ -3,7 +3,7 @@ package edu.neumont.csc150.model;
 public class MemBoard {
     private int width = 6;
     private int height = 6;
-    private MemBoardSquares[][] boardSquares = new MemBoardSquares[width][height];
+    private MemBoardSquare[][] boardSquares = new MemBoardSquare[width][height];
 
     public int getWidth() {
         return width;
@@ -21,11 +21,15 @@ public class MemBoard {
         this.height = height;
     }
 
-    public MemBoardSquares[][] getBoardSquares() {
+    public MemBoardSquare[][] getBoardSquares() {
         return boardSquares;
     }
 
-    public void setBoardSquares(MemBoardSquares[][] boardSquares) {
+    public void setBoardSquares(MemBoardSquare[][] boardSquares) {
         this.boardSquares = boardSquares;
+    }
+
+    public void setBoardSquare(int x, int y, CardTypes cardType){
+        this.boardSquares[x][y].setType(cardType);
     }
 }
