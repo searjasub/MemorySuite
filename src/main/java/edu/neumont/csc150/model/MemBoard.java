@@ -1,8 +1,8 @@
 package edu.neumont.csc150.model;
 
 public class MemBoard {
-    private int width = 6;
-    private int height = 6;
+    private int width;
+    private int height;
     private MemBoardSquare[][] boardSquares = new MemBoardSquare[width][height];
 
     public int getWidth() {

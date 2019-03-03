@@ -14,7 +14,7 @@ import java.util.Objects;
 
 public class ViewNavigator {
 
-    private MemoryGameController controller = new MemoryGameController();
+    private MemoryGameController controller;
     private Stage stage;
     private Scene mainMenuScene;
     private Scene memoryGameSettingsScene;
@@ -27,17 +27,33 @@ public class ViewNavigator {
     }
 
     public void init() throws IOException {
+
         this.stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("images/icon/icon2.png"))));
         this.stage.setTitle("Memory Suite");
         this.stage.centerOnScreen();
         this.stage.setResizable(false);
         this.stage.setWidth(900);
         this.stage.setHeight(800);
+
+        FXMLLoader loaderMainMenu = new FXMLLoader(this.getClass().getClassLoader().getResource("MainMenuView.fxml"));
+        Parent rootMainMenu = loaderMainMenu.load();
+        MainMenuView viewControllerMainMenu = loaderMainMenu.getController();
+        viewControllerMainMenu.init(this);
+        mainMenuScene = new Scene(rootMainMenu);
+
+        FXMLLoader loaderMemoryGameSettings = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameSettingsView.fxml"));
+        Parent rootMemoryGameSettings = loaderMemoryGameSettings.load();
+        MemoryGameSettingsView viewControllerMemoryGameSettings = loaderMemoryGameSettings.getController();
+        viewControllerMemoryGameSettings.init(this, controller);
+        memoryGameSettingsScene = new Scene(rootMemoryGameSettings);
+
+
+
         showMainMenu();
     }
 
     void showMainMenu() throws IOException {
-        initMainMenu();
+        //initMainMenu();
 
         this.stage.setScene(mainMenuScene);
         this.stage.setWidth(900);
@@ -46,7 +62,7 @@ public class ViewNavigator {
     }
 
     void showMemoryGameSettings() throws IOException {
-        initMemoryGameSettings();
+        //initMemoryGameSettings();
         this.stage.setScene(memoryGameSettingsScene);
         this.stage.setWidth(600);
         this.stage.setHeight(450);
@@ -61,6 +77,14 @@ public class ViewNavigator {
         this.stage.show();
     }
 
+//    private void initMainMenu() throws IOException {
+//        FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("MainMenuView.fxml"));
+//        Parent root = loader.load();
+//        MainMenuView viewController = loader.getController();
+//        viewController.init(this);
+//        mainMenuScene = new Scene(root);
+//    }
+
     private void initMemoryGame() throws IOException {
         FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameView.fxml"));
         Parent root = loader.load();
@@ -70,29 +94,20 @@ public class ViewNavigator {
 
     }
 
-    private void initMainMenu() throws IOException {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("MainMenuView.fxml"));
-        Parent root = loader.load();
-        MainMenuView viewController = loader.getController();
-        viewController.init(this);
-        mainMenuScene = new Scene(root);
-    }
-
-    private void initMemoryGameSettings() throws IOException {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameSettingsView.fxml"));
-
-        Parent root = loader.load();
-        MemoryGameSettingsView viewController = loader.getController();
-        viewController.init(this, controller);
-        memoryGameSettingsScene = new Scene(root);
-
-    }
+//    private void initMemoryGameSettings() throws IOException {
+//        FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameSettingsView.fxml"));
+//        Parent root = loader.load();
+//        MemoryGameSettingsView viewController = loader.getController();
+//        viewController.init(this, controller);
+//        memoryGameSettingsScene = new Scene(root);
+//
+//    }
 
     void closeStage() {
         this.stage.close();
     }
 
-    public void aboutAlert(){
+    void aboutAlert() {
         Alert popup = new Alert(Alert.AlertType.NONE, "Memory Suite by Felix, Jeff and Sear.", ButtonType.CLOSE);
         popup.setTitle("About Memory Suite");
         popup.show();
