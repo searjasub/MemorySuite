@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="edu.neumont.csc150.view.MemoryGameView"
             prefHeight="400.0" prefWidth="600.0"
             stylesheets="MemoryGameView.css">
-
     <top>
         <MenuBar>
             <Menu text="Game">
@@ -23,8 +21,10 @@
         </MenuBar>
     </top>
     <center>
-        <GridPane fx:id="board" styleClass="board">
-        </GridPane>
+        <HBox>
+            <GridPane fx:id="board" styleClass="board">
+            </GridPane>
+        </HBox>
     </center>
 
 </BorderPane>

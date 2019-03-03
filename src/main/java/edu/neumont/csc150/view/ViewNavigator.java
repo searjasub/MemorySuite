@@ -26,6 +26,10 @@ public class ViewNavigator {
         this.stage = stage;
     }
 
+    public void registerController(MemoryGameController memoryGameController){
+        this.controller = memoryGameController;
+    }
+
     public void init() throws IOException {
 
         this.stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("images/icon/icon2.png"))));
@@ -44,9 +48,17 @@ public class ViewNavigator {
         FXMLLoader loaderMemoryGameSettings = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameSettingsView.fxml"));
         Parent rootMemoryGameSettings = loaderMemoryGameSettings.load();
         MemoryGameSettingsView viewControllerMemoryGameSettings = loaderMemoryGameSettings.getController();
-        viewControllerMemoryGameSettings.init(this, controller);
         memoryGameSettingsScene = new Scene(rootMemoryGameSettings);
 
+        FXMLLoader loaderMemoryGame = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameView.fxml"));
+        Parent rootMemoryGame = loaderMemoryGame.load();
+        MemoryGameView viewControllerMemoryGame = loaderMemoryGame.getController();
+        memoryGameScene = new Scene(rootMemoryGame);
+
+
+        controller = new MemoryGameController(viewControllerMemoryGame, viewControllerMemoryGameSettings);
+        viewControllerMemoryGameSettings.init(this);
+        viewControllerMemoryGame.init(this);
 
 
         showMainMenu();
@@ -70,7 +82,7 @@ public class ViewNavigator {
     }
 
     void showMemoryGame() throws IOException {
-        initMemoryGame();
+        //initMemoryGame();
         this.stage.setScene(memoryGameScene);
         this.stage.setWidth(900);
         this.stage.setHeight(600);
@@ -85,14 +97,14 @@ public class ViewNavigator {
 //        mainMenuScene = new Scene(root);
 //    }
 
-    private void initMemoryGame() throws IOException {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameView.fxml"));
-        Parent root = loader.load();
-        MemoryGameView viewController = loader.getController();
-        viewController.init(this, controller);
-        memoryGameScene = new Scene(root);
-
-    }
+//    private void initMemoryGame() throws IOException {
+//        FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameView.fxml"));
+//        Parent root = loader.load();
+//        MemoryGameView viewController = loader.getController();
+//        viewController.init(this, controller);
+//        memoryGameScene = new Scene(root);
+//
+//    }
 
 //    private void initMemoryGameSettings() throws IOException {
 //        FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameSettingsView.fxml"));

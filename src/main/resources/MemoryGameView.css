@@ -1,7 +1,16 @@
-.board {
-    -fx-alignment: center;
+.root{
+    -fx-background-image: url("images/main_menu_background_old.jpg");
 }
 
-Label.cardBack {
+.board {
+    -fx-alignment: center;
+    -fx-padding: 40px;
+}
 
+.cardBack {
+    -fx-min-width: 30px;
+    -fx-min-height: 30px;
+    -fx-background-color: lightblue;
+    -fx-border-color: black;
+    -fx-border-width: 1px;
 }

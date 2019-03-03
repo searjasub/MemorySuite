@@ -29,9 +29,8 @@ public class MemoryGameView {
     private ViewNavigator viewNavigator;
     private Map<Coordinate, Label> positionOfCards = new HashMap<>();
 
-    void init(ViewNavigator viewNavigator, MemoryGameController controller) {
+    void init(ViewNavigator viewNavigator) {
         registerViewNavigator(viewNavigator);
-        this.controller = controller;
         drawBoard();
         this.controller.initPlayer("Sear");
     }
@@ -81,10 +80,9 @@ public class MemoryGameView {
         this.viewNavigator = viewNavigator;
     }
 
-//    public void registerController(MemoryGameController controller) {
-//        this.controller = controller;
-//    }
-
+    public void registerController(MemoryGameController controller) {
+        this.controller = controller;
+    }
 
     public void onExit() throws IOException {
         viewNavigator.showMainMenu();

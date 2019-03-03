@@ -17,10 +17,11 @@ public class MemoryGameController {
 
 
     public MemoryGameController(MemoryGameView view, MemoryGameSettingsView settings) {
-        this.settings =settings;
+        this.settings = settings;
         this.view = view;
+        this.view.registerController(this);
+        this.settings.registerController(this);
     }
-
 
     public void setTimer(double timer) {
         this.timer = timer;
