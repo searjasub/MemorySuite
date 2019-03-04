@@ -1,6 +1,7 @@
 package edu.neumont.csc150.model;
 
 import java.io.File;
+import java.util.List;
 
 public class ScoreManager {
 
