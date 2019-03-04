@@ -24,6 +24,7 @@
         <HBox>
             <GridPane fx:id="board" styleClass="board">
             </GridPane>
+
         </HBox>
     </center>
 
