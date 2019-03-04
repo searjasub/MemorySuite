@@ -1,11 +1,8 @@
 package edu.neumont.csc150.view;
 
 import edu.neumont.csc150.controller.MemoryGameController;
-import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -28,18 +25,22 @@ public class MemoryGameSettingsView {
     public Button Medium;
     public Button hard;
 
+    private int cards = 36;
+    private int boardWidth = 4;
+    private int boardHeight= 3;
     private int gridSize = 6;
     private double timer = 2;
     private int lives = 5;
     private MemoryGameController controller;
     private ViewNavigator viewNavigator;
 
-    public void registerController(MemoryGameController controller){
+    public void registerController(MemoryGameController controller) {
         this.controller = controller;
     }
 
-    void init(ViewNavigator viewNavigator) {
+    void init(ViewNavigator viewNavigator, MemoryGameController controller) {
         registerViewNavigator(viewNavigator);
+        registerController(controller);
         vbox.setSpacing(30);
         vbox.setPadding(new Insets(20, 0, 0, 0));
         settings.setSpacing(20);
@@ -52,6 +53,7 @@ public class MemoryGameSettingsView {
     public void returnBtn() throws Exception {
         viewNavigator.showMainMenu();
     }
+
     public void startGame() throws IOException {
         controller.setGridSize(gridSize);
         controller.setLives(lives);
@@ -60,13 +62,22 @@ public class MemoryGameSettingsView {
     }
 
     public void gridSizeClicked() {
-        int maxNumberAllowed = 8, minimunNumberAllowed = 4;
-        if (gridSize == maxNumberAllowed) {
-            gridSize = minimunNumberAllowed;
+//        int maxNumberAllowed = 64, minimunNumberAllowed = 16;
+//        if (gridSize == maxNumberAllowed) {
+//            gridSize = minimunNumberAllowed;
+//        } else {
+//            gridSize += 1;
+//        }
+        if (boardHeight == 6){
+            boardHeight = 3;
+            boardWidth = 4;
         } else {
-            gridSize += 1;
+            boardWidth +=2;
+            boardHeight +=1;
         }
-        gridSizeSettings.setText("Grid Size: " + gridSize);
+
+
+        gridSizeSettings.setText("Grid Size: " + boardWidth + "x" + boardHeight);
     }
 
     public void livesClicked() {

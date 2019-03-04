@@ -5,22 +5,29 @@ import edu.neumont.csc150.model.MemBoard;
 import edu.neumont.csc150.model.Player;
 import edu.neumont.csc150.view.MemoryGameSettingsView;
 import edu.neumont.csc150.view.MemoryGameView;
+import edu.neumont.csc150.view.ViewNavigator;
 
 public class MemoryGameController {
 
     private MemoryGameView view;
     private MemoryGameSettingsView settings;
+    private ViewNavigator viewNavigator;
     private Player player = new Player();
     private double timer;
     private int gridSize;
     private MemBoard board = new MemBoard();
 
 
-    public MemoryGameController(MemoryGameView view, MemoryGameSettingsView settings) {
-        this.settings = settings;
+    public MemoryGameController(MemoryGameView view) {
         this.view = view;
-        this.view.registerController(this);
-        this.settings.registerController(this);
+    }
+
+    public MemoryGameController(MemoryGameSettingsView settings) {
+        this.settings = settings;
+    }
+
+    public MemoryGameController(ViewNavigator viewNavigator) {
+        this.viewNavigator = viewNavigator;
     }
 
     public void setTimer(double timer) {
@@ -29,6 +36,10 @@ public class MemoryGameController {
 
     public int getGridSize() {
         return gridSize;
+    }
+
+    public void somethig(){
+
     }
 
     public void setGridSize(int gridSize) {
@@ -155,4 +166,7 @@ public class MemoryGameController {
         }
     }
 
+    public void switchController(MemoryGameView viewController) {
+        this.view = viewController;
+    }
 }

@@ -40,7 +40,7 @@
                     View Time: 2 seconds
                 </Button>
                 <Button fx:id="gridSizeSettings" styleClass="startGame" onAction="#gridSizeClicked">
-                    Grid Size: 6
+                    Grid Size: 4x3
                 </Button>
             </HBox>
             <HBox fx:id="bottomPart">
