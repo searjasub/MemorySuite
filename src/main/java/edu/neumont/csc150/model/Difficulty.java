@@ -1,18 +1,20 @@
 package edu.neumont.csc150.model;
 
 public enum Difficulty {
-    EASY, MEDIUM, HARD;
+    
+    EASY(99), MEDIUM(999), HARD(9999);
 
+    int numGame;
 
-    public int getNumgame(Difficulty difficulty) {
-        int numGame;
-        if (difficulty == Difficulty.EASY){
-            numGame = 99;
-        }else if(difficulty == Difficulty.MEDIUM){
-            numGame = 999;
-        }else{
-            numGame = 9999;
-        }
+    Difficulty(int numGame) {
+        this.numGame = numGame;
+    }
+
+    public int getNumGame() {
         return numGame;
+    }
+
+    public void setNumGame(int numGame) {
+        this.numGame = numGame;
     }
 }
