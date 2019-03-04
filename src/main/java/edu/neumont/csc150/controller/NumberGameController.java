@@ -8,8 +8,15 @@ import java.util.List;
 public class NumberGameController {
 
     private int numAmount = 5;
-    private int modfier = 1;
     private List<Integer> numbers = new ArrayList<>();
+
+    public int getNumAmount() {
+        return numAmount;
+    }
+
+    public void setNumAmount(int numAmount) {
+        this.numAmount = numAmount;
+    }
 
     public List<Integer> getNumbers() {
         return numbers;
@@ -19,14 +26,15 @@ public class NumberGameController {
         this.numbers = numbers;
     }
 
-    public void init(Difficulty difficulty){
+    public void init(Difficulty difficulty) {
         generateNumbers(difficulty);
     }
-    private void generateNumbers(Difficulty difficulty){
-        this.numAmount+= this.modfier;
-        this.setNumbers(null);
-        for(int i = 0; i<numAmount; i++){
-            this.numbers.add((int)(Math.random()*difficulty.getNumGame()+1));
+
+    private void generateNumbers(Difficulty difficulty) {
+        this.numbers.clear();
+        for (int i = 0; i < numAmount; i++) {
+            this.numbers.add((int) (Math.random() * difficulty.getNumGame() + 1));
         }
+        this.numAmount++;
     }
 }

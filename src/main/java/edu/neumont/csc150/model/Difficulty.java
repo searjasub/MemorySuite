@@ -1,7 +1,7 @@
 package edu.neumont.csc150.model;
 
 public enum Difficulty {
-    
+
     EASY(99), MEDIUM(999), HARD(9999);
 
     int numGame;
