@@ -24,7 +24,6 @@ import java.util.Optional;
 public class MemoryGameView {
 
     public GridPane board;
-    //TODO HERE IS WHERE VIEW TALKS TO CONTROLLER :D
     private MemoryGameController controller;
     private ViewNavigator viewNavigator;
     private Map<Coordinate, Label> positionOfCards = new HashMap<>();
@@ -38,8 +37,8 @@ public class MemoryGameView {
 
     private void drawBoard() {
         Image image = new Image("/images/card_back_2.png");
-        for (int r = 0; r < controller.getGridSize(); r++) {
-            for (int c = 0; c < controller.getGridSize(); c++) {
+        for (int r = 0; r < controller.getGridWidth(); r++) {
+            for (int c = 0; c < controller.getGridHeight(); c++) {
                 Label card = new Label();
                 card.addEventFilter(MouseEvent.MOUSE_CLICKED,handleFirstClick());
                 ImageView finalImage = new ImageView(image);

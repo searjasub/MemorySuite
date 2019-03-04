@@ -26,7 +26,7 @@ public class ViewNavigator {
         this.stage = stage;
     }
 
-    public void registerController(MemoryGameController memoryGameController){
+    public void registerController(MemoryGameController memoryGameController) {
         this.controller = memoryGameController;
     }
 
@@ -78,9 +78,18 @@ public class ViewNavigator {
     void showMemoryGame() throws IOException {
         initMemoryGame();
         this.stage.setScene(memoryGameScene);
-        this.stage.setResizable(true);
-        this.stage.setWidth(1800);
-        this.stage.setHeight(1200);
+        if (controller.getGridHeight() == 3) {
+            this.stage.setWidth(800);
+            this.stage.setHeight(600);
+        }
+        if (controller.getGridHeight() == 4) {
+            this.stage.setWidth(900);
+            this.stage.setHeight(700);
+        }
+        if (controller.getGridHeight() == 5) {
+            this.stage.setWidth(1000);
+            this.stage.setHeight(800);
+        }
         this.stage.show();
     }
 
