@@ -19,7 +19,6 @@ public class MemoryGameController {
     private Player player = new Player();
     private MemBoard board = new MemBoard();
 
-
     public MemoryGameController(MemoryGameView view) {
         this.view = view;
     }
@@ -32,41 +31,12 @@ public class MemoryGameController {
         this.viewNavigator = viewNavigator;
     }
 
-    public void setTimer(double timer) {
-        this.timer = timer;
-    }
-
-    public int getGridSize() {
-        return gridSize;
-    }
-
-    public void setGridSize(int gridSize) {
-        this.gridSize = gridSize;
-    }
-
-    public int getGridHeight() {
-        return gridHeight;
-    }
-
-    public void setGridHeight(int gridHeight) {
-        this.gridHeight = gridHeight;
-    }
-
-    public int getGridWidth() {
-        return gridWidth;
-    }
-
-    public void setGridWidth(int gridWidth) {
-        this.gridWidth = gridWidth;
-    }
-
     public void initPlayer(String playerName) {
         player.setName(playerName);
     }
 
-    public void setLives(int lives) {
-        player.setLives(lives);
-    }
+
+
 
     public MemBoard getBoard() {
         return board;
@@ -178,6 +148,38 @@ public class MemoryGameController {
                 board.setBoardSquare(x, y, c);
             }
         }
+    }
+
+    public void setTimer(double timer) {
+        this.timer = timer;
+    }
+
+    public int getGridSize() {
+        return gridSize;
+    }
+
+    public void setGridSize(int gridSize) {
+        this.gridSize = gridSize;
+    }
+
+    public int getGridHeight() {
+        return gridHeight;
+    }
+
+    public void setGridHeight(int gridHeight) {
+        this.gridHeight = gridHeight;
+    }
+
+    public int getGridWidth() {
+        return gridWidth;
+    }
+
+    public void setGridWidth(int gridWidth) {
+        this.gridWidth = gridWidth;
+    }
+
+    public void setLives(int lives) {
+        player.setLives(lives);
     }
 
     public void switchController(MemoryGameView viewController) {
