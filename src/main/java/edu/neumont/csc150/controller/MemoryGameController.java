@@ -12,9 +12,11 @@ public class MemoryGameController {
     private MemoryGameView view;
     private MemoryGameSettingsView settings;
     private ViewNavigator viewNavigator;
-    private Player player = new Player();
     private double timer;
     private int gridSize;
+    private int gridHeight;
+    private int gridWidth;
+    private Player player = new Player();
     private MemBoard board = new MemBoard();
 
 
@@ -38,12 +40,24 @@ public class MemoryGameController {
         return gridSize;
     }
 
-    public void somethig(){
-
-    }
-
     public void setGridSize(int gridSize) {
         this.gridSize = gridSize;
+    }
+
+    public int getGridHeight() {
+        return gridHeight;
+    }
+
+    public void setGridHeight(int gridHeight) {
+        this.gridHeight = gridHeight;
+    }
+
+    public int getGridWidth() {
+        return gridWidth;
+    }
+
+    public void setGridWidth(int gridWidth) {
+        this.gridWidth = gridWidth;
     }
 
     public void initPlayer(String playerName) {

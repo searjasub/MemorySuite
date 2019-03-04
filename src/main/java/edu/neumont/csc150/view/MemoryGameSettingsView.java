@@ -25,7 +25,6 @@ public class MemoryGameSettingsView {
     public Button Medium;
     public Button hard;
 
-    private int cards = 36;
     private int boardWidth = 4;
     private int boardHeight= 3;
     private int gridSize = 6;
@@ -55,7 +54,9 @@ public class MemoryGameSettingsView {
     }
 
     public void startGame() throws IOException {
-        controller.setGridSize(gridSize);
+        //controller.setGridSize(gridSize);
+        controller.setGridHeight(boardHeight);
+        controller.setGridWidth(boardWidth);
         controller.setLives(lives);
         controller.setTimer(timer);
         viewNavigator.showMemoryGame();
@@ -68,7 +69,7 @@ public class MemoryGameSettingsView {
 //        } else {
 //            gridSize += 1;
 //        }
-        if (boardHeight == 6){
+        if (boardHeight == 5){
             boardHeight = 3;
             boardWidth = 4;
         } else {
