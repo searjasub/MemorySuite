@@ -29,8 +29,9 @@ public class MemoryGameView {
     private ViewNavigator viewNavigator;
     private Map<Coordinate, Label> positionOfCards = new HashMap<>();
 
-    void init(ViewNavigator viewNavigator) {
+    void init(ViewNavigator viewNavigator, MemoryGameController controller) {
         registerViewNavigator(viewNavigator);
+        registerController(controller);
         drawBoard();
         this.controller.initPlayer("Sear");
     }
@@ -41,7 +42,11 @@ public class MemoryGameView {
             for (int c = 0; c < controller.getGridSize(); c++) {
                 Label card = new Label();
                 card.addEventFilter(MouseEvent.MOUSE_CLICKED,handleFirstClick());
-                card.setGraphic(new ImageView(image));
+                ImageView finalImage = new ImageView(image);
+                finalImage.setFitHeight(100);
+                finalImage.setFitWidth(71.508379888268156424581005586592);
+                //finalImage.setFitWidth(100);
+                card.setGraphic(finalImage);
                 card.setId(r + "x" +c);
                 board.add(card, r, c);
                 positionOfCards.put(new Coordinate(r,c), card);

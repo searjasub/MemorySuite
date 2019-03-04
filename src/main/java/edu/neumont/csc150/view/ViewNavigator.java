@@ -39,33 +39,27 @@ public class ViewNavigator {
         this.stage.setWidth(900);
         this.stage.setHeight(800);
 
-        FXMLLoader loaderMainMenu = new FXMLLoader(this.getClass().getClassLoader().getResource("MainMenuView.fxml"));
-        Parent rootMainMenu = loaderMainMenu.load();
-        MainMenuView viewControllerMainMenu = loaderMainMenu.getController();
-        viewControllerMainMenu.init(this);
-        mainMenuScene = new Scene(rootMainMenu);
-
-        FXMLLoader loaderMemoryGameSettings = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameSettingsView.fxml"));
-        Parent rootMemoryGameSettings = loaderMemoryGameSettings.load();
-        MemoryGameSettingsView viewControllerMemoryGameSettings = loaderMemoryGameSettings.getController();
-        memoryGameSettingsScene = new Scene(rootMemoryGameSettings);
-
-        FXMLLoader loaderMemoryGame = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameView.fxml"));
-        Parent rootMemoryGame = loaderMemoryGame.load();
-        MemoryGameView viewControllerMemoryGame = loaderMemoryGame.getController();
-        memoryGameScene = new Scene(rootMemoryGame);
-
-
-        controller = new MemoryGameController(viewControllerMemoryGame, viewControllerMemoryGameSettings);
-        viewControllerMemoryGameSettings.init(this);
-        viewControllerMemoryGame.init(this);
-
+//        FXMLLoader loaderMainMenu = new FXMLLoader(this.getClass().getClassLoader().getResource("MainMenuView.fxml"));
+//        Parent rootMainMenu = loaderMainMenu.load();
+//        MainMenuView viewControllerMainMenu = loaderMainMenu.getController();
+//        viewControllerMainMenu.init(this);
+//        mainMenuScene = new Scene(rootMainMenu);
+//
+//        FXMLLoader loaderMemoryGameSettings = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameSettingsView.fxml"));
+//        Parent rootMemoryGameSettings = loaderMemoryGameSettings.load();
+//        MemoryGameSettingsView viewControllerMemoryGameSettings = loaderMemoryGameSettings.getController();
+//        memoryGameSettingsScene = new Scene(rootMemoryGameSettings);
+//
+//        FXMLLoader loaderMemoryGame = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameView.fxml"));
+//        Parent rootMemoryGame = loaderMemoryGame.load();
+//        MemoryGameView viewControllerMemoryGame = loaderMemoryGame.getController();
+//        memoryGameScene = new Scene(rootMemoryGame);
 
         showMainMenu();
     }
 
     void showMainMenu() throws IOException {
-        //initMainMenu();
+        initMainMenu();
 
         this.stage.setScene(mainMenuScene);
         this.stage.setWidth(900);
@@ -74,7 +68,7 @@ public class ViewNavigator {
     }
 
     void showMemoryGameSettings() throws IOException {
-        //initMemoryGameSettings();
+        initMemoryGameSettings();
         this.stage.setScene(memoryGameSettingsScene);
         this.stage.setWidth(600);
         this.stage.setHeight(450);
@@ -82,38 +76,42 @@ public class ViewNavigator {
     }
 
     void showMemoryGame() throws IOException {
-        //initMemoryGame();
+        initMemoryGame();
         this.stage.setScene(memoryGameScene);
-        this.stage.setWidth(900);
-        this.stage.setHeight(600);
+        this.stage.setResizable(true);
+        this.stage.setWidth(1800);
+        this.stage.setHeight(1200);
         this.stage.show();
     }
 
-//    private void initMainMenu() throws IOException {
-//        FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("MainMenuView.fxml"));
-//        Parent root = loader.load();
-//        MainMenuView viewController = loader.getController();
-//        viewController.init(this);
-//        mainMenuScene = new Scene(root);
-//    }
+    private void initMainMenu() throws IOException {
+        FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("MainMenuView.fxml"));
+        Parent root = loader.load();
+        MainMenuView viewController = loader.getController();
+        viewController.init(this);
+        mainMenuScene = new Scene(root);
+    }
 
-//    private void initMemoryGame() throws IOException {
-//        FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameView.fxml"));
-//        Parent root = loader.load();
-//        MemoryGameView viewController = loader.getController();
-//        viewController.init(this, controller);
-//        memoryGameScene = new Scene(root);
-//
-//    }
+    private void initMemoryGame() throws IOException {
+        FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameView.fxml"));
+        //FXMLLoader loader = new FXMLLoader(this.getClass());
+        Parent root = loader.load();
+        MemoryGameView viewController = loader.getController();
+        viewController.init(this, controller);
+        controller.switchController(viewController);
+        memoryGameScene = new Scene(root);
 
-//    private void initMemoryGameSettings() throws IOException {
-//        FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameSettingsView.fxml"));
-//        Parent root = loader.load();
-//        MemoryGameSettingsView viewController = loader.getController();
-//        viewController.init(this, controller);
-//        memoryGameSettingsScene = new Scene(root);
-//
-//    }
+    }
+
+    private void initMemoryGameSettings() throws IOException {
+        FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameSettingsView.fxml"));
+        Parent root = loader.load();
+        MemoryGameSettingsView viewController = loader.getController();
+        controller = new MemoryGameController(viewController);
+        viewController.init(this, controller);
+        memoryGameSettingsScene = new Scene(root);
+
+    }
 
     void closeStage() {
         this.stage.close();
