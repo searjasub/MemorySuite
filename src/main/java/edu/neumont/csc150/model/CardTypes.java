@@ -25,13 +25,5 @@ public enum CardTypes {
     TWENTYTWO,
     TWENTYTHREE,
     TWENTYFOUR,
-    TWENTYFIVE,
-    TWENTYSIX,
-    TWENTYSEVEN,
-    TWENTYEIGHT,
-    TWENTYNINE,
-    THIRTY,
-    THIRTYONE,
-    THIRTYTWO
 
 }

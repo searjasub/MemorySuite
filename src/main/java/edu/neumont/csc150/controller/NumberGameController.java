@@ -1,14 +1,13 @@
 package edu.neumont.csc150.controller;
 
 import edu.neumont.csc150.model.Difficulty;
-
-import java.util.ArrayList;
-import java.util.List;
+import edu.neumont.csc150.model.NumberBoard;
 
 public class NumberGameController {
+    private NumberBoard board = new NumberBoard();
 
     private int numAmount = 5;
-    private List<Integer> numbers = new ArrayList<>();
+
 
     public int getNumAmount() {
         return numAmount;
@@ -18,22 +17,14 @@ public class NumberGameController {
         this.numAmount = numAmount;
     }
 
-    public List<Integer> getNumbers() {
-        return numbers;
-    }
-
-    public void setNumbers(List<Integer> numbers) {
-        this.numbers = numbers;
-    }
-
     public void init(Difficulty difficulty) {
         generateNumbers(difficulty);
     }
 
     private void generateNumbers(Difficulty difficulty) {
-        this.numbers.clear();
+        this.board.getNumbers().clear();
         for (int i = 0; i < numAmount; i++) {
-            this.numbers.add((int) (Math.random() * difficulty.getNumGame() + 1));
+            this.board.getNumbers().add((int) (Math.random() * difficulty.getNumGame() + 1));
         }
         this.numAmount++;
     }
