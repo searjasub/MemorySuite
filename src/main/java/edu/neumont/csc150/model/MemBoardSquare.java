@@ -1,7 +1,8 @@
 package edu.neumont.csc150.model;
 
 public class MemBoardSquare {
-    private CardTypes type;
+
+    private CardTypes type = CardTypes.DEFAULT;
 
     public CardTypes getType() {
         return type;

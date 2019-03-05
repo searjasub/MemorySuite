@@ -4,6 +4,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public enum CardTypes {
+    DEFAULT("/images/cards_front/one.png"),
     ONE("/images/cards_front/one.png"),
     TWO("/images/cards_front/two.png"),
     THREE("/images/cards_front/two.png"),
@@ -31,6 +32,8 @@ public enum CardTypes {
     CardTypes(String url){
         rawImage = new Image(url);
         image = new ImageView(rawImage);
+        image.setFitHeight(100);
+        image.setFitWidth(71.508379888268156424581005586592);
     }
 
     public ImageView getImage() {

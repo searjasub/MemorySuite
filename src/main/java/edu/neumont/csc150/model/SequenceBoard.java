@@ -1,13 +1,11 @@
 package edu.neumont.csc150.model;
 
-import javax.smartcardio.Card;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class SequenceBoard {
-    private CardTypes[] cards = {CardTypes.ONE,CardTypes.TWO,CardTypes.THREE,CardTypes.FOUR,CardTypes.FIVE,CardTypes.SIX,CardTypes.SEVEN,CardTypes.EIGHT,CardTypes.NINE,CardTypes.TEN,CardTypes.ELEVEN,CardTypes.TWELVE,CardTypes.THIRTEEN,CardTypes.FOURTEEN,CardTypes.FIFTEEN,CardTypes.SIXTEEN,CardTypes.SEVENTEEN,CardTypes.EIGHTEEN
-            ,CardTypes.NINETEEN,CardTypes.TWENTY};
+    private CardTypes[] cards = {CardTypes.ONE, CardTypes.TWO, CardTypes.THREE, CardTypes.FOUR, CardTypes.FIVE, CardTypes.SIX, CardTypes.SEVEN, CardTypes.EIGHT, CardTypes.NINE, CardTypes.TEN, CardTypes.ELEVEN, CardTypes.TWELVE, CardTypes.THIRTEEN, CardTypes.FOURTEEN, CardTypes.FIFTEEN, CardTypes.SIXTEEN, CardTypes.SEVENTEEN, CardTypes.EIGHTEEN
+            , CardTypes.NINETEEN, CardTypes.TWENTY};
     private List<CardTypes> sequence = new ArrayList<>();
     private List<CardTypes> sequenceChoices = new ArrayList<>();
 
@@ -19,7 +17,7 @@ public class SequenceBoard {
         this.sequence = sequence;
     }
 
-        public CardTypes[] getCards() {
+    public CardTypes[] getCards() {
         return cards;
     }
 
@@ -27,7 +25,7 @@ public class SequenceBoard {
         this.cards = cards;
     }
 
-    public CardTypes getCard(int index){
+    public CardTypes getCard(int index) {
         return cards[index];
     }
 

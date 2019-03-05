@@ -40,6 +40,7 @@ public class MemoryGameView {
         registerController(controller);
         drawBoard();
         this.controller.initPlayer("Sear");
+        this.controller.init();
     }
 
     private void drawBoard() {
@@ -65,7 +66,10 @@ public class MemoryGameView {
         return event -> {
             Coordinate coordinate = mouseEventHelper(event);
             if (event.getButton() == MouseButton.PRIMARY){
-                System.out.println(coordinate);
+                Label toShow = new Label();
+                toShow.setGraphic(controller.getBoard().getCard(coordinate.getRow(), coordinate.getCol()).getImage());
+                toShow.setPadding(new Insets(3));
+                board.add(toShow, coordinate.getRow(), coordinate.getCol());
             }
         };
     }
