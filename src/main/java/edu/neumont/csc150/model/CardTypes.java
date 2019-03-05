@@ -1,29 +1,39 @@
 package edu.neumont.csc150.model;
 
-public enum CardTypes {
-    ONE,
-    TWO,
-    THREE,
-    FOUR,
-    FIVE,
-    SIX,
-    SEVEN,
-    EIGHT,
-    NINE,
-    TEN,
-    ELEVEN,
-    TWELVE,
-    THIRTEEN,
-    FOURTEEN,
-    FIFTEEN,
-    SIXTEEN,
-    SEVENTEEN,
-    EIGHTEEN,
-    NINETEEN,
-    TWENTY,
-    TWENTYONE,
-    TWENTYTWO,
-    TWENTYTHREE,
-    TWENTYFOUR,
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
+public enum CardTypes {
+    ONE("/images/cards_front/one.png"),
+    TWO("/images/cards_front/two.png"),
+    THREE("/images/cards_front/two.png"),
+    FOUR("/images/cards_front/two.png"),
+    FIVE("/images/cards_front/two.png"),
+    SIX("/images/cards_front/two.png"),
+    SEVEN("/images/cards_front/two.png"),
+    EIGHT("/images/cards_front/two.png"),
+    NINE("/images/cards_front/two.png"),
+    TEN("/images/cards_front/two.png"),
+    ELEVEN("/images/cards_front/two.png"),
+    TWELVE("/images/cards_front/two.png"),
+    THIRTEEN("/images/cards_front/two.png"),
+    FOURTEEN("/images/cards_front/two.png"),
+    FIFTEEN("/images/cards_front/two.png"),
+    SIXTEEN("/images/cards_front/two.png"),
+    SEVENTEEN("/images/cards_front/two.png"),
+    EIGHTEEN("/images/cards_front/two.png"),
+    NINETEEN("/images/cards_front/two.png"),
+    TWENTY("/images/cards_front/two.png");
+
+    Image rawImage;
+    ImageView image;
+
+    CardTypes(String url){
+        rawImage = new Image(url);
+        image = new ImageView(rawImage);
+    }
+
+    public ImageView getImage() {
+        return image;
+    }
 }

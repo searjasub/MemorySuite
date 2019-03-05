@@ -26,8 +26,7 @@ public class MemoryGameSettingsView {
     public Button hard;
 
     private int boardWidth = 4;
-    private int boardHeight= 3;
-    private int gridSize = 6;
+    private int boardHeight = 3;
     private double timer = 2;
     private int lives = 5;
     private MemoryGameController controller;
@@ -54,7 +53,6 @@ public class MemoryGameSettingsView {
     }
 
     public void startGame() throws IOException {
-        //controller.setGridSize(gridSize);
         controller.setGridHeight(boardHeight);
         controller.setGridWidth(boardWidth);
         controller.setLives(lives);
@@ -63,18 +61,12 @@ public class MemoryGameSettingsView {
     }
 
     public void gridSizeClicked() {
-//        int maxNumberAllowed = 64, minimunNumberAllowed = 16;
-//        if (gridSize == maxNumberAllowed) {
-//            gridSize = minimunNumberAllowed;
-//        } else {
-//            gridSize += 1;
-//        }
-        if (boardHeight == 5){
+        if (boardHeight == 5) {
             boardHeight = 3;
             boardWidth = 4;
         } else {
-            boardWidth +=2;
-            boardHeight +=1;
+            boardWidth += 2;
+            boardHeight += 1;
         }
 
 
@@ -90,7 +82,6 @@ public class MemoryGameSettingsView {
         } else {
             lives += 1;
         }
-
         if (lives > 1) {
             livesSettings.setText(lives + " lives");
         } else {
@@ -115,36 +106,37 @@ public class MemoryGameSettingsView {
     }
 
     public void onEasyClicked() {
-        gridSize = 4;
+        //gridSize = 4;
+        boardWidth = 4;
+        boardHeight = 3;
         timer = 5;
         lives = 10;
-        gridSizeSettings.setText("Grid Size: 4");
+        gridSizeSettings.setText("Grid Size: 4x3");
         timerSettings.setText("View Time: 5 seconds");
         livesSettings.setText("10 lives");
     }
 
     public void onMediumClicked() {
-        gridSize = 6;
+        //gridSize = 6;
+        boardWidth = 6;
+        boardHeight = 4;
         timer = 2;
         lives = 5;
-        gridSizeSettings.setText("Grid Size: 6");
+        gridSizeSettings.setText("Grid Size: 6x4");
         timerSettings.setText("View Time: 2 seconds");
         livesSettings.setText("5 lives");
     }
 
     public void onHardClicked() {
-        gridSize = 8;
+        //gridSize = 8;
+        boardWidth = 8;
+        boardHeight = 5;
         timer = 1;
         lives = 3;
-        gridSizeSettings.setText("Grid Size: 8");
+        gridSizeSettings.setText("Grid Size: 8x5");
         timerSettings.setText("View Time: 1 seconds");
         livesSettings.setText("3 lives");
     }
-
-    public int getGridSize() {
-        return gridSize;
-    }
-
     public double getTimer() {
         return timer;
     }

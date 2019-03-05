@@ -26,10 +26,6 @@ public class ViewNavigator {
         this.stage = stage;
     }
 
-    public void registerController(MemoryGameController memoryGameController) {
-        this.controller = memoryGameController;
-    }
-
     public void init() throws IOException {
 
         this.stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("images/icon/icon2.png"))));
@@ -38,23 +34,6 @@ public class ViewNavigator {
         this.stage.setResizable(false);
         this.stage.setWidth(900);
         this.stage.setHeight(800);
-
-//        FXMLLoader loaderMainMenu = new FXMLLoader(this.getClass().getClassLoader().getResource("MainMenuView.fxml"));
-//        Parent rootMainMenu = loaderMainMenu.load();
-//        MainMenuView viewControllerMainMenu = loaderMainMenu.getController();
-//        viewControllerMainMenu.init(this);
-//        mainMenuScene = new Scene(rootMainMenu);
-//
-//        FXMLLoader loaderMemoryGameSettings = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameSettingsView.fxml"));
-//        Parent rootMemoryGameSettings = loaderMemoryGameSettings.load();
-//        MemoryGameSettingsView viewControllerMemoryGameSettings = loaderMemoryGameSettings.getController();
-//        memoryGameSettingsScene = new Scene(rootMemoryGameSettings);
-//
-//        FXMLLoader loaderMemoryGame = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameView.fxml"));
-//        Parent rootMemoryGame = loaderMemoryGame.load();
-//        MemoryGameView viewControllerMemoryGame = loaderMemoryGame.getController();
-//        memoryGameScene = new Scene(rootMemoryGame);
-
         showMainMenu();
     }
 
@@ -103,10 +82,10 @@ public class ViewNavigator {
 
     private void initMemoryGame() throws IOException {
         FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameView.fxml"));
-        //FXMLLoader loader = new FXMLLoader(this.getClass());
         Parent root = loader.load();
         MemoryGameView viewController = loader.getController();
         viewController.init(this, controller);
+
         controller.switchController(viewController);
         memoryGameScene = new Scene(root);
 
