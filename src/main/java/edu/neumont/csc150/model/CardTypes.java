@@ -3,37 +3,41 @@ package edu.neumont.csc150.model;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.io.File;
+
 public enum CardTypes {
-    DEFAULT("/images/cards_front/one.png"),
-    ONE("/images/cards_front/one.png"),
-    TWO("/images/cards_front/two.png"),
-    THREE("/images/cards_front/two.png"),
-    FOUR("/images/cards_front/two.png"),
-    FIVE("/images/cards_front/two.png"),
-    SIX("/images/cards_front/two.png"),
-    SEVEN("/images/cards_front/two.png"),
-    EIGHT("/images/cards_front/two.png"),
-    NINE("/images/cards_front/two.png"),
-    TEN("/images/cards_front/two.png"),
-    ELEVEN("/images/cards_front/two.png"),
-    TWELVE("/images/cards_front/two.png"),
-    THIRTEEN("/images/cards_front/two.png"),
-    FOURTEEN("/images/cards_front/two.png"),
-    FIFTEEN("/images/cards_front/two.png"),
-    SIXTEEN("/images/cards_front/two.png"),
-    SEVENTEEN("/images/cards_front/two.png"),
-    EIGHTEEN("/images/cards_front/two.png"),
-    NINETEEN("/images/cards_front/two.png"),
-    TWENTY("/images/cards_front/two.png");
+    ONE("src\\main\\resources\\images\\cards_front\\one.png"),
+    TWO("src\\main\\resources\\images\\cards_front\\two.png"),
+    THREE("src\\main\\resources\\images\\cards_front\\three.png"),
+    FOUR("src\\main\\resources\\images\\cards_front\\four.png"),
+    FIVE("src\\main\\resources\\images\\cards_front\\five.png"),
+    SIX("src\\main\\resources\\images\\cards_front\\six.png"),
+    SEVEN("src\\main\\resources\\images\\cards_front\\seven.png"),
+    EIGHT("src\\main\\resources\\images\\cards_front\\two.png"),
+    NINE("src\\main\\resources\\images\\cards_front\\two.png"),
+    TEN("src\\main\\resources\\images\\cards_front\\two.png"),
+    ELEVEN("src\\main\\resources\\images\\cards_front\\two.png"),
+    TWELVE("src\\main\\resources\\images\\cards_front\\two.png"),
+    THIRTEEN("src\\main\\resources\\images\\cards_front\\two.png"),
+    FOURTEEN("src\\main\\resources\\images\\cards_front\\two.png"),
+    FIFTEEN("src\\main\\resources\\images\\cards_front\\two.png"),
+    SIXTEEN("src\\main\\resources\\images\\cards_front\\two.png"),
+    SEVENTEEN("src\\main\\resources\\images\\cards_front\\two.png"),
+    EIGHTEEN("src\\main\\resources\\images\\cards_front\\two.png"),
+    NINETEEN("src\\main\\resources\\images\\cards_front\\two.png"),
+    TWENTY("src\\main\\resources\\images\\cards_front\\two.png");
 
-    Image rawImage;
-    ImageView image;
+    private ImageView image;
 
-    CardTypes(String url){
-        rawImage = new Image(url);
+    CardTypes(String url) {
+        File f = new File(url);
+        System.out.println(f.exists());
+
+        Image rawImage = new Image(f.toURI().toString());
         image = new ImageView(rawImage);
         image.setFitHeight(100);
         image.setFitWidth(71.508379888268156424581005586592);
+
     }
 
     public ImageView getImage() {

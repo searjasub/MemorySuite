@@ -47,39 +47,39 @@ public class MemoryGameController {
     }
 
     private void initBoardSquares() {
-        CardTypes c = CardTypes.ONE;
         if (board.getHeight() == 3) {
-            fourByThree(c);
+            fourByThree();
         } else if (board.getHeight() == 4) {
-            sixByFour(c);
+            sixByFour();
         } else {
-            eightByFive(c);
+            eightByFive();
         }
     }
 
-    private void fourByThree(CardTypes c) {
-        for (int x = 0; x <= board.getWidth(); x++) {
-            for (int y = 0; y <= board.getHeight(); y++) {
+    private void fourByThree() {
+
+        for (int x = 0; x < board.getWidth(); x++) {
+            for (int y = 0; y < board.getHeight(); y++) {
                 if (x == 0 && (y == 0 || y == 1)) {
-                    c = CardTypes.ONE;
+                    board.setBoardSquare(x, y, CardTypes.ONE);
                 } else if (x == 0 && (y == 2 || y == 3)) {
-                    c = CardTypes.TWO;
+                    board.setBoardSquare(x, y, CardTypes.TWO);
                 } else if (x == 1 && (y == 0 || y == 1)) {
-                    c = CardTypes.THREE;
+                    board.setBoardSquare(x, y, CardTypes.THREE);
                 } else if (x == 1 && (y == 2 || y == 3)) {
-                    c = CardTypes.FOUR;
+                    board.setBoardSquare(x, y, CardTypes.FOUR);
                 } else if (x == 2 && (y == 0 || y == 1)) {
-                    c = CardTypes.FIVE;
+                    board.setBoardSquare(x, y, CardTypes.FIVE);
                 } else if (x == 2 && (y == 2 || y == 3)) {
-                    c = CardTypes.SIX;
+                    board.setBoardSquare(x, y, CardTypes.SIX);
                 }
-                board.setBoardSquare(x, y, c);
             }
         }
     }
 
-    private void sixByFour(CardTypes c) {
-        fourByThree(c);
+    private void sixByFour() {
+        fourByThree();
+        CardTypes c;
         for (int x = 0; x <= board.getWidth(); x++) {
             for (int y = 0; y <= board.getHeight(); y++) {
                 if (x == 0 && (y == 4 || y == 5)) {
@@ -102,13 +102,14 @@ public class MemoryGameController {
 //                } else if (x == 4 && (y == 4 || y == 5)) {
 //                    c = CardTypes.FIFTEEN;
 //                }
-                board.setBoardSquare(x, y, c);
+                //board.setBoardSquare(x, y, c);
             }
         }
     }
 
-    private void eightByFive(CardTypes c) {
-        sixByFour(c);
+    private void eightByFive() {
+        sixByFour();
+        CardTypes c;
         for (int x = 0; x <= board.getWidth(); x++) {
             for (int y = 0; y <= board.getHeight(); y++) {
                 if (x == 0 && (y == 6 || y == 7)) {
@@ -131,7 +132,7 @@ public class MemoryGameController {
 //                } else if (x == 5 && (y == 6 || y == 7)) {
 //                    c = CardTypes.TWENTYFOUR;
 //                }
-                board.setBoardSquare(x, y, c);
+                //board.setBoardSquare(x, y, c);
             }
         }
     }
