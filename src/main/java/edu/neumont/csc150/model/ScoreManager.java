@@ -1,9 +1,9 @@
 package edu.neumont.csc150.model;
 
 import java.io.File;
-import java.util.List;
+import java.io.Serializable;
 
-public class ScoreManager {
+public class ScoreManager implements Serializable {
 
     private int currentScore;
     private int topScore;

@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class SequenceBoard {
     private CardTypes[] cards = {CardTypes.ONE,CardTypes.TWO,CardTypes.THREE,CardTypes.FOUR,CardTypes.FIVE,CardTypes.SIX,CardTypes.SEVEN,CardTypes.EIGHT,CardTypes.NINE,CardTypes.TEN,CardTypes.ELEVEN,CardTypes.TWELVE,CardTypes.THIRTEEN,CardTypes.FOURTEEN,CardTypes.FIFTEEN,CardTypes.SIXTEEN,CardTypes.SEVENTEEN,CardTypes.EIGHTEEN
-            ,CardTypes.NINETEEN,CardTypes.TWENTY,CardTypes.TWENTYONE,CardTypes.TWENTYTWO,CardTypes.TWENTYTHREE,CardTypes.TWENTYFOUR};
+            ,CardTypes.NINETEEN,CardTypes.TWENTY};
     private List<CardTypes> sequence = new ArrayList<>();
     private List<CardTypes> sequenceChoices = new ArrayList<>();
 

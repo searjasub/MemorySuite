@@ -13,15 +13,10 @@ public class MemoryGameController {
     private MemoryGameSettingsView settings;
     private ViewNavigator viewNavigator;
     private double timer;
-    private int gridSize;
     private int gridHeight;
     private int gridWidth;
     private Player player = new Player();
     private MemBoard board = new MemBoard();
-
-    public MemoryGameController(MemoryGameView view) {
-        this.view = view;
-    }
 
     public MemoryGameController(MemoryGameSettingsView settings) {
         this.settings = settings;
@@ -141,14 +136,6 @@ public class MemoryGameController {
 
     public void setTimer(double timer) {
         this.timer = timer;
-    }
-
-    public int getGridSize() {
-        return gridSize;
-    }
-
-    public void setGridSize(int gridSize) {
-        this.gridSize = gridSize;
     }
 
     public int getGridHeight() {
