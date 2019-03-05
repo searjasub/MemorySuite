@@ -9,6 +9,7 @@ public class SequenceBoard {
     private CardTypes[] cards = {CardTypes.ONE,CardTypes.TWO,CardTypes.THREE,CardTypes.FOUR,CardTypes.FIVE,CardTypes.SIX,CardTypes.SEVEN,CardTypes.EIGHT,CardTypes.NINE,CardTypes.TEN,CardTypes.ELEVEN,CardTypes.TWELVE,CardTypes.THIRTEEN,CardTypes.FOURTEEN,CardTypes.FIFTEEN,CardTypes.SIXTEEN,CardTypes.SEVENTEEN,CardTypes.EIGHTEEN
             ,CardTypes.NINETEEN,CardTypes.TWENTY,CardTypes.TWENTYONE,CardTypes.TWENTYTWO,CardTypes.TWENTYTHREE,CardTypes.TWENTYFOUR};
     private List<CardTypes> sequence = new ArrayList<>();
+    private List<CardTypes> sequenceChoices = new ArrayList<>();
 
     public List<CardTypes> getSequence() {
         return sequence;
@@ -28,5 +29,13 @@ public class SequenceBoard {
 
     public CardTypes getCard(int index){
         return cards[index];
+    }
+
+    public List<CardTypes> getSequenceChoices() {
+        return sequenceChoices;
+    }
+
+    public void setSequenceChoices(List<CardTypes> sequenceChoices) {
+        this.sequenceChoices = sequenceChoices;
     }
 }
