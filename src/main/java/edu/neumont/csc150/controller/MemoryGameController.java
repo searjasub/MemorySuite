@@ -16,7 +16,7 @@ public class MemoryGameController {
     private int gridHeight;
     private int gridWidth;
     private Player player = new Player();
-    private MemBoard board = new MemBoard();
+    private MemBoard board;
 
     public MemoryGameController(MemoryGameSettingsView settings) {
         this.settings = settings;
@@ -39,8 +39,10 @@ public class MemoryGameController {
     }
 
     public void init() {
+        board = new MemBoard();
         board.setHeight(gridHeight);
         board.setWidth(gridWidth);
+        board.initBoard();
         initBoardSquares();
     }
 
