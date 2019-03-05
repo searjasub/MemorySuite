@@ -1,5 +1,6 @@
 .root{
-    -fx-background-image: url("images/main_menu_background_old.jpg");
+    -fx-background-color: #5ac7da;
+    -fx-font-family: "HP Simplified Light", Monospaced;
 }
 
 .board {
@@ -13,4 +14,28 @@
     -fx-background-color: lightblue;
     -fx-border-color: black;
     -fx-border-width: 1px;
+}
+
+.nameRanked {
+    -fx-text-fill: #2F2F2D;
+    -fx-padding: 3px 10px 3px 10px;
+}
+
+.title, .currentScore, .lives {
+    -fx-padding: 6px;
+    -fx-font-size: 20px;
+    -fx-text-fill: #2F2F2D;
+    -fx-background-radius: 20;
+}
+
+.title{
+    -fx-font-weight: bold;
+}
+
+.vBox {
+    -fx-alignment: center;
+}
+
+.top {
+    -fx-padding: 10px 6px 10px 6px;
 }

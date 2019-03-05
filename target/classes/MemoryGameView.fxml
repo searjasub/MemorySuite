@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="edu.neumont.csc150.view.MemoryGameView"
@@ -22,8 +21,30 @@
     </top>
     <center>
         <HBox>
-            <GridPane fx:id="board" styleClass="board">
-            </GridPane>
+            <VBox styleClass="vBox">
+                <GridPane fx:id="board" styleClass="board">
+                </GridPane>
+                <Label styleClass="currentScore">Current Score:</Label>
+                <Label styleClass="lives">Lives:</Label>
+            </VBox>
+            <VBox styleClass="vBox">
+                <Label styleClass="title, top"  >Leaderboard</Label>
+                <Label fx:id="top1" styleClass="nameRanked">
+                    Bot 1: 2000
+                </Label>
+                <Label fx:id="top2" styleClass="nameRanked">
+                    Bot 2: 1800
+                </Label>
+                <Label fx:id="top3" styleClass="nameRanked">
+                    Bot 3: 1600
+                </Label>
+                <Label fx:id="top4" styleClass="nameRanked">
+                    Bot 4: 1400
+                </Label>
+                <Label fx:id="top5" styleClass="nameRanked">
+                    Bot 5: 1200
+                </Label>
+            </VBox>
         </HBox>
     </center>
 

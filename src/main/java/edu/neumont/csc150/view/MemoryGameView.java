@@ -5,6 +5,7 @@ import edu.neumont.csc150.model.CardTypes;
 import edu.neumont.csc150.model.Coordinate;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
@@ -14,6 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -24,6 +26,11 @@ import java.util.Optional;
 public class MemoryGameView {
 
     public GridPane board;
+    public Label top1;
+    public Label top2;
+    public Label top3;
+    public Label top4;
+    public Label top5;
     private MemoryGameController controller;
     private ViewNavigator viewNavigator;
     private Map<Coordinate, Label> positionOfCards = new HashMap<>();
@@ -46,10 +53,10 @@ public class MemoryGameView {
                 finalImage.setFitWidth(71.508379888268156424581005586592);
                 //finalImage.setFitWidth(100);
                 card.setGraphic(finalImage);
+                card.setPadding(new Insets(3));
                 card.setId(r + "x" +c);
                 board.add(card, r, c);
                 positionOfCards.put(new Coordinate(r,c), card);
-                System.out.println("Created card on "+ r + "x" + c);
             }
         }
     }
