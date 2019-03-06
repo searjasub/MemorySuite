@@ -8,9 +8,9 @@ public class MemBoard {
     public void initBoard() {
         int w = width;
         int h = height;
-        boardSquares = new MemBoardSquare[h][w];
-        for (int row = 0; row < h; row++) {
-            for (int col = 0; col < w; col++) {
+        boardSquares = new MemBoardSquare[w][h];
+        for (int row = 0; row < w; row++) {
+            for (int col = 0; col < h; col++) {
                 MemBoardSquare mbs = new MemBoardSquare();
                 mbs.setType(CardType.DEFAULT);
                 boardSquares[row][col] = mbs;
@@ -43,10 +43,10 @@ public class MemBoard {
     }
 
     public void setBoardSquare(int x, int y, CardType cardType) {
-        boardSquares[x][y].setType(cardType);
+        boardSquares[y][x].setType(cardType);
     }
 
     public CardType getCard(int x, int y) {
-        return boardSquares[x][y].getType();
+        return boardSquares[y][x].getType();
     }
 }

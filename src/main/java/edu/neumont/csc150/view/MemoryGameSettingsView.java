@@ -27,7 +27,7 @@ public class MemoryGameSettingsView {
 
     private int boardWidth = 4;
     private int boardHeight = 3;
-    private double timer = 2;
+    private int timer = 2;
     private int lives = 5;
     private MemoryGameController controller;
     private ViewNavigator viewNavigator;
@@ -52,18 +52,20 @@ public class MemoryGameSettingsView {
         viewNavigator.showMainMenu();
     }
 
-    public void startGame() throws IOException {
-        controller.setGridHeight(boardHeight);
+    public void startGame() throws IOException, InterruptedException {
         controller.setGridWidth(boardWidth);
+        controller.setGridHeight(boardHeight);
         controller.setLives(lives);
         controller.setTimer(timer);
+        controller.setScore(0);
         viewNavigator.showMemoryGame();
     }
 
     public void gridSizeClicked() {
         if (boardHeight == 5) {
-            boardHeight = 3;
+            //4x3
             boardWidth = 4;
+            boardHeight = 3;
         } else {
             boardWidth += 2;
             boardHeight += 1;
@@ -90,8 +92,8 @@ public class MemoryGameSettingsView {
     }
 
     public void onTimeCliked() {
-        double maxNumberAllowed = 10;
-        double minNumberAllowed = 0.2;
+        int maxNumberAllowed = 10;
+        int minNumberAllowed = 1;
         if (timer == maxNumberAllowed) {
             timer = minNumberAllowed;
         } else {

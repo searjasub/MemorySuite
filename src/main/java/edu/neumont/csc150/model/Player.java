@@ -4,7 +4,7 @@ public class Player {
 
     private String name;
     private int lives;
-    private double score;
+    private int score;
 
     public String getName() {
         return name;
@@ -14,12 +14,16 @@ public class Player {
         this.name = name;
     }
 
-    public double getScore() {
+    public int getScore() {
         return score;
     }
 
-    public void setScore(double score) {
-        this.score = score;
+    public void setScore(int score) {
+        this.score += score;
+    }
+
+    public void resetScore() {
+        this.score = 0;
     }
 
     public int getLives() {
