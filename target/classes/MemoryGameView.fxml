@@ -24,8 +24,8 @@
             <VBox styleClass="vBox">
                 <GridPane fx:id="board" styleClass="board">
                 </GridPane>
-                <Label styleClass="currentScore">Current Score:</Label>
-                <Label styleClass="lives">Lives:</Label>
+                <Label fx:id="score" styleClass="currentScore">Current Score:</Label>
+                <Label fx:id="lives" styleClass="lives">Lives:</Label>
             </VBox>
             <VBox styleClass="vBox">
                 <Label styleClass="title, top"  >Leaderboard</Label>
