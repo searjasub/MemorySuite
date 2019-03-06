@@ -143,12 +143,12 @@ public class MemoryGameController {
         }
     }
 
-    public void setTimer(int timer) {
-        this.timer = timer;
-    }
-
     public int getTimer() {
         return timer;
+    }
+
+    public void setTimer(int timer) {
+        this.timer = timer;
     }
 
     public int getGridHeight() {

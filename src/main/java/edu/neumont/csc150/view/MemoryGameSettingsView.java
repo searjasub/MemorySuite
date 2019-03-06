@@ -32,7 +32,7 @@ public class MemoryGameSettingsView {
     private MemoryGameController controller;
     private ViewNavigator viewNavigator;
 
-    public void registerController(MemoryGameController controller) {
+    private void registerController(MemoryGameController controller) {
         this.controller = controller;
     }
 
@@ -52,7 +52,7 @@ public class MemoryGameSettingsView {
         viewNavigator.showMainMenu();
     }
 
-    public void startGame() throws IOException, InterruptedException {
+    public void startGame() throws IOException {
         controller.setGridWidth(boardWidth);
         controller.setGridHeight(boardHeight);
         controller.setLives(lives);
@@ -139,6 +139,7 @@ public class MemoryGameSettingsView {
         timerSettings.setText("View Time: 1 seconds");
         livesSettings.setText("3 lives");
     }
+
     public double getTimer() {
         return timer;
     }

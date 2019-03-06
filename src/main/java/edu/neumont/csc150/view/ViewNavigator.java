@@ -54,7 +54,7 @@ public class ViewNavigator {
         this.stage.show();
     }
 
-    void showMemoryGame() throws IOException, InterruptedException {
+    void showMemoryGame() throws IOException {
         initMemoryGame();
         this.stage.setScene(memoryGameScene);
         if (controller.getGridHeight() == 3) {
@@ -80,7 +80,7 @@ public class ViewNavigator {
         mainMenuScene = new Scene(root);
     }
 
-    private void initMemoryGame() throws IOException, InterruptedException {
+    private void initMemoryGame() throws IOException {
         FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameView.fxml"));
         Parent root = loader.load();
         MemoryGameView viewController = loader.getController();

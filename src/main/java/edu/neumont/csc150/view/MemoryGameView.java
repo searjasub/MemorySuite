@@ -6,6 +6,7 @@ import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.Image;
@@ -16,6 +17,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +37,7 @@ public class MemoryGameView {
     private ViewNavigator viewNavigator;
     private Map<Coordinate, Label> positionOfCards = new HashMap<>();
 
-    void init(ViewNavigator viewNavigator, MemoryGameController controller) throws InterruptedException {
+    void init(ViewNavigator viewNavigator, MemoryGameController controller) {
         registerViewNavigator(viewNavigator);
         registerController(controller);
         updateScore();
@@ -55,13 +57,19 @@ public class MemoryGameView {
     private void showCards() {
         for (int x = 0; x < controller.getBoard().getHeight(); x++) {
             for (int y = 0; y < controller.getBoard().getWidth(); y++) {
-                Label toShow = new Label();
-                toShow.setGraphic(controller.getBoard().getCard(x, y).getImage());
-                toShow.setPadding(new Insets(3));
-                board.add(toShow, y, x);
-                //board.add(positionOfCards.get(new Coordinate(x,y)), y ,x);
+                Label card = new Label();
+                File f = new File(controller.getBoard().getCard(x, y).getUrl());
+                reziseCards(card, f);
+                board.add(card, y, x);
+                System.out.println(controller.getBoard().getCard(x, y).toString());
+                System.out.println(x + "x" + y);
             }
         }
+        for (Node l : board.getChildren()) {
+            Label lb = (Label) l;
+            System.out.println(lb.getGraphic().toString());
+        }
+        System.out.println("HI");
     }
 
     private void updateScore() {
@@ -78,11 +86,7 @@ public class MemoryGameView {
             for (int c = 0; c < controller.getGridWidth(); c++) {
                 Label card = new Label();
                 card.addEventFilter(MouseEvent.MOUSE_CLICKED, handleFirstClick());
-                ImageView finalImage = new ImageView(image);
-                finalImage.setFitHeight(100);
-                finalImage.setFitWidth(71.508379888268156424581005586592);
-                card.setGraphic(finalImage);
-                card.setPadding(new Insets(3));
+                reziseImage(image, card);
                 card.setId(c + "x" + r);
                 board.add(card, c, r);
                 positionOfCards.put(new Coordinate(c, r), card);
@@ -90,16 +94,29 @@ public class MemoryGameView {
         }
     }
 
+    private void reziseImage(Image image, Label card) {
+        ImageView finalImage = new ImageView(image);
+        finalImage.setFitHeight(100);
+        finalImage.setFitWidth(71.508379888268156424581005586592);
+        card.setGraphic(finalImage);
+        card.setPadding(new Insets(3));
+    }
+
     private EventHandler<MouseEvent> handleFirstClick() {
         return event -> {
             Coordinate coordinate = mouseEventHelper(event);
             if (event.getButton() == MouseButton.PRIMARY) {
                 Label toShow = new Label();
-                toShow.setGraphic(controller.getBoard().getCard(coordinate.getCol(), coordinate.getRow()).getImage());
-                toShow.setPadding(new Insets(3));
+                File f = new File(controller.getBoard().getCard(coordinate.getCol(), coordinate.getRow()).getUrl());
+                reziseCards(toShow, f);
                 board.add(toShow, coordinate.getRow(), coordinate.getCol());
             }
         };
+    }
+
+    private void reziseCards(Label toShow, File f) {
+        Image image = new Image(f.toURI().toString());
+        reziseImage(image, toShow);
     }
 
     private Coordinate mouseEventHelper(MouseEvent event) {
