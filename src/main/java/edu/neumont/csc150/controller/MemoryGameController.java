@@ -57,7 +57,6 @@ public class MemoryGameController {
     }
 
     private void fourByThree() {
-
         for (int x = 0; x < board.getHeight(); x++) {
             for (int y = 0; y < board.getWidth() ; y++) {
                 if (x == 0 && (y == 0 || y == 1)) {
