@@ -8,10 +8,7 @@ import javafx.stage.Stage;
 public class MemorySuite extends Application {
 
     public static void main(String[] args) {
-        Application.launch(MemorySuite.class, args);
-        
-        
-        
+        Application.launch(MemorySuite.class, args);        
     }
 
     public void start(Stage primaryStage) throws Exception {
