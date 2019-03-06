@@ -52,7 +52,6 @@ public class MemoryGameView {
                 ImageView finalImage = new ImageView(image);
                 finalImage.setFitHeight(100);
                 finalImage.setFitWidth(71.508379888268156424581005586592);
-                //finalImage.setFitWidth(100);
                 card.setGraphic(finalImage);
                 card.setPadding(new Insets(3));
                 card.setId(r + "x" +c);

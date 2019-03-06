@@ -6,9 +6,11 @@ public class MemBoard {
     private MemBoardSquare[][] boardSquares;
 
     public void initBoard() {
-        boardSquares = new MemBoardSquare[width][height];
-        for (int row = 0; row < width; row++) {
-            for (int col = 0; col < height; col++) {
+        int w = width;
+        int h = height;
+        boardSquares = new MemBoardSquare[h][w];
+        for (int row = 0; row < height; row++) {
+            for (int col = 0; col < width; col++) {
                 boardSquares[row][col] = new MemBoardSquare();
             }
         }

@@ -40,8 +40,8 @@ public class MemoryGameController {
 
     public void init() {
         board = new MemBoard();
-        board.setHeight(gridHeight);
-        board.setWidth(gridWidth);
+        board.setHeight(gridHeight + 1);
+        board.setWidth(gridWidth + 1);
         board.initBoard();
         initBoardSquares();
     }
@@ -58,8 +58,8 @@ public class MemoryGameController {
 
     private void fourByThree() {
 
-        for (int x = 0; x < board.getWidth(); x++) {
-            for (int y = 0; y < board.getHeight(); y++) {
+        for (int x = 0; x < board.getHeight(); x++) {
+            for (int y = 0; y < board.getWidth() ; y++) {
                 if (x == 0 && (y == 0 || y == 1)) {
                     board.setBoardSquare(x, y, CardTypes.ONE);
                 } else if (x == 0 && (y == 2 || y == 3)) {
