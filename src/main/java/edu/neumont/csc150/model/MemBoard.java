@@ -11,7 +11,9 @@ public class MemBoard {
         boardSquares = new MemBoardSquare[h][w];
         for (int row = 0; row < height; row++) {
             for (int col = 0; col < width; col++) {
-                boardSquares[row][col] = new MemBoardSquare();
+                MemBoardSquare mbs = new MemBoardSquare();
+                mbs.setType(CardTypes.DEFAULT);
+                boardSquares[row][col] = mbs;
             }
         }
     }
