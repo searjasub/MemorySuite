@@ -1,6 +1,7 @@
 package edu.neumont.csc150.view;
 
 import edu.neumont.csc150.controller.MemoryGameController;
+import edu.neumont.csc150.controller.NumberGameController;
 import edu.neumont.csc150.controller.SequenceGameController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,7 +16,9 @@ import java.util.Objects;
 
 public class ViewNavigator {
 
-    private MemoryGameController controller;
+    private MemoryGameController memoryGameController;
+    private SequenceGameController sequenceGameController;
+    private NumberGameController numberGameController;
     private Stage stage;
     private Scene mainMenuScene;
     private Scene memoryGameSettingsScene;
@@ -60,15 +63,15 @@ public class ViewNavigator {
     void showMemoryGame() throws IOException {
         initMemoryGame();
         this.stage.setScene(memoryGameScene);
-        if (controller.getGridHeight() == 3) {
+        if (memoryGameController.getGridHeight() == 3) {
             this.stage.setWidth(800);
             this.stage.setHeight(600);
         }
-        if (controller.getGridHeight() == 4) {
+        if (memoryGameController.getGridHeight() == 4) {
             this.stage.setWidth(900);
             this.stage.setHeight(700);
         }
-        if (controller.getGridHeight() == 5) {
+        if (memoryGameController.getGridHeight() == 5) {
             this.stage.setWidth(1000);
             this.stage.setHeight(800);
         }
@@ -87,9 +90,9 @@ public class ViewNavigator {
         FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameView.fxml"));
         Parent root = loader.load();
         MemoryGameView viewController = loader.getController();
-        viewController.init(this, controller);
+        viewController.init(this, memoryGameController);
 
-        controller.switchController(viewController);
+        memoryGameController.switchController(viewController);
         memoryGameScene = new Scene(root);
 
     }
@@ -98,8 +101,8 @@ public class ViewNavigator {
         FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameSettingsView.fxml"));
         Parent root = loader.load();
         MemoryGameSettingsView viewController = loader.getController();
-        controller = new MemoryGameController(viewController);
-        viewController.init(this, controller);
+        memoryGameController = new MemoryGameController(viewController);
+        viewController.init(this, memoryGameController);
         memoryGameSettingsScene = new Scene(root);
 
     }
@@ -126,8 +129,8 @@ public class ViewNavigator {
         FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("SequenceGameSettingsView.fxml"));
         Parent root = loader.load();
         SequenceGameSettingsView viewController = loader.getController();
-        controller = new SequenceGameController(viewController);
-        viewController.init(this, controller);
+        sequenceGameController = new SequenceGameController(viewController);
+        viewController.init(this, sequenceGameController);
         sequenceGameSettingsScene = new Scene(root);
     }
 
