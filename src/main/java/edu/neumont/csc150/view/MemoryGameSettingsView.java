@@ -36,7 +36,11 @@ public class MemoryGameSettingsView {
         this.controller = controller;
     }
 
-    void init(ViewNavigator viewNavigator, MemoryGameController controller) {
+    private void registerViewNavigator(ViewNavigator viewNavigator) {
+        this.viewNavigator = viewNavigator;
+    }
+
+    public void init(ViewNavigator viewNavigator, MemoryGameController controller) {
         registerViewNavigator(viewNavigator);
         registerController(controller);
         vbox.setSpacing(30);
@@ -160,7 +164,4 @@ public class MemoryGameSettingsView {
         viewNavigator.aboutAlert();
     }
 
-    private void registerViewNavigator(ViewNavigator viewNavigator) {
-        this.viewNavigator = viewNavigator;
-    }
 }

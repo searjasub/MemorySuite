@@ -31,12 +31,12 @@ public class MainMenuView {
         viewNavigator.showMemoryGameSettings();
     }
 
-    public void onSequenceGameClicked() {
-
+    public void onSequenceGameClicked() throws IOException {
+        viewNavigator.showSequenceGameSettings();
     }
 
     public void onNumberGameClicked() {
-
+        viewNavigator.showNumberGameSettings();
     }
 
     public void onLoad() {
