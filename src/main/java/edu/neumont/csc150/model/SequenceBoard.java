@@ -4,36 +4,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SequenceBoard {
-    private CardTypes[] cards = {CardTypes.ONE, CardTypes.TWO, CardTypes.THREE, CardTypes.FOUR, CardTypes.FIVE, CardTypes.SIX, CardTypes.SEVEN, CardTypes.EIGHT, CardTypes.NINE, CardTypes.TEN, CardTypes.ELEVEN, CardTypes.TWELVE, CardTypes.THIRTEEN, CardTypes.FOURTEEN, CardTypes.FIFTEEN, CardTypes.SIXTEEN, CardTypes.SEVENTEEN, CardTypes.EIGHTEEN
-            , CardTypes.NINETEEN, CardTypes.TWENTY};
-    private List<CardTypes> sequence = new ArrayList<>();
-    private List<CardTypes> sequenceChoices = new ArrayList<>();
+    private CardType[] cards = {CardType.ONE, CardType.TWO, CardType.THREE, CardType.FOUR, CardType.FIVE, CardType.SIX, CardType.SEVEN, CardType.EIGHT, CardType.NINE, CardType.TEN, CardType.ELEVEN, CardType.TWELVE, CardType.THIRTEEN, CardType.FOURTEEN, CardType.FIFTEEN, CardType.SIXTEEN, CardType.SEVENTEEN, CardType.EIGHTEEN
+            , CardType.NINETEEN, CardType.TWENTY};
+    private List<CardType> sequence = new ArrayList<>();
+    private List<CardType> sequenceChoices = new ArrayList<>();
 
-    public List<CardTypes> getSequence() {
+    public List<CardType> getSequence() {
         return sequence;
     }
 
-    public void setSequence(List<CardTypes> sequence) {
+    public void setSequence(List<CardType> sequence) {
         this.sequence = sequence;
     }
 
-    public CardTypes[] getCards() {
+    public CardType[] getCards() {
         return cards;
     }
 
-    public void setCards(CardTypes[] cards) {
+    public void setCards(CardType[] cards) {
         this.cards = cards;
     }
 
-    public CardTypes getCard(int index) {
+    public CardType getCard(int index) {
         return cards[index];
     }
 
-    public List<CardTypes> getSequenceChoices() {
+    public List<CardType> getSequenceChoices() {
         return sequenceChoices;
     }
 
-    public void setSequenceChoices(List<CardTypes> sequenceChoices) {
+    public void setSequenceChoices(List<CardType> sequenceChoices) {
         this.sequenceChoices = sequenceChoices;
     }
 }

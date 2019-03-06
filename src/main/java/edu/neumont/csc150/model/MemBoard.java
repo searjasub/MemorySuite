@@ -9,10 +9,10 @@ public class MemBoard {
         int w = width;
         int h = height;
         boardSquares = new MemBoardSquare[h][w];
-        for (int row = 0; row < height; row++) {
-            for (int col = 0; col < width; col++) {
+        for (int row = 0; row < h; row++) {
+            for (int col = 0; col < w; col++) {
                 MemBoardSquare mbs = new MemBoardSquare();
-                mbs.setType(CardTypes.DEFAULT);
+                mbs.setType(CardType.DEFAULT);
                 boardSquares[row][col] = mbs;
             }
         }
@@ -42,11 +42,11 @@ public class MemBoard {
         this.boardSquares = boardSquares;
     }
 
-    public void setBoardSquare(int x, int y, CardTypes cardType) {
+    public void setBoardSquare(int x, int y, CardType cardType) {
         boardSquares[x][y].setType(cardType);
     }
 
-    public CardTypes getCard(int x, int y) {
+    public CardType getCard(int x, int y) {
         return boardSquares[x][y].getType();
     }
 }

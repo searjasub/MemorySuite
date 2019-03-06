@@ -5,7 +5,7 @@ import javafx.scene.image.ImageView;
 
 import java.io.File;
 
-public enum CardTypes {
+public enum CardType {
     ONE("src\\main\\resources\\images\\cards_front\\1.png"),
     TWO("src\\main\\resources\\images\\cards_front\\2.png"),
     THREE("src\\main\\resources\\images\\cards_front\\3.png"),
@@ -30,7 +30,7 @@ public enum CardTypes {
 
     private ImageView image;
 
-    CardTypes(String url) {
+    CardType(String url) {
         File f = new File(url);
         Image rawImage = new Image(f.toURI().toString());
         image = new ImageView(rawImage);

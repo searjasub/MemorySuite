@@ -2,13 +2,13 @@ package edu.neumont.csc150.model;
 
 public class MemBoardSquare {
 
-    private CardTypes type;
+    private CardType type;
 
-    public CardTypes getType() {
+    public CardType getType() {
         return type;
     }
 
-    public void setType(CardTypes type) {
+    public void setType(CardType type) {
         this.type = type;
     }
 }
