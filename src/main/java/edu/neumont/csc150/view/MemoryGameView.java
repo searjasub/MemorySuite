@@ -1,7 +1,10 @@
 package edu.neumont.csc150.view;
 
 import edu.neumont.csc150.controller.MemoryGameController;
+import edu.neumont.csc150.model.CardType;
 import edu.neumont.csc150.model.Coordinate;
+import edu.neumont.csc150.model.MemBoard;
+import edu.neumont.csc150.model.MemBoardSquare;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -19,9 +22,7 @@ import javafx.util.Duration;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 public class MemoryGameView {
 
@@ -36,7 +37,7 @@ public class MemoryGameView {
     private MemoryGameController controller;
     private ViewNavigator viewNavigator;
     private Map<Coordinate, Label> positionOfCards = new HashMap<>();
-    private int flippedCards = 0;
+    private String[] flippedCards = new String[2];
 
     void init(ViewNavigator viewNavigator, MemoryGameController controller) {
         registerViewNavigator(viewNavigator);
@@ -58,7 +59,7 @@ public class MemoryGameView {
     private void showCards() {
         for (int x = 0; x < controller.getBoard().getHeight(); x++) {
             for (int y = 0; y < controller.getBoard().getWidth(); y++) {
-                Label card = new Label();
+                MemBoardSquare card = new MemBoardSquare();
                 File f = new File(controller.getBoard().getCard(x, y).getUrl());
                 reziseCards(card, f);
                 board.add(card, y, x);
@@ -78,15 +79,16 @@ public class MemoryGameView {
         Image image = new Image("/images/card_back_2.png");
         for (int r = 0; r < controller.getGridHeight(); r++) {
             for (int c = 0; c < controller.getGridWidth(); c++) {
-                Label card = new Label();
+                MemBoardSquare card = new MemBoardSquare();
                 card.addEventFilter(MouseEvent.MOUSE_CLICKED, handleFirstClick());
                 reziseImage(image, card);
                 card.setId(c + "x" + r);
+                card.setType(controller.getBoard().getCard(r, c));
                 board.add(card, c, r);
                 positionOfCards.put(new Coordinate(c, r), card);
             }
         }
-        flippedCards = 0;
+        flippedCards = new String[2];
     }
 
     private void reziseImage(Image image, Label card) {
@@ -100,16 +102,19 @@ public class MemoryGameView {
     private EventHandler<MouseEvent> handleFirstClick() {
         return event -> {
             Coordinate coordinate = mouseEventHelper(event);
-            if (event.getButton() == MouseButton.PRIMARY && flippedCards < 2) {
-                Label toShow = new Label();
+            if (event.getButton() == MouseButton.PRIMARY && flippedCards[1] == null) {
+                MemBoardSquare toShow = new MemBoardSquare();
                 File f = new File(controller.getBoard().getCard(coordinate.getCol(), coordinate.getRow()).getUrl());
                 reziseCards(toShow, f);
                 board.add(toShow, coordinate.getRow(), coordinate.getCol());
-                flippedCards++;
-            } else if(event.getButton() == MouseButton.PRIMARY && flippedCards == 2) {
-                PauseTransition wait = new PauseTransition(Duration.seconds(3));
-                wait.setOnFinished(e -> drawBoard());
-                wait.play();
+                MemBoardSquare card = (MemBoardSquare) event.getSource();
+                flippedCards[(flippedCards[0] == null)? 0 : 1] = card.getType().toString();
+                if(flippedCards[1] != null) {
+                    PauseTransition wait = new PauseTransition(Duration.seconds(1));
+                    wait.setOnFinished(e -> drawBoard());
+                    wait.play();
+                    System.out.println((flippedCards[0].equals(flippedCards[1])? "Match!" : "Not Match"));
+                }
             }
         };
     }
