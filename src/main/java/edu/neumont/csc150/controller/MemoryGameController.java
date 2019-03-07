@@ -60,6 +60,7 @@ public class MemoryGameController {
         } else {
             eightByFive();
         }
+        this.getBoard().shuffleCards();
     }
 
     private CardType[] getCards() {
@@ -182,4 +183,5 @@ public class MemoryGameController {
     public void switchController(MemoryGameView viewController) {
         this.view = viewController;
     }
+
 }
