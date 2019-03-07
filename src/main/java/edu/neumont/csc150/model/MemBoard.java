@@ -62,5 +62,29 @@ public class MemBoard {
         return boardSquares[r][c].getType();
     }
 
+    public void shuffleCards() {
+        List<MemBoardSquare> cards = new ArrayList<>();
+        for (int w = 0; w < this.getWidth(); w++) {
+            for (int h = 0; h < this.getHeight(); h++) {
+                cards.add(this.getBoardSquare(w, h));
+                this.setBoardSquare(w, h, CardType.DEFAULT);
+            }
+        }
+        Collections.shuffle(cards);
+        MemBoardSquare[] card = cards.toArray(new MemBoardSquare[cards.size()]);
+
+        Random rng = new Random();
+        for (int i = 0; i < Integer.MAX_VALUE && cards.size() > 0; i++) {
+            int r = rng.nextInt(this.getHeight() - 1);
+            int c = rng.nextInt(this.getWidth() - 1);
+            MemBoardSquare mbs = this.getBoardSquare(r, c);
+            if (mbs.getType() == CardType.DEFAULT) {
+                mbs = card[i];
+                cards.remove(card[i]);
+            } else {
+                i--;
+            }
+        }
+    }
 
 }
