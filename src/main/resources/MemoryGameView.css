@@ -1,8 +1,7 @@
-.root{
+.root {
     -fx-background-color: #5ac7da;
-    -fx-font-family: Verdana;
+    -fx-font-family: "Calibri Light";
 }
-
 .board {
     -fx-alignment: center;
     -fx-padding: 40px;
@@ -21,7 +20,6 @@
     -fx-font-weight: bold;
     -fx-padding: 15;
     -fx-background-radius: 10px;
-    -fx-max-width: 200px;
     -fx-max-height: 225px;
     -fx-background-color: #2F2F2D ;
     -fx-text-fill: #00BACF;
