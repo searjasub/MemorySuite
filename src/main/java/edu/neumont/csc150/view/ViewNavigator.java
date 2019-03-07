@@ -78,7 +78,7 @@ public class ViewNavigator {
         mainMenuScene = new Scene(root);
     }
 
-    private void initMemoryGame() throws IOException {
+    public void initMemoryGame() throws IOException {
         FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameView.fxml"));
         Parent root = loader.load();
         MemoryGameView viewController = loader.getController();

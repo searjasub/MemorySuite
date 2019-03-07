@@ -40,7 +40,7 @@ public class MemoryGameView {
     private MemBoardSquare card1;
     private MemBoardSquare card2;
     private int totalScore = 0;
-    private int multiplier = 1;
+    private int multiplier;
     private int totalLives;
     private int totalCards;
     private List<MemBoardSquare> matched = new ArrayList<>();
@@ -54,6 +54,7 @@ public class MemoryGameView {
         vBoxRightSide.setSpacing(10);
         totalLives = controller.getPlayer().getLives();
         lives.setText("Lives: " + totalLives);
+        multiplier = controller.getPlayer().getMultiplier();
         highscoreManager = new HighscoreManager();
         top1.setText(highscoreManager.getHighscoreString());
         totalCards = controller.getGridHeight() * controller.getGridWidth();
@@ -67,14 +68,14 @@ public class MemoryGameView {
         wait.play();
     }
 
-    private void resetMatches() {
-        for (int r = 0; r < controller.getBoard().getWidth(); r++) {
-            for (int c = 0; c < controller.getBoard().getHeight(); c++) {
-                MemBoardSquare card = controller.getBoard().getBoardSquare(controller.getBoard().getBoardSquares(), r, c);
-                card.setMatched(false);
-            }
-        }
-    }
+//    private void resetMatches() {
+//        for (int r = 0; r < controller.getBoard().getWidth(); r++) {
+//            for (int c = 0; c < controller.getBoard().getHeight(); c++) {
+//                MemBoardSquare card = controller.getBoard().getBoardSquare(controller.getBoard().getBoardSquares(), r, c);
+//                card.setMatched(false);
+//            }
+//        }
+//    }
 
     private void showCards() {
         for (int r = 0; r < controller.getBoard().getWidth(); r++) {
@@ -179,7 +180,8 @@ public class MemoryGameView {
                         if (totalCards == 0) {
                             controller.getPlayer().setLives(totalLives);
                             controller.getPlayer().setScore(totalScore);
-                            controller.init();
+                            controller.getPlayer().setMultiplier(multiplier);
+                            // TODO reset game board
                         }
                         drawBoardAfterwards();
                     } else {

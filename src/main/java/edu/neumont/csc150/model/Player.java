@@ -5,6 +5,7 @@ public class Player {
     private String name;
     private int lives;
     private int score;
+    private int multiplier = 1;
 
     public String getName() {
         return name;
@@ -32,5 +33,13 @@ public class Player {
 
     public void setLives(int lives) {
         this.lives = lives;
+    }
+
+    public int getMultiplier() {
+        return multiplier;
+    }
+
+    public void setMultiplier(int multiplier) {
+        this.multiplier = multiplier;
     }
 }
