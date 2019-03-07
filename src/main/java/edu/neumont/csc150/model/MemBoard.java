@@ -3,6 +3,7 @@ package edu.neumont.csc150.model;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class MemBoard {
     private int width;
@@ -48,7 +49,6 @@ public class MemBoard {
     }
 
 
-
     public void setBoardSquares(MemBoardSquare[][] boardSquares) {
         this.boardSquares = boardSquares;
     }
@@ -61,25 +61,28 @@ public class MemBoard {
         return boardSquares[y][x].getType();
     }
 
-    public void shuffleCards(){
-        List<MemBoardSquare> cards = new ArrayList<>();
-
-        for (int h = 0; h < this.getHeight()-1; h++) {
-            for (int w = 0; w < this.getWidth()-1; w++) {
-                cards.add(this.getBoardSquare(this.getBoardSquares(),h,w));
-            }
-            Collections.shuffle(cards);
-            MemBoardSquare[] singleArray = (MemBoardSquare[]) cards.toArray();
-            int index1 = 0, index2 = 0;
-            for (MemBoardSquare memBoardSquare : singleArray) {
-                boardSquares[height][width] = memBoardSquare;
-                index2++;
-                if (index2 == width && index1 < height) {
-                    index1++;
-                    index2 = 0;
-                }
+    public void shuffleCards() {
+        List<CardType> cards = new ArrayList<>();
+        for (int h = 0; h < this.getHeight(); h++) {
+            for (int w = 0; w < this.getWidth(); w++) {
+                cards.add(this.getBoardSquare(this.getBoardSquares(), w, h).getType());
+                this.setBoardSquare(h, w, CardType.DEFAULT);
             }
         }
+        Collections.shuffle(cards);
+        CardType[] card = cards.toArray(new CardType[cards.size()]);
 
+        Random rng = new Random();
+        for (int i = 0; i < Integer.MAX_VALUE && cards.size() > 0; i++) {
+            int r = rng.nextInt(this.getHeight());
+            int c = rng.nextInt(this.getWidth());
+            MemBoardSquare mbs = this.getBoardSquare(this.getBoardSquares(), c, r);
+            if (mbs.getType() == CardType.DEFAULT) {
+                mbs.setType(card[i]);
+                cards.remove(card[i]);
+            } else {
+                i--;
+            }
+        }
     }
 }

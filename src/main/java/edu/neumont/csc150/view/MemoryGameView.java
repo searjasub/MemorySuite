@@ -60,7 +60,7 @@ public class MemoryGameView {
         for (int r = 0; r < controller.getBoard().getWidth(); r++) {
             for (int c = 0; c < controller.getBoard().getHeight(); c++) {
                 MemBoardSquare card = new MemBoardSquare();
-                File f = new File(controller.getBoard().getCard(r, c).getUrl());
+                File f = new File(controller.getBoard().getCard(c, r).getUrl());
                 reziseCards(card, f);
                 board.add(card, r, c);
             }
