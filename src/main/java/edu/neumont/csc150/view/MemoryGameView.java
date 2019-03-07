@@ -164,7 +164,7 @@ public class MemoryGameView {
                     if (flippedCards[0].equals(flippedCards[1])) {
                         card1.setMatched(true);
                         card2.setMatched(true);
-                        totalCards -=2;
+                        totalCards -= 2;
                         System.out.println(totalCards);
                         totalScore += 100 * multiplier;
                         score.setText("Current Score: " + totalScore);
