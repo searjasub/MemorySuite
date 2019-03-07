@@ -57,12 +57,12 @@ public class MemoryGameView {
     }
 
     private void showCards() {
-        for (int x = 0; x < controller.getBoard().getHeight(); x++) {
-            for (int y = 0; y < controller.getBoard().getWidth(); y++) {
+        for (int r = 0; r < controller.getBoard().getWidth(); r++) {
+            for (int c = 0; c < controller.getBoard().getHeight(); c++) {
                 MemBoardSquare card = new MemBoardSquare();
-                File f = new File(controller.getBoard().getCard(x, y).getUrl());
+                File f = new File(controller.getBoard().getCard(r, c).getUrl());
                 reziseCards(card, f);
-                board.add(card, y, x);
+                board.add(card, r, c);
             }
         }
     }
