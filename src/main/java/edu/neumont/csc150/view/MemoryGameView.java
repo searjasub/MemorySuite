@@ -7,7 +7,6 @@ import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.Image;
@@ -83,7 +82,7 @@ public class MemoryGameView {
                 card.addEventFilter(MouseEvent.MOUSE_CLICKED, handleFirstClick());
                 reziseImage(image, card);
                 card.setId(c + "x" + r);
-                card.setType(controller.getBoard().getCard(r,c));
+                card.setType(controller.getBoard().getCard(r, c));
                 board.add(card, c, r);
                 positionOfCards.put(new Coordinate(c, r), card);
             }
@@ -108,12 +107,12 @@ public class MemoryGameView {
                 reziseCards(toShow, f);
                 board.add(toShow, coordinate.getRow(), coordinate.getCol());
                 MemBoardSquare card = (MemBoardSquare) event.getSource();
-                flippedCards[(flippedCards[0] == null)? 0 : 1] = card.getType().toString();
-                if(flippedCards[1] != null) {
+                flippedCards[(flippedCards[0] == null) ? 0 : 1] = card.getType().toString();
+                if (flippedCards[1] != null) {
                     PauseTransition wait = new PauseTransition(Duration.seconds(1));
                     wait.setOnFinished(e -> drawBoard());
                     wait.play();
-                    System.out.println((flippedCards[0].equals(flippedCards[1])? "Match!" : "Not Match"));
+                    System.out.println((flippedCards[0].equals(flippedCards[1]) ? "Match!" : "Not Match"));
                 }
             }
         };

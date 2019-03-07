@@ -7,7 +7,7 @@ public class Score implements Serializable {
     private int score;
     private String name;
 
-    public Score(String name, int score){
+    public Score(String name, int score) {
         this.setName(name);
         this.setScore(score);
     }

@@ -48,11 +48,6 @@ public class MemBoard {
         return squares[h][w];
     }
 
-
-    public void setBoardSquares(MemBoardSquare[][] boardSquares) {
-        this.boardSquares = boardSquares;
-    }
-
     public void setBoardSquare(int x, int y, CardType cardType) {
         boardSquares[y][x].setType(cardType);
     }
