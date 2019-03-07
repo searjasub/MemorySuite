@@ -19,7 +19,6 @@ import javafx.util.Duration;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -37,7 +36,6 @@ public class MemoryGameView {
     private MemoryGameController controller;
     private ViewNavigator viewNavigator;
     private Map<Coordinate, Label> positionOfCards = new HashMap<>();
-    private int flippedCards = 0;
 
     void init(ViewNavigator viewNavigator, MemoryGameController controller) {
         registerViewNavigator(viewNavigator);
@@ -61,7 +59,7 @@ public class MemoryGameView {
             for (int y = 0; y < controller.getBoard().getWidth(); y++) {
                 Label card = new Label();
                 File f = new File(controller.getBoard().getCard(x, y).getUrl());
-                resizeCards(card, f);
+                reziseCards(card, f);
                 board.add(card, y, x);
                 System.out.println(controller.getBoard().getCard(x, y).toString());
                 System.out.println(x + "x" + y);
@@ -71,6 +69,7 @@ public class MemoryGameView {
             Label lb = (Label) l;
             System.out.println(lb.getGraphic().toString());
         }
+        System.out.println("HI");
     }
 
     private void updateScore() {
@@ -87,16 +86,15 @@ public class MemoryGameView {
             for (int c = 0; c < controller.getGridWidth(); c++) {
                 Label card = new Label();
                 card.addEventFilter(MouseEvent.MOUSE_CLICKED, handleFirstClick());
-                resizeImage(image, card);
+                reziseImage(image, card);
                 card.setId(c + "x" + r);
                 board.add(card, c, r);
                 positionOfCards.put(new Coordinate(c, r), card);
             }
         }
-        flippedCards = 0;
     }
 
-    private void resizeImage(Image image, Label card) {
+    private void reziseImage(Image image, Label card) {
         ImageView finalImage = new ImageView(image);
         finalImage.setFitHeight(100);
         finalImage.setFitWidth(71.508379888268156424581005586592);
@@ -107,23 +105,18 @@ public class MemoryGameView {
     private EventHandler<MouseEvent> handleFirstClick() {
         return event -> {
             Coordinate coordinate = mouseEventHelper(event);
-            if (event.getButton() == MouseButton.PRIMARY && flippedCards < 2) {
+            if (event.getButton() == MouseButton.PRIMARY) {
                 Label toShow = new Label();
                 File f = new File(controller.getBoard().getCard(coordinate.getCol(), coordinate.getRow()).getUrl());
-                resizeCards(toShow, f);
+                reziseCards(toShow, f);
                 board.add(toShow, coordinate.getRow(), coordinate.getCol());
-                flippedCards++;
-            } else if(event.getButton() == MouseButton.PRIMARY && flippedCards == 2) {
-                PauseTransition wait = new PauseTransition(Duration.seconds(3));
-                wait.setOnFinished(e -> drawBoard());
-                wait.play();
             }
         };
     }
 
-    private void resizeCards(Label toShow, File f) {
+    private void reziseCards(Label toShow, File f) {
         Image image = new Image(f.toURI().toString());
-        resizeImage(image, toShow);
+        reziseImage(image, toShow);
     }
 
     private Coordinate mouseEventHelper(MouseEvent event) {

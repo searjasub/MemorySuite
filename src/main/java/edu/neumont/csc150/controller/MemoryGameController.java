@@ -63,7 +63,7 @@ public class MemoryGameController {
         } else {
             eightByFive();
         }
-        this.getBoard().shuffleCards();
+        //this.getBoard().shuffleCards();
     }
 
     private CardType[] getCards() {
@@ -81,6 +81,7 @@ public class MemoryGameController {
     }
 
     private List<Integer> randomNumber = new ArrayList<>();
+
     private void fourByThree() {
         cards = getCards();
         for (int i = 0; i < getCards().length; i++) {
@@ -124,7 +125,7 @@ public class MemoryGameController {
     private void asignRandomCard(int number, int x, int y) {
         board.setBoardSquare(x, y, cards[randomNumber.get(number)]);
         randomNumber.remove(number);
-        location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
+        //location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
     }
 
     private void sixByFour() {
