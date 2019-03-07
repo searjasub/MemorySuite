@@ -44,7 +44,7 @@ public class MemoryGameController {
         initBoardSquares();
     }
 
-    private void initBoardSquares() {
+    public void initBoardSquares() {
         cards = getCards();
         if (board.getHeight() == 3) {
             fourByThree(cards);

@@ -40,6 +40,7 @@ public class MemoryGameView {
     private int totalScore = 0;
     private int multiplier = 1;
     private int totalLives;
+    private int totalCards;
     HighscoreManager highscoreManager;
     private List<MemBoardSquare> matched = new ArrayList<>();
 
@@ -53,6 +54,7 @@ public class MemoryGameView {
         lives.setText("Lives: " + totalLives);
         highscoreManager = new HighscoreManager();
         top1.setText(highscoreManager.getHighscoreString());
+        totalCards = controller.getGridHeight() * controller.getGridWidth();
         showCards();
         hideCards();
     }
@@ -147,6 +149,7 @@ public class MemoryGameView {
                 String[] pieces = card.getId().split("x");
                 card = controller.getBoard().getBoardSquare(controller.getBoard().getBoardSquares(), Integer.parseInt(pieces[0]), Integer.parseInt(pieces[1]));
 
+
                 if (flippedCards[0] == null) {
                     card1 = card;
                     flippedCards[0] = card.getType().toString();
@@ -158,8 +161,15 @@ public class MemoryGameView {
                     if (flippedCards[0].equals(flippedCards[1])) {
                         card1.setMatched(true);
                         card2.setMatched(true);
+                        totalCards -=2;
+                        System.out.println(totalCards);
                         totalScore += 100 * multiplier;
                         score.setText("Current Score: " + totalScore);
+                        if (totalCards == 0){
+                            controller.initBoardSquares();
+                            hideCards();
+                            totalCards = controller.getGridHeight() * controller.getGridHeight();
+                        }
                     } else {
                         totalLives--;
                         lives.setText("Lives: " + totalLives);
