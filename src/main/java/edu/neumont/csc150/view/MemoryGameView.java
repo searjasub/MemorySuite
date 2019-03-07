@@ -37,6 +37,7 @@ public class MemoryGameView {
     private ViewNavigator viewNavigator;
     private Map<Coordinate, Label> positionOfCards = new HashMap<>();
     private String[] flippedCards = new String[2];
+    private Coordinate coordinate;
 
     void init(ViewNavigator viewNavigator, MemoryGameController controller) {
         registerViewNavigator(viewNavigator);
@@ -90,6 +91,32 @@ public class MemoryGameView {
         flippedCards = new String[2];
     }
 
+    private void drawBoardAfterwards(MemBoardSquare card1, MemBoardSquare card2) {
+        Image backImage = new Image("/images/card_back_2.png");
+        for (int r = 0; r < controller.getGridHeight(); r++) {
+            for (int c = 0; c < controller.getGridWidth(); c++) {
+
+                MemBoardSquare card = new MemBoardSquare();
+
+                if (card1.isMatched()) {
+
+
+                } else {
+                    //MemBoardSquare card = new MemBoardSquare();
+                    //card.addEventFilter(MouseEvent.MOUSE_CLICKED, handleFirstClick());
+                    reziseImage(backImage, card);
+                    card.setId(c + "x" + r);
+                    card.setType(controller.getBoard().getCard(r, c));
+                    board.add(card, c, r);
+
+                }
+
+                //positionOfCards.put(new Coordinate(c, r), card);
+            }
+        }
+        flippedCards = new String[2];
+    }
+
     private void reziseImage(Image image, Label card) {
         ImageView finalImage = new ImageView(image);
         finalImage.setFitHeight(100);
@@ -98,21 +125,45 @@ public class MemoryGameView {
         card.setPadding(new Insets(3));
     }
 
+    private MemBoardSquare card1;
+    private MemBoardSquare card2;
+
     private EventHandler<MouseEvent> handleFirstClick() {
         return event -> {
-            Coordinate coordinate = mouseEventHelper(event);
+            coordinate = mouseEventHelper(event);
+            System.out.println(coordinate);
             if (event.getButton() == MouseButton.PRIMARY && flippedCards[1] == null) {
-                Label toShow = new Label();
+                MemBoardSquare toShow = new MemBoardSquare();
                 File f = new File(controller.getBoard().getCard(coordinate.getCol(), coordinate.getRow()).getUrl());
                 reziseCards(toShow, f);
                 board.add(toShow, coordinate.getRow(), coordinate.getCol());
                 MemBoardSquare card = (MemBoardSquare) event.getSource();
-                flippedCards[(flippedCards[0] == null) ? 0 : 1] = card.getType().toString();
+                card1 = new MemBoardSquare();
+                card2 = new MemBoardSquare();
+                if (flippedCards[0] == null) {
+                    card1 = card;
+                    flippedCards[0] = card.getType().toString();
+                } else {
+                    card2 = card;
+                    flippedCards[1] = card.getType().toString();
+                }
                 if (flippedCards[1] != null) {
+                    if (flippedCards[0].equals(flippedCards[1])) {
+                        card1.setMatched(true);
+                        card2.setMatched(true);
+                        System.out.println("Match!");
+//                        PauseTransition wait = new PauseTransition(Duration.seconds(1));
+//                        wait.setOnFinished(e -> drawBoardAfterwards(card1, card2));
+//                        wait.play();
+                    } else {
+                        System.out.println("Not Match");
+                    }
                     PauseTransition wait = new PauseTransition(Duration.seconds(1));
                     wait.setOnFinished(e -> drawBoard());
                     wait.play();
-                    System.out.println((flippedCards[0].equals(flippedCards[1]) ? "Match!" : "Not Match"));
+
+//                    System.out.println(card1.isMatched());
+//                    System.out.println(card2.isMatched());
                 }
             }
         };
