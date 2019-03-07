@@ -62,15 +62,11 @@ public class MemoryGameView {
                 File f = new File(controller.getBoard().getCard(x, y).getUrl());
                 reziseCards(card, f);
                 board.add(card, y, x);
-                System.out.println(controller.getBoard().getCard(x, y).toString());
-                System.out.println(x + "x" + y);
             }
         }
         for (Node l : board.getChildren()) {
             Label lb = (Label) l;
-            System.out.println(lb.getGraphic().toString());
         }
-        System.out.println("HI");
     }
 
     private void updateScore() {
