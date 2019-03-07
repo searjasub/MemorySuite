@@ -22,9 +22,7 @@ import javafx.util.Duration;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 public class MemoryGameView {
 
@@ -43,6 +41,7 @@ public class MemoryGameView {
     private int multiplier = 1;
     private int totalLives;
     HighscoreManager highscoreManager;
+    private List<MemBoardSquare> matched = new ArrayList<>();
 
     void init(ViewNavigator viewNavigator, MemoryGameController controller) {
         registerViewNavigator(viewNavigator);
@@ -111,14 +110,17 @@ public class MemoryGameView {
                 File f = new File(card.getType().getUrl());
                 if (card.isMatched()) {
                     reziseImage(new Image(f.toURI().toString()), card);
-
-    //TODO
-
+                    matched.add(card);
                 } else {
                     card.addEventFilter(MouseEvent.MOUSE_CLICKED, handleFirstClick());
                     reziseImage(backImage, card);
                 }
                 board.add(card, c, r);
+                if(matched.size() == board.getHeight()*board.getWidth()-1){
+                    int savedScore = totalScore;
+                    init(viewNavigator, controller);
+                    totalScore = savedScore;
+                }
             }
         }
         flippedCards = new String[2];
