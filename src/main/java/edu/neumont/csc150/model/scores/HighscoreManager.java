@@ -25,7 +25,7 @@ public class HighscoreManager {
         scores.sort(comparator);
     }
 
-    public void addScore(String name, int score){
+    public void addScore(String name, int score) {
         loadScoreFile();
         scores.add(new Score(name, score));
         updateScoreFile();
@@ -52,7 +52,7 @@ public class HighscoreManager {
     }
 
     private void loadScoreFile() {
-        try{
+        try {
             inputStream = new ObjectInputStream(new FileInputStream(HIGHSCORE_FILE));
             scores = (ArrayList<Score>) inputStream.readObject();
         } catch (FileNotFoundException e) {
@@ -73,7 +73,7 @@ public class HighscoreManager {
         }
     }
 
-    public String getHighscoreString(){
+    public String getHighscoreString() {
         String highscoreString = "";
         int max = 10;
 
@@ -84,7 +84,11 @@ public class HighscoreManager {
             x = max;
         }
         while (i < x) {
-            highscoreString += (i + 1) + ".\t" + scores.get(i).getName() + "\t\t" + scores.get(i).getScore() + "\n";
+            if (scores.get(i).getScore() >= 1000) {
+                highscoreString += scores.get(i).getScore() + "  -  " + scores.get(i).getName() + "\n";
+            } else {
+                highscoreString += scores.get(i).getScore() + "    -  " + scores.get(i).getName() + "\n";
+            }
             i++;
         }
         return highscoreString;

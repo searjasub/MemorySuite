@@ -39,7 +39,7 @@ public class ViewNavigator {
         initMainMenu();
 
         this.stage.setScene(mainMenuScene);
-        this.stage.setWidth(400);
+        this.stage.setWidth(600);
         this.stage.setHeight(650);
         this.stage.show();
     }
@@ -56,15 +56,15 @@ public class ViewNavigator {
         initMemoryGame();
         this.stage.setScene(memoryGameScene);
         if (memoryGameController.getGridHeight() == 3) {
-            this.stage.setWidth(635);
+            this.stage.setWidth(685);
             this.stage.setHeight(600);
         }
         if (memoryGameController.getGridHeight() == 4) {
-            this.stage.setWidth(792);
+            this.stage.setWidth(942);
             this.stage.setHeight(650);
         }
         if (memoryGameController.getGridHeight() == 5) {
-            this.stage.setWidth(1000);
+            this.stage.setWidth(1200);
             this.stage.setHeight(800);
         }
         this.stage.show();
