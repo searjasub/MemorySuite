@@ -19,17 +19,15 @@ public class MainMenuView {
     public Label memoryGame;
     public HBox hbox;
     public BorderPane borderPane;
-    public Label topLabel;
     private ViewNavigator viewNavigator;
 
     void init(ViewNavigator viewNavigator) {
-        topLabel.setFont(Font.font("HP Simplified Light", FontWeight.BOLD, 14));
         hbox.setSpacing(40);
         hbox.setPadding(new Insets(50, 0, 0, 0));
         registerViewNavigator(viewNavigator);
 
 
-        memoryGame.setGraphic(new ImageView(new Image(new File("/images/start.png").toURI().toString())));
+        memoryGame.setGraphic(new ImageView(new Image(new File("src\\main\\resources\\images\\start.png").toURI().toString())));
         memoryGame.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             try {
                 onMemoryGameClicked();

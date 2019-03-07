@@ -24,11 +24,8 @@
     </top>
     <center>
         <VBox styleClass="vbox">
-            <Label fx:id="topLabel" styleClass="topLabel">Memory Suite
-            </Label>
             <HBox fx:id="hbox" styleClass="hbox">
                 <Label fx:id="memoryGame" styleClass="memory">
-                    Memory Game
                 </Label>
             </HBox>
         </VBox>

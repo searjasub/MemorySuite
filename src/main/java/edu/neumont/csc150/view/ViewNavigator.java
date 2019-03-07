@@ -27,7 +27,7 @@ public class ViewNavigator {
     public void init() throws IOException {
 
         this.stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream("images/icon/icon2.png"))));
-        this.stage.setTitle("Memory Suite");
+        this.stage.setTitle("Memory Game");
         this.stage.centerOnScreen();
         this.stage.setResizable(false);
         this.stage.setWidth(900);
@@ -39,8 +39,8 @@ public class ViewNavigator {
         initMainMenu();
 
         this.stage.setScene(mainMenuScene);
-        this.stage.setWidth(900);
-        this.stage.setHeight(800);
+        this.stage.setWidth(400);
+        this.stage.setHeight(650);
         this.stage.show();
     }
 
@@ -104,7 +104,7 @@ public class ViewNavigator {
     }
 
     void aboutAlert() {
-        Alert popup = new Alert(Alert.AlertType.NONE, "Memory Suite by Felix, Jeff and Sear.", ButtonType.CLOSE);
+        Alert popup = new Alert(Alert.AlertType.NONE, "Memory Game by Felix, Jeff and Sear.", ButtonType.CLOSE);
         popup.setTitle("About Memory Suite");
         popup.show();
     }
