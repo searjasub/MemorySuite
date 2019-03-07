@@ -62,7 +62,7 @@ public class MemoryGameController {
         } else {
             eightByFive(cards);
         }
-        //board.shuffleCards();
+      //  board.shuffleCards();
     }
 
     private CardType[] getCards() {

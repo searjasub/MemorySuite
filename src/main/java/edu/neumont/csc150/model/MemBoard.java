@@ -69,7 +69,7 @@ public class MemBoard {
                 cards.add(this.getBoardSquare(this.getBoardSquares(),h,w));
             }
             Collections.shuffle(cards);
-            MemBoardSquare[] singleArray = (MemBoardSquare[]) cards.toArray();
+            MemBoardSquare[] singleArray = cards.toArray(new MemBoardSquare[cards.size()]);
             int index1 = 0, index2 = 0;
             for (MemBoardSquare memBoardSquare : singleArray) {
                 boardSquares[height][width] = memBoardSquare;
