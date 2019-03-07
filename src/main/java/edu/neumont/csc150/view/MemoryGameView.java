@@ -67,6 +67,15 @@ public class MemoryGameView {
         wait.play();
     }
 
+    private void resetMatches() {
+        for (int r = 0; r < controller.getBoard().getWidth(); r++) {
+            for (int c = 0; c < controller.getBoard().getHeight(); c++) {
+                MemBoardSquare card = controller.getBoard().getBoardSquare(controller.getBoard().getBoardSquares(), r, c);
+                card.setMatched(false);
+            }
+        }
+    }
+
     private void showCards() {
         for (int r = 0; r < controller.getBoard().getWidth(); r++) {
             for (int c = 0; c < controller.getBoard().getHeight(); c++) {
@@ -168,10 +177,11 @@ public class MemoryGameView {
                         totalScore += 100 * multiplier;
                         score.setText("Current Score: " + totalScore);
                         if (totalCards == 0) {
-                            controller.initBoardSquares();
-                            hideCards();
-                            totalCards = controller.getGridHeight() * controller.getGridWidth();
+                            controller.getPlayer().setLives(totalLives);
+                            controller.getPlayer().setScore(totalScore);
+                            controller.init();
                         }
+                        drawBoardAfterwards();
                     } else {
                         totalLives--;
                         lives.setText("Lives: " + totalLives);
@@ -198,10 +208,10 @@ public class MemoryGameView {
                                 viewNavigator.closeStage();
                             }
                         }
+                        PauseTransition wait = new PauseTransition(new Duration(500));
+                        wait.setOnFinished(e -> drawBoardAfterwards());
+                        wait.play();
                     }
-                    PauseTransition wait = new PauseTransition(Duration.seconds(1));
-                    wait.setOnFinished(e -> drawBoardAfterwards());
-                    wait.play();
                 }
             }
         };
