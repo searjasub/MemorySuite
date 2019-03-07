@@ -3,6 +3,7 @@ package edu.neumont.csc150.model;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class MemBoard {
     private int width;
@@ -10,11 +11,11 @@ public class MemBoard {
     private MemBoardSquare[][] boardSquares;
 
     public void initBoard() {
-        int w = width;
-        int h = height;
-        boardSquares = new MemBoardSquare[w][h];
-        for (int row = 0; row < w; row++) {
-            for (int col = 0; col < h; col++) {
+        int r = width;
+        int c = height;
+        boardSquares = new MemBoardSquare[r][c];
+        for (int row = 0; row < r; row++) {
+            for (int col = 0; col < c; col++) {
                 MemBoardSquare mbs = new MemBoardSquare();
                 mbs.setType(CardType.DEFAULT);
                 boardSquares[row][col] = mbs;
@@ -43,43 +44,47 @@ public class MemBoard {
         return boardSquares;
     }
 
-    public MemBoardSquare getBoardSquare(MemBoardSquare[][] squares, int h, int w) {
-        return squares[h][w];
+    public MemBoardSquare getBoardSquare(int r, int c) {
+        return this.getBoardSquares()[r][c];
     }
-
 
 
     public void setBoardSquares(MemBoardSquare[][] boardSquares) {
         this.boardSquares = boardSquares;
     }
 
-    public void setBoardSquare(int x, int y, CardType cardType) {
-        boardSquares[y][x].setType(cardType);
+    public void setBoardSquare(int r, int c, CardType cardType) {
+        boardSquares[r][c].setType(cardType);
     }
 
-    public CardType getCard(int x, int y) {
-        return boardSquares[y][x].getType();
+    // ! TODO !
+    public CardType getCard(int r, int c) {
+        return boardSquares[r][c].getType();
     }
 
-    public void shuffleCards(){
+    public void shuffleCards() {
         List<MemBoardSquare> cards = new ArrayList<>();
-
-        for (int h = 0; h < this.getHeight()-1; h++) {
-            for (int w = 0; w < this.getWidth()-1; w++) {
-                cards.add(this.getBoardSquare(this.getBoardSquares(),h,w));
-            }
-            Collections.shuffle(cards);
-            MemBoardSquare[] singleArray = (MemBoardSquare[]) cards.toArray();
-            int index1 = 0, index2 = 0;
-            for (MemBoardSquare memBoardSquare : singleArray) {
-                boardSquares[height][width] = memBoardSquare;
-                index2++;
-                if (index2 == width && index1 < height) {
-                    index1++;
-                    index2 = 0;
-                }
+        for (int w = 0; w < this.getWidth(); w++) {
+            for (int h = 0; h < this.getHeight(); h++) {
+                cards.add(this.getBoardSquare(w, h));
+                this.setBoardSquare(w, h, CardType.DEFAULT);
             }
         }
+        Collections.shuffle(cards);
+        MemBoardSquare[] card = cards.toArray(new MemBoardSquare[cards.size()]);
 
+        Random rng = new Random();
+        for (int i = 0; i < Integer.MAX_VALUE && cards.size() > 0; i++) {
+            int r = rng.nextInt(this.getHeight() - 1);
+            int c = rng.nextInt(this.getWidth() - 1);
+            MemBoardSquare mbs = this.getBoardSquare(r, c);
+            if (mbs.getType() == CardType.DEFAULT) {
+                mbs = card[i];
+                cards.remove(card[i]);
+            } else {
+                i--;
+            }
+        }
     }
-    }
+
+}
