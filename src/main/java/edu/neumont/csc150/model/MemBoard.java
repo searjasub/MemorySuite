@@ -1,5 +1,8 @@
 package edu.neumont.csc150.model;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class MemBoard {
     private int width;
     private int height;
@@ -39,6 +42,8 @@ public class MemBoard {
         return boardSquares;
     }
 
+    public MemBoardSquare getBoardSquare(MemBoardSquare[][] squares, int h, int w) { return boardSquares[h][w]; }
+
     public void setBoardSquares(MemBoardSquare[][] boardSquares) {
         this.boardSquares = boardSquares;
     }
@@ -50,4 +55,18 @@ public class MemBoard {
     public CardType getCard(int x, int y) {
         return boardSquares[y][x].getType();
     }
-}
+
+    public void shuffleCards(){
+        ArrayList<MemBoardSquare> cards = new ArrayList<>();
+
+        for (int h = 0; h < this.getHeight(); h++) {
+            for (int w = 0; w < this.getWidth(); w++) {
+                cards.add(this.getBoardSquare(this.getBoardSquares(),h,w));
+            }
+            Collections.shuffle(cards);
+            this.boardSquares = (MemBoardSquare[][]) cards.toArray();
+
+        }
+
+        }
+    }
