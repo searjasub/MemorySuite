@@ -1,6 +1,7 @@
 package edu.neumont.csc150.model;
 
 public enum CardType {
+    DEFAULT("src\\main\\resources\\images\\cards_front\\0.png"),
     ONE("src\\main\\resources\\images\\cards_front\\1.png"),
     TWO("src\\main\\resources\\images\\cards_front\\2.png"),
     THREE("src\\main\\resources\\images\\cards_front\\3.png"),
@@ -20,8 +21,7 @@ public enum CardType {
     SEVENTEEN("src\\main\\resources\\images\\cards_front\\17.png"),
     EIGHTEEN("src\\main\\resources\\images\\cards_front\\18.png"),
     NINETEEN("src\\main\\resources\\images\\cards_front\\19.png"),
-    TWENTY("src\\main\\resources\\images\\cards_front\\20.png"),
-    DEFAULT("src\\main\\resources\\images\\cards_front\\0.png");
+    TWENTY("src\\main\\resources\\images\\cards_front\\20.png");
 
     private String url;
 
