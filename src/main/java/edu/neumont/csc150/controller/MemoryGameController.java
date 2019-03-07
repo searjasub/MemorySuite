@@ -32,10 +32,6 @@ public class MemoryGameController {
         this.viewNavigator = viewNavigator;
     }
 
-    public void initPlayer(String playerName) {
-        player.setName(playerName);
-    }
-
     public MemBoard getBoard() {
         return board;
     }

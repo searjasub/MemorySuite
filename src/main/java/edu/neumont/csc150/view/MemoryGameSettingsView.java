@@ -2,12 +2,12 @@ package edu.neumont.csc150.view;
 
 import edu.neumont.csc150.controller.MemoryGameController;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class MemoryGameSettingsView {
 
@@ -24,6 +24,7 @@ public class MemoryGameSettingsView {
     public Button easy;
     public Button Medium;
     public Button hard;
+    public TextField inputName;
 
     private int boardWidth = 4;
     private int boardHeight = 3;
@@ -43,6 +44,8 @@ public class MemoryGameSettingsView {
     public void init(ViewNavigator viewNavigator, MemoryGameController controller) {
         registerViewNavigator(viewNavigator);
         registerController(controller);
+        inputName.setPromptText("Enter your name");
+        inputName.getParent().requestFocus();
         vbox.setSpacing(30);
         vbox.setPadding(new Insets(20, 0, 0, 0));
         settings.setSpacing(20);
@@ -57,17 +60,36 @@ public class MemoryGameSettingsView {
     }
 
     public void startGame() throws IOException {
-        controller.setGridWidth(boardWidth);
-        controller.setGridHeight(boardHeight);
-        controller.setLives(lives);
-        controller.setTimer(timer);
-        controller.setScore(0);
-        viewNavigator.showMemoryGame();
+        if (inputName.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.NONE);
+            alert.setTitle("Invalid Name Input");
+            alert.setContentText("You forgot to put your name!");
+            alert.getButtonTypes().clear();
+            ButtonType willDo = new ButtonType("Let's change it");
+            alert.getButtonTypes().add(willDo);
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == willDo) {
+                try {
+                    viewNavigator.showMemoryGameSettings();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                viewNavigator.showMemoryGameSettings();
+            }
+        } else {
+            controller.setGridWidth(boardWidth);
+            controller.setGridHeight(boardHeight);
+            controller.setLives(lives);
+            controller.setTimer(timer);
+            controller.getPlayer().setName(inputName.getText());
+            controller.setScore(0);
+            viewNavigator.showMemoryGame();
+        }
     }
 
     public void gridSizeClicked() {
         if (boardHeight == 5) {
-            //4x3
             boardWidth = 4;
             boardHeight = 3;
         } else {
@@ -112,7 +134,6 @@ public class MemoryGameSettingsView {
     }
 
     public void onEasyClicked() {
-        //gridSize = 4;
         boardWidth = 4;
         boardHeight = 3;
         timer = 5;
@@ -123,7 +144,6 @@ public class MemoryGameSettingsView {
     }
 
     public void onMediumClicked() {
-        //gridSize = 6;
         boardWidth = 6;
         boardHeight = 4;
         timer = 2;
@@ -134,7 +154,6 @@ public class MemoryGameSettingsView {
     }
 
     public void onHardClicked() {
-        //gridSize = 8;
         boardWidth = 8;
         boardHeight = 5;
         timer = 1;
@@ -142,14 +161,6 @@ public class MemoryGameSettingsView {
         gridSizeSettings.setText("Grid Size: 8x5");
         timerSettings.setText("View Time: 1 seconds");
         livesSettings.setText("3 lives");
-    }
-
-    public double getTimer() {
-        return timer;
-    }
-
-    public int getLives() {
-        return lives;
     }
 
     public void onLoad() {

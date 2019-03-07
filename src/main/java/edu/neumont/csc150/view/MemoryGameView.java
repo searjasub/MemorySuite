@@ -3,10 +3,13 @@ package edu.neumont.csc150.view;
 import edu.neumont.csc150.controller.MemoryGameController;
 import edu.neumont.csc150.model.Coordinate;
 import edu.neumont.csc150.model.MemBoardSquare;
+import edu.neumont.csc150.model.scores.HighscoreManager;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.Image;
@@ -27,10 +30,6 @@ public class MemoryGameView {
 
     public GridPane board;
     public Label top1;
-    public Label top2;
-    public Label top3;
-    public Label top4;
-    public Label top5;
     public Label score;
     public Label lives;
     private MemoryGameController controller;
@@ -38,14 +37,23 @@ public class MemoryGameView {
     private Map<Coordinate, Label> positionOfCards = new HashMap<>();
     private String[] flippedCards = new String[2];
     private Coordinate coordinate;
+    private MemBoardSquare card1;
+    private MemBoardSquare card2;
+    private int totalScore = 0;
+    private int multiplier = 1;
+    private int totalLives;
+    HighscoreManager highscoreManager;
 
     void init(ViewNavigator viewNavigator, MemoryGameController controller) {
         registerViewNavigator(viewNavigator);
         registerController(controller);
         updateScore();
         updateLives();
-        this.controller.initPlayer("Sear");
         this.controller.init();
+        totalLives = controller.getPlayer().getLives();
+        lives.setText("Lives: " + totalLives);
+        highscoreManager = new HighscoreManager();
+        top1.setText(highscoreManager.getHighscoreString());
         showCards();
         hideCards();
     }
@@ -108,8 +116,6 @@ public class MemoryGameView {
                     reziseImage(backImage, card);
                 }
                 board.add(card, c, r);
-
-                //positionOfCards.put(new Coordinate(c, r), card);
             }
         }
         flippedCards = new String[2];
@@ -123,13 +129,9 @@ public class MemoryGameView {
         card.setPadding(new Insets(3));
     }
 
-    private MemBoardSquare card1;
-    private MemBoardSquare card2;
-
     private EventHandler<MouseEvent> handleFirstClick() {
         return event -> {
             coordinate = mouseEventHelper(event);
-            System.out.println(coordinate);
             if (event.getButton() == MouseButton.PRIMARY && flippedCards[1] == null) {
                 MemBoardSquare toShow = new MemBoardSquare();
                 File f = new File(controller.getBoard().getCard(coordinate.getCol(), coordinate.getRow()).getUrl());
@@ -151,19 +153,38 @@ public class MemoryGameView {
                     if (flippedCards[0].equals(flippedCards[1])) {
                         card1.setMatched(true);
                         card2.setMatched(true);
-                        System.out.println("Match!");
-//                        PauseTransition wait = new PauseTransition(Duration.seconds(1));
-//                        wait.setOnFinished(e -> drawBoardAfterwards(card1, card2));
-//                        wait.play();
+                        totalScore += 100 * multiplier;
+                        score.setText("Current Score: " + totalScore);
                     } else {
-                        System.out.println("Not Match");
+                        totalLives--;
+                        lives.setText("Lives: " + totalLives);
+                        if (totalLives == 0) {
+                            highscoreManager.addScore(controller.getPlayer().getName(), totalScore);
+                            top1.setText(highscoreManager.getHighscoreString());
+
+                            Alert alert = new Alert(Alert.AlertType.NONE);
+                            alert.setTitle("Game Over");
+                            alert.setContentText("You ran out of lives, better luck next time!");
+                            alert.getButtonTypes().clear();
+                            ButtonType mainMenuButton = new ButtonType("Main Menu");
+                            alert.getButtonTypes().add(mainMenuButton);
+                            ButtonType exit = new ButtonType("Exit App");
+                            alert.getButtonTypes().add(exit);
+                            Optional<ButtonType> result = alert.showAndWait();
+                            if (result.get() == mainMenuButton) {
+                                try {
+                                    viewNavigator.showMainMenu();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            } else if (result.get() == exit) {
+                                viewNavigator.closeStage();
+                            }
+                        }
                     }
                     PauseTransition wait = new PauseTransition(Duration.seconds(1));
                     wait.setOnFinished(e -> drawBoardAfterwards());
                     wait.play();
-
-//                    System.out.println(card1.isMatched());
-//                    System.out.println(card2.isMatched());
                 }
             }
         };

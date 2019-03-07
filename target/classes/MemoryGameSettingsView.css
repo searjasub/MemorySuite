@@ -54,3 +54,15 @@
     -fx-text-fill: #00BACF;
     -fx-background-radius: 20;
 }
+
+.inputName {
+    -fx-alignment: center;
+    -fx-max-width: 150px;
+    -fx-font-family: "HP Simplified Light", Verdana, Monospaced;
+    -fx-background-color: lightblue;
+    -fx-text-fill: black;
+    -fx-prompt-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+    -fx-border: gone;
+}

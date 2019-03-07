@@ -56,7 +56,7 @@ public class ViewNavigator {
         initMemoryGameSettings();
         this.stage.setScene(memoryGameSettingsScene);
         this.stage.setWidth(600);
-        this.stage.setHeight(450);
+        this.stage.setHeight(500);
         this.stage.show();
     }
 

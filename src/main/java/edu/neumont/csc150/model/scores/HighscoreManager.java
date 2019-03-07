@@ -6,8 +6,8 @@ import java.util.ArrayList;
 public class HighscoreManager {
 
     private static final String HIGHSCORE_FILE = "scores.dat";
-    ObjectOutputStream outputStream = null;
-    ObjectInputStream inputStream = null;
+    private ObjectOutputStream outputStream = null;
+    private ObjectInputStream inputStream = null;
     private ArrayList<Score> scores;
 
     public HighscoreManager() {

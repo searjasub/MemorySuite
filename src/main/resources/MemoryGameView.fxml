@@ -29,19 +29,6 @@
             <VBox styleClass="vBox">
                 <Label styleClass="title, top"  >Leaderboard</Label>
                 <Label fx:id="top1" styleClass="nameRanked">
-                    Bot 1: 2000
-                </Label>
-                <Label fx:id="top2" styleClass="nameRanked">
-                    Bot 2: 1800
-                </Label>
-                <Label fx:id="top3" styleClass="nameRanked">
-                    Bot 3: 1600
-                </Label>
-                <Label fx:id="top4" styleClass="nameRanked">
-                    Bot 4: 1400
-                </Label>
-                <Label fx:id="top5" styleClass="nameRanked">
-                    Bot 5: 1200
                 </Label>
             </VBox>
         </HBox>

@@ -43,11 +43,12 @@
                     Grid Size: 4x3
                 </Button>
             </HBox>
+            <TextField fx:id="inputName" styleClass="inputName">
+            </TextField>
             <HBox fx:id="bottomPart">
                 <Button fx:id="returnBtn" styleClass="returnBtn" onAction="#returnBtn">Return to Main Menu</Button>
                 <Button fx:id="startGameBtn" styleClass="startGame" onAction="#startGame">Start Game</Button>
             </HBox>
         </VBox>
     </center>
-
 </BorderPane>
