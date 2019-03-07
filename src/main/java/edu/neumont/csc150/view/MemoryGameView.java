@@ -111,6 +111,9 @@ public class MemoryGameView {
                 File f = new File(card.getType().getUrl());
                 if (card.isMatched()) {
                     reziseImage(new Image(f.toURI().toString()), card);
+
+    //TODO
+
                 } else {
                     card.addEventFilter(MouseEvent.MOUSE_CLICKED, handleFirstClick());
                     reziseImage(backImage, card);
