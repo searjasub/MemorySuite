@@ -54,12 +54,13 @@ public class MemoryGameController {
     }
 
     private void initBoardSquares() {
+        cards = getCards();
         if (board.getHeight() == 3) {
-            fourByThree();
+            fourByThree(cards);
         } else if (board.getHeight() == 4) {
-            sixByFour();
+            sixByFour(cards);
         } else {
-            eightByFive();
+            eightByFive(cards);
         }
         //board.shuffleCards();
     }
@@ -78,17 +79,15 @@ public class MemoryGameController {
         return used;
     }
 
-    private void fourByThree() {
-        cards = getCards();
-
-        List<Integer> randomNumber = new ArrayList<>();
+    private void fourByThree(CardType[] cards) {
+  /*      List<Integer> randomNumber = new ArrayList<>();
         for (int i = 0; i < getCards().length; i++) {
             randomNumber.add(i);
         }
 
         Random random = new Random();
         int number = random.nextInt(19);
-        number += 1;
+        number += 1;*/
 
 
         for (int x = 0; x < board.getHeight(); x++) {
@@ -163,8 +162,8 @@ public class MemoryGameController {
         }
     }
 
-    private void sixByFour() {
-        fourByThree();
+    private void sixByFour(CardType[] cards) {
+        fourByThree(cards);
         for (int x = 0; x <= board.getHeight(); x++) {
             for (int y = 0; y <= board.getWidth(); y++) {
                 if (x == 0 && (y == 4 || y == 5)) {
@@ -184,8 +183,8 @@ public class MemoryGameController {
         }
     }
 
-    private void eightByFive() {
-        sixByFour();
+    private void eightByFive(CardType[] cards) {
+        sixByFour(cards);
         for (int x = 0; x <= board.getHeight(); x++) {
             for (int y = 0; y <= board.getWidth(); y++) {
                 if (x == 0 && (y == 6 || y == 7)) {
