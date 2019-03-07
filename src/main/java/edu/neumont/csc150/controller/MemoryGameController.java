@@ -1,14 +1,16 @@
 package edu.neumont.csc150.controller;
 
 import edu.neumont.csc150.model.CardType;
-import edu.neumont.csc150.model.Coordinate;
 import edu.neumont.csc150.model.MemBoard;
 import edu.neumont.csc150.model.Player;
 import edu.neumont.csc150.view.MemoryGameSettingsView;
 import edu.neumont.csc150.view.MemoryGameView;
 import edu.neumont.csc150.view.ViewNavigator;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
 public class MemoryGameController {
 
@@ -59,6 +61,7 @@ public class MemoryGameController {
         } else {
             eightByFive();
         }
+        //board.shuffleCards();
     }
 
     private CardType[] getCards() {
@@ -77,13 +80,16 @@ public class MemoryGameController {
 
     private void fourByThree() {
         cards = getCards();
-//        List<Integer> randomNumber = new ArrayList<>();
-//        for (int i = 0; i < getCards().length; i++) {
-//            randomNumber.add(i);
-//        }
-//        Random random = new Random();
-//        int number = random.nextInt(19);
-//        number += 1;
+
+        List<Integer> randomNumber = new ArrayList<>();
+        for (int i = 0; i < getCards().length; i++) {
+            randomNumber.add(i);
+        }
+
+        Random random = new Random();
+        int number = random.nextInt(19);
+        number += 1;
+
 
         for (int x = 0; x < board.getHeight(); x++) {
             for (int y = 0; y < board.getWidth(); y++) {
@@ -100,55 +106,59 @@ public class MemoryGameController {
                 } else if (x == 2 && (y == 2 || y == 3)) {
                     board.setBoardSquare(x, y, cards[10]);
                 }
+
+
 //                if (x == 0 && y == 0) {
 //                    board.setBoardSquare(x, y, cards[randomNumber.get(number)]);
 //                    randomNumber.remove(number);
 //                    location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
-//                } else if (x == 0 && y == 1) {
+//                }
+//                else if (x == 0 && y == 1) {
 //                    board.setBoardSquare(x, y, cards[randomNumber.get(number)]);
 //                    randomNumber.remove(number);
-//                    location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
+//                   // location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
 //                } else if (x == 0 && y == 2) {
 //                    board.setBoardSquare(x, y, cards[randomNumber.get(number)]);
 //                    randomNumber.remove(number);
-//                    location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
+//                   // location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
 //                } else if (x == 0 && y == 3) {
 //                    board.setBoardSquare(x, y, cards[randomNumber.get(number)]);
 //                    randomNumber.remove(number);
-//                    location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
+//                    //location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
 //                } else if (x == 1 && y == 0) {
 //                    board.setBoardSquare(x, y, cards[randomNumber.get(number)]);
 //                    randomNumber.remove(number);
-//                    location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
+//                    //ocation.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
 //                } else if (x == 1 && y == 1) {
 //                    board.setBoardSquare(x, y, cards[randomNumber.get(number)]);
 //                    randomNumber.remove(number);
-//                    location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
+//                   // location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
 //                } else if (x == 1 && y == 2) {
 //                    board.setBoardSquare(x, y, cards[randomNumber.get(number)]);
 //                    randomNumber.remove(number);
-//                    location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
+//                   // location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
 //                } else if (x == 1 && y == 3) {
 //                    board.setBoardSquare(x, y, cards[randomNumber.get(number)]);
 //                    randomNumber.remove(number);
-//                    location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
+//                    //location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
 //                } else if (x == 2 && y == 0) {
 //                    board.setBoardSquare(x, y, cards[randomNumber.get(number)]);
 //                    randomNumber.remove(number);
-//                    location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
+//                    //location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
 //                } else if (x == 2 && y == 1) {
 //                    board.setBoardSquare(x, y, cards[randomNumber.get(number)]);
 //                    randomNumber.remove(number);
-//                    location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
+//                    //location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
 //                } else if (x == 2 && y == 2) {
 //                    board.setBoardSquare(x, y, cards[randomNumber.get(number)]);
 //                    randomNumber.remove(number);
-//                    location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
+//                    //location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
 //                }else if (x == 2 && y == 3) {
 //                    board.setBoardSquare(x, y, cards[randomNumber.get(number)]);
 //                    randomNumber.remove(number);
-//                    location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
+//                    //location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
 //                }
+//            }
             }
         }
     }
