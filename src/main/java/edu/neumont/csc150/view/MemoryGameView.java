@@ -91,25 +91,23 @@ public class MemoryGameView {
         flippedCards = new String[2];
     }
 
-    private void drawBoardAfterwards(MemBoardSquare card1, MemBoardSquare card2) {
+    private void drawBoardAfterwards() {
         Image backImage = new Image("/images/card_back_2.png");
         for (int r = 0; r < controller.getGridHeight(); r++) {
             for (int c = 0; c < controller.getGridWidth(); c++) {
-
                 MemBoardSquare card = new MemBoardSquare();
+                card.setId(c + "x" + r);
+                card.setType(controller.getBoard().getCard(r, c));
+                card.setMatched(controller.getBoard().getBoardSquare(controller.getBoard().getBoardSquares(), c, r).isMatched());
 
-                if (card1.isMatched()) {
-
-
+                File f = new File(card.getType().getUrl());
+                if (card.isMatched()) {
+                    reziseImage(new Image(f.toURI().toString()), card);
                 } else {
-                    //MemBoardSquare card = new MemBoardSquare();
-                    //card.addEventFilter(MouseEvent.MOUSE_CLICKED, handleFirstClick());
+                    card.addEventFilter(MouseEvent.MOUSE_CLICKED, handleFirstClick());
                     reziseImage(backImage, card);
-                    card.setId(c + "x" + r);
-                    card.setType(controller.getBoard().getCard(r, c));
-                    board.add(card, c, r);
-
                 }
+                board.add(card, c, r);
 
                 //positionOfCards.put(new Coordinate(c, r), card);
             }
@@ -137,9 +135,11 @@ public class MemoryGameView {
                 File f = new File(controller.getBoard().getCard(coordinate.getCol(), coordinate.getRow()).getUrl());
                 reziseCards(toShow, f);
                 board.add(toShow, coordinate.getRow(), coordinate.getCol());
+
                 MemBoardSquare card = (MemBoardSquare) event.getSource();
-                card1 = new MemBoardSquare();
-                card2 = new MemBoardSquare();
+                String[] pieces = card.getId().split("x");
+                card = controller.getBoard().getBoardSquare(controller.getBoard().getBoardSquares(), Integer.parseInt(pieces[0]), Integer.parseInt(pieces[1]));
+
                 if (flippedCards[0] == null) {
                     card1 = card;
                     flippedCards[0] = card.getType().toString();
@@ -159,7 +159,7 @@ public class MemoryGameView {
                         System.out.println("Not Match");
                     }
                     PauseTransition wait = new PauseTransition(Duration.seconds(1));
-                    wait.setOnFinished(e -> drawBoard());
+                    wait.setOnFinished(e -> drawBoardAfterwards());
                     wait.play();
 
 //                    System.out.println(card1.isMatched());
