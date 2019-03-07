@@ -59,7 +59,7 @@ public class MemoryGameView {
             for (int y = 0; y < controller.getBoard().getWidth(); y++) {
                 Label card = new Label();
                 File f = new File(controller.getBoard().getCard(x, y).getUrl());
-                reziseCards(card, f);
+                resizeCards(card, f);
                 board.add(card, y, x);
                 System.out.println(controller.getBoard().getCard(x, y).toString());
                 System.out.println(x + "x" + y);
@@ -86,7 +86,7 @@ public class MemoryGameView {
             for (int c = 0; c < controller.getGridWidth(); c++) {
                 Label card = new Label();
                 card.addEventFilter(MouseEvent.MOUSE_CLICKED, handleFirstClick());
-                reziseImage(image, card);
+                resizeImage(image, card);
                 card.setId(c + "x" + r);
                 board.add(card, c, r);
                 positionOfCards.put(new Coordinate(c, r), card);
@@ -94,7 +94,7 @@ public class MemoryGameView {
         }
     }
 
-    private void reziseImage(Image image, Label card) {
+    private void resizeImage(Image image, Label card) {
         ImageView finalImage = new ImageView(image);
         finalImage.setFitHeight(100);
         finalImage.setFitWidth(71.508379888268156424581005586592);
@@ -108,15 +108,15 @@ public class MemoryGameView {
             if (event.getButton() == MouseButton.PRIMARY) {
                 Label toShow = new Label();
                 File f = new File(controller.getBoard().getCard(coordinate.getCol(), coordinate.getRow()).getUrl());
-                reziseCards(toShow, f);
+                resizeCards(toShow, f);
                 board.add(toShow, coordinate.getRow(), coordinate.getCol());
             }
         };
     }
 
-    private void reziseCards(Label toShow, File f) {
+    private void resizeCards(Label toShow, File f) {
         Image image = new Image(f.toURI().toString());
-        reziseImage(image, toShow);
+        resizeImage(image, toShow);
     }
 
     private Coordinate mouseEventHelper(MouseEvent event) {
