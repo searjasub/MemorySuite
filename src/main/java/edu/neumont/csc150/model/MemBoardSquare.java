@@ -1,14 +1,16 @@
 package edu.neumont.csc150.model;
 
-class MemBoardSquare {
+import javafx.scene.control.Label;
+
+public class MemBoardSquare extends Label {
 
     private CardType type;
 
-    CardType getType() {
+    public CardType getType() {
         return type;
     }
 
-    void setType(CardType type) {
+    public void setType(CardType type) {
         this.type = type;
     }
 }
