@@ -5,7 +5,7 @@
 .memory, .number, .sequence {
     -fx-text-alignment: center;
     -fx-min-width: 230;
-    -fx-min-height: 350;
+    -fx-min-height: 323.44;
     -fx-font-family: "HP Simplified Light", Verdana, Monospaced;
     -fx-background-color: lightblue;
     -fx-text-fill: black;

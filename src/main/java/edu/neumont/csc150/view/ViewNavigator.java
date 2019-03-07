@@ -1,8 +1,6 @@
 package edu.neumont.csc150.view;
 
 import edu.neumont.csc150.controller.MemoryGameController;
-import edu.neumont.csc150.controller.NumberGameController;
-import edu.neumont.csc150.controller.SequenceGameController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -17,16 +15,10 @@ import java.util.Objects;
 public class ViewNavigator {
 
     private MemoryGameController memoryGameController;
-    private SequenceGameController sequenceGameController;
-    private NumberGameController numberGameController;
     private Stage stage;
     private Scene mainMenuScene;
     private Scene memoryGameSettingsScene;
     private Scene memoryGameScene;
-    private Scene sequenceGameSettingsScene;
-    private Scene sequenceGameScene;
-    private Scene numberGameSettingsScene;
-    private Scene numberGameScene;
 
     public void setStage(Stage stage) {
         this.stage = stage;
@@ -115,26 +107,5 @@ public class ViewNavigator {
         Alert popup = new Alert(Alert.AlertType.NONE, "Memory Suite by Felix, Jeff and Sear.", ButtonType.CLOSE);
         popup.setTitle("About Memory Suite");
         popup.show();
-    }
-
-    public void showSequenceGameSettings() throws IOException {
-        initSequenceGameSettings();
-        this.stage.setScene(sequenceGameSettingsScene);
-        this.stage.setWidth(600);
-        this.stage.setHeight(450);
-        this.stage.show();
-    }
-
-    private void initSequenceGameSettings() throws IOException {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("SequenceGameSettingsView.fxml"));
-        Parent root = loader.load();
-        SequenceGameSettingsView viewController = loader.getController();
-        sequenceGameController = new SequenceGameController(viewController);
-        viewController.init(this, sequenceGameController);
-        sequenceGameSettingsScene = new Scene(root);
-    }
-
-    public void showNumberGameSettings() {
-
     }
 }

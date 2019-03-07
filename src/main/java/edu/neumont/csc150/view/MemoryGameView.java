@@ -11,14 +11,12 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.File;
@@ -27,11 +25,13 @@ import java.util.*;
 
 public class MemoryGameView {
 
+    //TODO add right click decrease the numbers from settings
     public GridPane board;
     public Label top1;
     public Label score;
     public Label lives;
     public VBox vBoxRightSide;
+    HighscoreManager highscoreManager;
     private MemoryGameController controller;
     private ViewNavigator viewNavigator;
     private Map<Coordinate, Label> positionOfCards = new HashMap<>();
@@ -43,7 +43,6 @@ public class MemoryGameView {
     private int multiplier = 1;
     private int totalLives;
     private int totalCards;
-    HighscoreManager highscoreManager;
     private List<MemBoardSquare> matched = new ArrayList<>();
 
     void init(ViewNavigator viewNavigator, MemoryGameController controller) {
@@ -121,7 +120,7 @@ public class MemoryGameView {
                     reziseImage(backImage, card);
                 }
                 board.add(card, c, r);
-                if(matched.size() == board.getHeight()*board.getWidth()-1){
+                if (matched.size() == board.getHeight() * board.getWidth() - 1) {
                     int savedScore = totalScore;
                     init(viewNavigator, controller);
                     totalScore = savedScore;
@@ -164,14 +163,14 @@ public class MemoryGameView {
                     if (flippedCards[0].equals(flippedCards[1])) {
                         card1.setMatched(true);
                         card2.setMatched(true);
-                        totalCards -=2;
+                        totalCards -= 2;
                         System.out.println(totalCards);
                         totalScore += 100 * multiplier;
                         score.setText("Current Score: " + totalScore);
-                        if (totalCards == 0){
+                        if (totalCards == 0) {
                             controller.initBoardSquares();
                             hideCards();
-                            totalCards = controller.getGridHeight() * controller.getGridHeight();
+                            totalCards = controller.getGridHeight() * controller.getGridWidth();
                         }
                     } else {
                         totalLives--;
@@ -220,14 +219,12 @@ public class MemoryGameView {
         return new Coordinate((Integer.parseInt(pieces[0])), Integer.parseInt(pieces[1]));
     }
 
-    private String getPlayerName() {
-        Optional<String> name = Optional.empty();
-        TextInputDialog dialog = new TextInputDialog("Name");
-        dialog.setTitle("Let's get started!");
-        dialog.setContentText("Please enter your name");
-        Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
-        stage.show();
-        return String.valueOf(name);
+    public void setMultiplier(int multiplier) {
+        this.multiplier += multiplier;
+    }
+
+    public void resetMultiplier() {
+        this.multiplier = 1;
     }
 
     private void registerViewNavigator(ViewNavigator viewNavigator) {

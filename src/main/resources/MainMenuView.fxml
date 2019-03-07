@@ -27,15 +27,9 @@
             <Label fx:id="topLabel" styleClass="topLabel">Memory Suite
             </Label>
             <HBox fx:id="hbox" styleClass="hbox">
-                <Button fx:id="memoryGame" styleClass="memory" onAction="#onMemoryGameClicked">
+                <Label fx:id="memoryGame" styleClass="memory">
                     Memory Game
-                </Button>
-                <Button fx:id="SequenceGame" styleClass="sequence" onAction="#onSequenceGameClicked">
-                    Sequence Game
-                </Button>
-                <Button fx:id="NumberGame" styleClass="number" onAction="#onNumberGameClicked">
-                    Number Game
-                </Button>
+                </Label>
             </HBox>
         </VBox>
     </center>

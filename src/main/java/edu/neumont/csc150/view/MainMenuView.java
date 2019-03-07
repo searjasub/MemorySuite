@@ -3,18 +3,20 @@ package edu.neumont.csc150.view;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
+import java.io.File;
 import java.io.IOException;
 
 public class MainMenuView {
 
-    public Button memoryGame;
-    public Button SequenceGame;
-    public Button NumberGame;
+    public Label memoryGame;
     public HBox hbox;
     public BorderPane borderPane;
     public Label topLabel;
@@ -25,18 +27,20 @@ public class MainMenuView {
         hbox.setSpacing(40);
         hbox.setPadding(new Insets(50, 0, 0, 0));
         registerViewNavigator(viewNavigator);
+
+
+        memoryGame.setGraphic(new ImageView(new Image(new File("/images/start.png").toURI().toString())));
+        memoryGame.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            try {
+                onMemoryGameClicked();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     public void onMemoryGameClicked() throws IOException {
         viewNavigator.showMemoryGameSettings();
-    }
-
-    public void onSequenceGameClicked() throws IOException {
-        viewNavigator.showSequenceGameSettings();
-    }
-
-    public void onNumberGameClicked() {
-        viewNavigator.showNumberGameSettings();
     }
 
     public void onLoad() {
