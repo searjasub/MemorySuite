@@ -64,9 +64,6 @@ public class MemoryGameView {
                 board.add(card, y, x);
             }
         }
-        for (Node l : board.getChildren()) {
-            Label lb = (Label) l;
-        }
     }
 
     private void updateScore() {
