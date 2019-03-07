@@ -71,7 +71,6 @@ public class MemoryGameView {
             Label lb = (Label) l;
             System.out.println(lb.getGraphic().toString());
         }
-        System.out.println("HI");
     }
 
     private void updateScore() {
