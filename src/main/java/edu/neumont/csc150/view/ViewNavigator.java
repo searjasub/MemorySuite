@@ -64,12 +64,12 @@ public class ViewNavigator {
         initMemoryGame();
         this.stage.setScene(memoryGameScene);
         if (memoryGameController.getGridHeight() == 3) {
-            this.stage.setWidth(800);
+            this.stage.setWidth(635);
             this.stage.setHeight(600);
         }
         if (memoryGameController.getGridHeight() == 4) {
-            this.stage.setWidth(900);
-            this.stage.setHeight(700);
+            this.stage.setWidth(792);
+            this.stage.setHeight(650);
         }
         if (memoryGameController.getGridHeight() == 5) {
             this.stage.setWidth(1000);

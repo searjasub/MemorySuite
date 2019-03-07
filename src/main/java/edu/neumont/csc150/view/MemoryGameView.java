@@ -17,6 +17,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -30,6 +31,7 @@ public class MemoryGameView {
     public Label top1;
     public Label score;
     public Label lives;
+    public VBox vBoxRightSide;
     private MemoryGameController controller;
     private ViewNavigator viewNavigator;
     private Map<Coordinate, Label> positionOfCards = new HashMap<>();
@@ -50,6 +52,7 @@ public class MemoryGameView {
         updateScore();
         updateLives();
         this.controller.init();
+        vBoxRightSide.setSpacing(10);
         totalLives = controller.getPlayer().getLives();
         lives.setText("Lives: " + totalLives);
         highscoreManager = new HighscoreManager();

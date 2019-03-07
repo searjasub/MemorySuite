@@ -17,15 +17,22 @@
 }
 
 .nameRanked {
-    -fx-text-fill: #2F2F2D;
-    -fx-padding: 3px 10px 3px 10px;
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+    -fx-padding: 15;
+    -fx-background-radius: 10px;
+    -fx-max-width: 200px;
+    -fx-max-height: 225px;
+    -fx-background-color: #2F2F2D ;
+    -fx-text-fill: #00BACF;
 }
 
 .title, .currentScore, .lives {
     -fx-padding: 6px;
-    -fx-font-size: 20px;
-    -fx-text-fill: #2F2F2D;
-    -fx-background-radius: 20;
+    -fx-font-size: 16px;
+    -fx-background-radius: 10px;
+    -fx-background-color: #2F2F2D ;
+    -fx-text-fill: #00BACF;
 }
 
 .title{

@@ -23,13 +23,13 @@
             <VBox styleClass="vBox">
                 <GridPane fx:id="board" styleClass="board">
                 </GridPane>
-                <Label fx:id="score" styleClass="currentScore">Current Score:</Label>
-                <Label fx:id="lives" styleClass="lives">Lives:</Label>
             </VBox>
-            <VBox styleClass="vBox">
+            <VBox fx:id="vBoxRightSide" styleClass="vBox">
                 <Label styleClass="title, top"  >Leaderboard</Label>
                 <Label fx:id="top1" styleClass="nameRanked">
                 </Label>
+                <Label fx:id="score" styleClass="currentScore">Current Score:</Label>
+                <Label fx:id="lives" styleClass="lives">Lives:</Label>
             </VBox>
         </HBox>
     </center>
