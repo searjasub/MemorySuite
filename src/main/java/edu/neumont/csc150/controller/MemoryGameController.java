@@ -21,11 +21,7 @@ public class MemoryGameController {
     private Player player = new Player();
     private MemBoard board;
     private CardType[] cards;
-    private Map<Coordinate, CardType> location = new HashMap<>();
-
-    public Map<Coordinate, CardType> getLocation() {
-        return location;
-    }
+    //private Map<Coordinate, CardType> location = new HashMap<>();
 
     public MemoryGameController(MemoryGameSettingsView settings) {
         this.settings = settings;
@@ -63,7 +59,6 @@ public class MemoryGameController {
         } else {
             eightByFive();
         }
-        //this.getBoard().shuffleCards();
     }
 
     private CardType[] getCards() {
@@ -80,52 +75,82 @@ public class MemoryGameController {
         return used;
     }
 
-    private List<Integer> randomNumber = new ArrayList<>();
-
     private void fourByThree() {
         cards = getCards();
-        for (int i = 0; i < getCards().length; i++) {
-            randomNumber.add(i);
-        }
-        Random random = new Random();
-        int number = random.nextInt(19);
-        number += 1;
+//        List<Integer> randomNumber = new ArrayList<>();
+//        for (int i = 0; i < getCards().length; i++) {
+//            randomNumber.add(i);
+//        }
+//        Random random = new Random();
+//        int number = random.nextInt(19);
+//        number += 1;
 
         for (int x = 0; x < board.getHeight(); x++) {
             for (int y = 0; y < board.getWidth(); y++) {
-                if (x == 0 && y == 0) {
-                    asignRandomCard(number, x, y);
-                } else if (x == 0 && y == 1) {
-                    asignRandomCard(number, x, y);
-                } else if (x == 0 && y == 2) {
-                    asignRandomCard(number, x, y);
-                } else if (x == 0 && y == 3) {
-                    asignRandomCard(number, x, y);
-                } else if (x == 1 && y == 0) {
-                    asignRandomCard(number, x, y);
-                } else if (x == 1 && y == 1) {
-                    asignRandomCard(number, x, y);
-                } else if (x == 1 && y == 2) {
-                    asignRandomCard(number, x, y);
-                } else if (x == 1 && y == 3) {
-                    asignRandomCard(number, x, y);
-                } else if (x == 2 && y == 0) {
-                    asignRandomCard(number, x, y);
-                } else if (x == 2 && y == 1) {
-                    asignRandomCard(number, x, y);
-                } else if (x == 2 && y == 2) {
-                    asignRandomCard(number, x, y);
-                }else if (x == 2 && y == 3) {
-                    asignRandomCard(number, x, y);
+                if (x == 0 && (y == 0 || y == 1)) {
+                    board.setBoardSquare(x, y, cards[0]);
+                } else if (x == 0 && (y == 2 || y == 3)) {
+                    board.setBoardSquare(x, y, cards[2]);
+                } else if (x == 1 && (y == 0 || y == 1)) {
+                    board.setBoardSquare(x, y, cards[4]);
+                } else if (x == 1 && (y == 2 || y == 3)) {
+                    board.setBoardSquare(x, y, cards[6]);
+                } else if (x == 2 && (y == 0 || y == 1)) {
+                    board.setBoardSquare(x, y, cards[8]);
+                } else if (x == 2 && (y == 2 || y == 3)) {
+                    board.setBoardSquare(x, y, cards[10]);
                 }
+//                if (x == 0 && y == 0) {
+//                    board.setBoardSquare(x, y, cards[randomNumber.get(number)]);
+//                    randomNumber.remove(number);
+//                    location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
+//                } else if (x == 0 && y == 1) {
+//                    board.setBoardSquare(x, y, cards[randomNumber.get(number)]);
+//                    randomNumber.remove(number);
+//                    location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
+//                } else if (x == 0 && y == 2) {
+//                    board.setBoardSquare(x, y, cards[randomNumber.get(number)]);
+//                    randomNumber.remove(number);
+//                    location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
+//                } else if (x == 0 && y == 3) {
+//                    board.setBoardSquare(x, y, cards[randomNumber.get(number)]);
+//                    randomNumber.remove(number);
+//                    location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
+//                } else if (x == 1 && y == 0) {
+//                    board.setBoardSquare(x, y, cards[randomNumber.get(number)]);
+//                    randomNumber.remove(number);
+//                    location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
+//                } else if (x == 1 && y == 1) {
+//                    board.setBoardSquare(x, y, cards[randomNumber.get(number)]);
+//                    randomNumber.remove(number);
+//                    location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
+//                } else if (x == 1 && y == 2) {
+//                    board.setBoardSquare(x, y, cards[randomNumber.get(number)]);
+//                    randomNumber.remove(number);
+//                    location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
+//                } else if (x == 1 && y == 3) {
+//                    board.setBoardSquare(x, y, cards[randomNumber.get(number)]);
+//                    randomNumber.remove(number);
+//                    location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
+//                } else if (x == 2 && y == 0) {
+//                    board.setBoardSquare(x, y, cards[randomNumber.get(number)]);
+//                    randomNumber.remove(number);
+//                    location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
+//                } else if (x == 2 && y == 1) {
+//                    board.setBoardSquare(x, y, cards[randomNumber.get(number)]);
+//                    randomNumber.remove(number);
+//                    location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
+//                } else if (x == 2 && y == 2) {
+//                    board.setBoardSquare(x, y, cards[randomNumber.get(number)]);
+//                    randomNumber.remove(number);
+//                    location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
+//                }else if (x == 2 && y == 3) {
+//                    board.setBoardSquare(x, y, cards[randomNumber.get(number)]);
+//                    randomNumber.remove(number);
+//                    location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
+//                }
             }
         }
-    }
-
-    private void asignRandomCard(int number, int x, int y) {
-        board.setBoardSquare(x, y, cards[randomNumber.get(number)]);
-        randomNumber.remove(number);
-        //location.put(new Coordinate(x,y), cards[randomNumber.get(number)]);
     }
 
     private void sixByFour() {
@@ -213,5 +238,4 @@ public class MemoryGameController {
     public void switchController(MemoryGameView viewController) {
         this.view = viewController;
     }
-
 }
