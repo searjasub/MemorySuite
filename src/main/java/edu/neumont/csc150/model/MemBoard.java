@@ -59,11 +59,14 @@ public class MemBoard {
     public void shuffleCards(){
         ArrayList<MemBoardSquare> cards = new ArrayList<>();
 
-        for (int h = 0; h < this.getHeight(); h++) {
-            for (int w = 0; w < this.getWidth(); w++) {
+        for (int h = 0; h < this.getHeight()-1; h++) {
+            for (int w = 0; w < this.getWidth()-1; w++) {
                 cards.add(this.getBoardSquare(this.getBoardSquares(),h,w));
             }
             Collections.shuffle(cards);
+            for (MemBoardSquare s: cards) {
+
+            }
             this.boardSquares = (MemBoardSquare[][]) cards.toArray();
 
         }
