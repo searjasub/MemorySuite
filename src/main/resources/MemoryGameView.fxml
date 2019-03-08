@@ -11,7 +11,6 @@
         <MenuBar>
             <Menu text="Game">
                 <MenuItem text="Main Menu" onAction="#onExit"/>
-                <MenuItem text="Save" onAction="#onSave"/>
             </Menu>
             <Menu text="Help">
                 <MenuItem text="About" onAction="#onAbout"/>
