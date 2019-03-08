@@ -1,20 +1,18 @@
 package edu.neumont.csc150.view;
 
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 
-public class MainMenuView {
+public class MainMenuView implements Serializable {
 
     public Label memoryGame;
     public HBox hbox;

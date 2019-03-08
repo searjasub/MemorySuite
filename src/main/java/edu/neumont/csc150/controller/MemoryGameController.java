@@ -7,12 +7,13 @@ import edu.neumont.csc150.view.MemoryGameSettingsView;
 import edu.neumont.csc150.view.MemoryGameView;
 import edu.neumont.csc150.view.ViewNavigator;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-public class MemoryGameController {
+public class MemoryGameController implements Serializable {
 
     private MemoryGameView view;
     private MemoryGameSettingsView settings;

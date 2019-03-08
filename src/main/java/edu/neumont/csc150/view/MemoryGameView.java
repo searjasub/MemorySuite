@@ -22,9 +22,10 @@ import javafx.util.Duration;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.*;
 
-public class MemoryGameView {
+public class MemoryGameView implements Serializable {
 
     //TODO add right click decrease the numbers from settings
     public GridPane board;
@@ -148,7 +149,6 @@ public class MemoryGameView {
             if (event.getButton() == MouseButton.PRIMARY && flippedCards[1] == null) {
                 MemBoardSquare toShow = new MemBoardSquare();
                 File f = new File(controller.getBoard().getCard(coordinate.getCol(), coordinate.getRow()).getUrl());
-//                reziseCards(toShow, f);
                 Image image = new Image(f.toURI().toString());
                 reziseImage(image, toShow);
                 board.add(toShow, coordinate.getRow(), coordinate.getCol());
@@ -184,7 +184,6 @@ public class MemoryGameView {
                         if (totalLives == 0) {
                             highscoreManager.addScore(controller.getPlayer().getName(), totalScore);
                             top1.setText(highscoreManager.getHighscoreString());
-
                             Alert alert = new Alert(Alert.AlertType.NONE);
                             alert.setTitle("Game Over");
                             alert.setContentText("You ran out of lives, better luck next time!");
@@ -222,11 +221,6 @@ public class MemoryGameView {
         controller.getPlayer().setScore(totalScore);
         controller.getPlayer().setMultiplier(multiplier);
     }
-
-//    private void reziseCards(Label toShow, File f) {
-//        Image image = new Image(f.toURI().toString());
-//        reziseImage(image, toShow);
-//    }
 
     private Coordinate mouseEventHelper(MouseEvent event) {
         Label clicked = (Label) event.getSource();

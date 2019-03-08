@@ -2,14 +2,18 @@ package edu.neumont.csc150.view;
 
 import edu.neumont.csc150.controller.MemoryGameController;
 import javafx.geometry.Insets;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
 
 import java.io.IOException;
-import java.util.Optional;
+import java.io.Serializable;
 
-public class MemoryGameSettingsView {
+public class MemoryGameSettingsView implements Serializable {
 
     public VBox vbox;
     public HBox settings;
@@ -61,22 +65,9 @@ public class MemoryGameSettingsView {
 
     public void startGame() throws IOException {
         if (inputName.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.NONE);
-            alert.setTitle("Invalid Name Input");
-            alert.setContentText("You forgot to put your name!");
-            alert.getButtonTypes().clear();
-            ButtonType willDo = new ButtonType("Let's change it");
-            alert.getButtonTypes().add(willDo);
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == willDo) {
-                try {
-                    viewNavigator.showMemoryGameSettings();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            } else {
-                viewNavigator.showMemoryGameSettings();
-            }
+            inputName.setPromptText("Please enter your name");
+            inputName.setMinWidth(200);
+            inputName.setFont(Font.font("Verdana", FontPosture.ITALIC, 18));
         } else {
             controller.setGridWidth(boardWidth);
             controller.setGridHeight(boardHeight);
