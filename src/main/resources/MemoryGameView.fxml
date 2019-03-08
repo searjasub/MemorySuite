@@ -10,7 +10,7 @@
     <top>
         <MenuBar>
             <Menu text="Game">
-                <MenuItem text="Main Menu" onAction="#onExit"/>
+                <MenuItem text="Restart" onAction="#onExit"/>
             </Menu>
             <Menu text="Help">
                 <MenuItem text="About" onAction="#onAbout"/>

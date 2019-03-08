@@ -243,7 +243,7 @@ public class MemoryGameView implements Serializable {
     }
 
     public void onExit() throws IOException {
-        viewNavigator.showMainMenu();
+        viewNavigator.showMemoryGameSettings();
     }
 
     public void onSave(ActionEvent actionEvent) throws IOException {
