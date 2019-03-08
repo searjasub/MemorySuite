@@ -1,6 +1,7 @@
 package edu.neumont.csc150.view;
 
 import edu.neumont.csc150.controller.MemoryGameController;
+import edu.neumont.csc150.model.CardType;
 import edu.neumont.csc150.model.Coordinate;
 import edu.neumont.csc150.model.MemBoardSquare;
 import edu.neumont.csc150.model.scores.HighscoreManager;
@@ -68,21 +69,13 @@ public class MemoryGameView {
         wait.play();
     }
 
-//    private void resetMatches() {
-//        for (int r = 0; r < controller.getBoard().getWidth(); r++) {
-//            for (int c = 0; c < controller.getBoard().getHeight(); c++) {
-//                MemBoardSquare card = controller.getBoard().getBoardSquare(controller.getBoard().getBoardSquares(), r, c);
-//                card.setMatched(false);
-//            }
-//        }
-//    }
-
     private void showCards() {
         for (int r = 0; r < controller.getBoard().getWidth(); r++) {
             for (int c = 0; c < controller.getBoard().getHeight(); c++) {
                 MemBoardSquare card = new MemBoardSquare();
                 File f = new File(controller.getBoard().getCard(c, r).getUrl());
-                reziseCards(card, f);
+                Image image = new Image(f.toURI().toString());
+                reziseImage(image, card);
                 board.add(card, r, c);
             }
         }
@@ -154,7 +147,9 @@ public class MemoryGameView {
             if (event.getButton() == MouseButton.PRIMARY && flippedCards[1] == null) {
                 MemBoardSquare toShow = new MemBoardSquare();
                 File f = new File(controller.getBoard().getCard(coordinate.getCol(), coordinate.getRow()).getUrl());
-                reziseCards(toShow, f);
+//                reziseCards(toShow, f);
+                Image image = new Image(f.toURI().toString());
+                reziseImage(image, toShow);
                 board.add(toShow, coordinate.getRow(), coordinate.getCol());
 
                 MemBoardSquare card = (MemBoardSquare) event.getSource();
@@ -180,7 +175,6 @@ public class MemoryGameView {
                         if (totalCards == 0) {
                             storeData();
                             resetBoard();
-                            // TODO reset game board
                         }
                         drawBoardAfterwards();
                     } else {
@@ -228,10 +222,10 @@ public class MemoryGameView {
         controller.getPlayer().setMultiplier(multiplier);
     }
 
-    private void reziseCards(Label toShow, File f) {
-        Image image = new Image(f.toURI().toString());
-        reziseImage(image, toShow);
-    }
+//    private void reziseCards(Label toShow, File f) {
+//        Image image = new Image(f.toURI().toString());
+//        reziseImage(image, toShow);
+//    }
 
     private Coordinate mouseEventHelper(MouseEvent event) {
         Label clicked = (Label) event.getSource();
