@@ -1,11 +1,12 @@
 package edu.neumont.csc150.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-public class MemBoard {
+public class MemBoard implements Serializable {
     private int width;
     private int height;
     private MemBoardSquare[][] boardSquares;

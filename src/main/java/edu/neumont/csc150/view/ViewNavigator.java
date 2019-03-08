@@ -10,9 +10,10 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Objects;
 
-public class ViewNavigator {
+public class ViewNavigator implements Serializable {
 
     private MemoryGameController memoryGameController;
     private Stage stage;
@@ -52,7 +53,7 @@ public class ViewNavigator {
         this.stage.show();
     }
 
-    void showMemoryGame() throws IOException {
+    public void showMemoryGame() throws IOException {
         initMemoryGame();
         this.stage.setScene(memoryGameScene);
         if (memoryGameController.getGridHeight() == 3) {
