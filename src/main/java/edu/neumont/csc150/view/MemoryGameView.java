@@ -184,20 +184,21 @@ public class MemoryGameView implements Serializable {
                             alert.setTitle("Game Over");
                             alert.setContentText("You ran out of lives, better luck next time!");
                             alert.getButtonTypes().clear();
-                            ButtonType mainMenuButton = new ButtonType("Main Menu");
+                            ButtonType mainMenuButton = new ButtonType("Start Over");
                             alert.getButtonTypes().add(mainMenuButton);
                             ButtonType exit = new ButtonType("Exit App");
-                            alert.getButtonTypes().add(exit);
+                           // alert.getButtonTypes().add(exit);
                             Optional<ButtonType> result = alert.showAndWait();
                             if (result.get() == mainMenuButton) {
                                 try {
-                                    viewNavigator.showMainMenu();
+                                    viewNavigator.showMemoryGameSettings();
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }
-                            } else if (result.get() == exit) {
-                                viewNavigator.closeStage();
                             }
+//                            else if (result.get() == exit) {
+//                                viewNavigator.closeStage();
+//                            }
                         }
                         PauseTransition wait = new PauseTransition(new Duration(500));
                         wait.setOnFinished(e -> drawBoardAfterwards());
