@@ -14,7 +14,6 @@
     <top>
         <MenuBar>
             <Menu text="Game">
-                <MenuItem text="Load" onAction="#onLoad"/>
                 <MenuItem text="Exit" onAction="#onExit"/>
             </Menu>
             <Menu text="Help">

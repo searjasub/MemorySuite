@@ -53,7 +53,7 @@ public class ViewNavigator implements Serializable {
         this.stage.show();
     }
 
-    void showMemoryGame() throws IOException {
+    public void showMemoryGame() throws IOException {
         initMemoryGame();
         this.stage.setScene(memoryGameScene);
         if (memoryGameController.getGridHeight() == 3) {

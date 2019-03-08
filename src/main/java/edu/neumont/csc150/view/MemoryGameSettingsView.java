@@ -155,8 +155,8 @@ public class MemoryGameSettingsView implements Serializable {
         livesSettings.setText("3 lives");
     }
 
-    public void onLoad() {
- 
+    public void onLoad() throws IOException, ClassNotFoundException {
+        controller.loadGame();
     }
 
     public void onExit() throws IOException {

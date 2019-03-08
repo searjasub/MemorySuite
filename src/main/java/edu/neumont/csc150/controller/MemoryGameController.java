@@ -7,7 +7,10 @@ import edu.neumont.csc150.view.MemoryGameSettingsView;
 import edu.neumont.csc150.view.MemoryGameView;
 import edu.neumont.csc150.view.ViewNavigator;
 
-import java.io.Serializable;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -175,6 +178,32 @@ public class MemoryGameController implements Serializable {
 
     public void switchController(MemoryGameView viewController) {
         this.view = viewController;
+    }
+
+    public void saveGame() throws IOException {
+        makeDirectory();
+        FileOutputStream fileOutputStream = new FileOutputStream(directory + "\\game_saved.mg");
+        ObjectOutputStream outputStream = new ObjectOutputStream(fileOutputStream);
+        outputStream.writeObject(board);
+        outputStream.close();
+        outputStream.flush();
+        fileOutputStream.close();
+    }
+
+    public void loadGame() throws IOException, ClassNotFoundException {
+        ObjectInputStream in = new ObjectInputStream(new FileInputStream(directory +"\\game_saved.mg"));
+        board = (MemBoard) in.readObject();
+        viewNavigator.showMemoryGame();
+
+    }
+
+    private static final String directory = "savables";
+
+    private void makeDirectory() throws IOException {
+        Path path = Paths.get(directory);
+        if (!Files.exists(path)) {
+            Files.createDirectories(path);
+        }
     }
 }
 

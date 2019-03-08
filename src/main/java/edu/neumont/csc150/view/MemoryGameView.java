@@ -20,9 +20,10 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.Serializable;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class MemoryGameView implements Serializable {
@@ -47,7 +48,7 @@ public class MemoryGameView implements Serializable {
     private int totalCards;
     private List<MemBoardSquare> matched = new ArrayList<>();
 
-    void init(ViewNavigator viewNavigator, MemoryGameController controller) {
+    public void init(ViewNavigator viewNavigator, MemoryGameController controller) {
         registerViewNavigator(viewNavigator);
         registerController(controller);
         updateScore();
@@ -249,11 +250,13 @@ public class MemoryGameView implements Serializable {
         viewNavigator.showMainMenu();
     }
 
-    public void onSave(ActionEvent actionEvent) {
-
+    public void onSave(ActionEvent actionEvent) throws IOException {
+        controller.saveGame();
     }
 
     public void onAbout() {
         viewNavigator.aboutAlert();
     }
+
+
 }
