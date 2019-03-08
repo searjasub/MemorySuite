@@ -178,9 +178,8 @@ public class MemoryGameView {
                         totalScore += 100 * multiplier;
                         score.setText("Current Score: " + totalScore);
                         if (totalCards == 0) {
-                            controller.getPlayer().setLives(totalLives);
-                            controller.getPlayer().setScore(totalScore);
-                            controller.getPlayer().setMultiplier(multiplier);
+                            storeData();
+                            resetBoard();
                             // TODO reset game board
                         }
                         drawBoardAfterwards();
@@ -217,6 +216,16 @@ public class MemoryGameView {
                 }
             }
         };
+    }
+
+    private void resetBoard() {
+        this.init(this.viewNavigator, this.controller);
+    }
+
+    private void storeData() {
+        controller.getPlayer().setLives(totalLives);
+        controller.getPlayer().setScore(totalScore);
+        controller.getPlayer().setMultiplier(multiplier);
     }
 
     private void reziseCards(Label toShow, File f) {
