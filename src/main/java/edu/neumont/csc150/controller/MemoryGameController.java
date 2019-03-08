@@ -18,6 +18,9 @@ import java.util.Random;
 
 public class MemoryGameController implements Serializable {
 
+
+    private static final long serialVersionUID = 1L;
+    private static final String directory = "savables";
     private MemoryGameView view;
     private MemoryGameSettingsView settings;
     private ViewNavigator viewNavigator;
@@ -34,6 +37,13 @@ public class MemoryGameController implements Serializable {
 
     public MemoryGameController(ViewNavigator viewNavigator) {
         this.viewNavigator = viewNavigator;
+    }
+
+    public static MemoryGameController loadGame(MemoryGameView gameView, MemoryGameSettingsView settings) throws IOException, ClassNotFoundException {
+        ObjectInputStream in = new ObjectInputStream(new FileInputStream(directory + "\\game_saved.mg"));
+        MemoryGameController controller = (MemoryGameController) in.readObject();
+        //registerLoadedController
+        return controller;
     }
 
     public MemBoard getBoard() {
@@ -184,20 +194,11 @@ public class MemoryGameController implements Serializable {
         makeDirectory();
         FileOutputStream fileOutputStream = new FileOutputStream(directory + "\\game_saved.mg");
         ObjectOutputStream outputStream = new ObjectOutputStream(fileOutputStream);
-        outputStream.writeObject(board);
+        outputStream.writeObject(this);
         outputStream.close();
         outputStream.flush();
         fileOutputStream.close();
     }
-
-    public void loadGame() throws IOException, ClassNotFoundException {
-        ObjectInputStream in = new ObjectInputStream(new FileInputStream(directory +"\\game_saved.mg"));
-        board = (MemBoard) in.readObject();
-        viewNavigator.showMemoryGame();
-
-    }
-
-    private static final String directory = "savables";
 
     private void makeDirectory() throws IOException {
         Path path = Paths.get(directory);
@@ -205,5 +206,7 @@ public class MemoryGameController implements Serializable {
             Files.createDirectories(path);
         }
     }
+
+
 }
 

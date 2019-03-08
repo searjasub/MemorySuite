@@ -3,7 +3,7 @@ package edu.neumont.csc150.model.scores;
 import java.io.*;
 import java.util.ArrayList;
 
-public class HighscoreManager {
+public class HighscoreManager implements Serializable {
 
     private static final String HIGHSCORE_FILE = "scores.dat";
     private ObjectOutputStream outputStream = null;

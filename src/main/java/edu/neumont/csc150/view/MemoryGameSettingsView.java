@@ -10,7 +10,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.Serializable;
 
@@ -38,11 +37,11 @@ public class MemoryGameSettingsView implements Serializable {
     private MemoryGameController controller;
     private ViewNavigator viewNavigator;
 
-    private void registerController(MemoryGameController controller) {
+    public void registerController(MemoryGameController controller) {
         this.controller = controller;
     }
 
-    private void registerViewNavigator(ViewNavigator viewNavigator) {
+    public void registerViewNavigator(ViewNavigator viewNavigator) {
         this.viewNavigator = viewNavigator;
     }
 
@@ -156,7 +155,7 @@ public class MemoryGameSettingsView implements Serializable {
     }
 
     public void onLoad() throws IOException, ClassNotFoundException {
-        controller.loadGame();
+        //viewNavigator.loadGame();
     }
 
     public void onExit() throws IOException {

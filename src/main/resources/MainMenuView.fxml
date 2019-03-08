@@ -23,6 +23,7 @@
     </top>
     <center>
         <VBox styleClass="vbox">
+            <Label styleClass="topLabel">Memory Game</Label>
             <HBox fx:id="hbox" styleClass="hbox">
                 <Label fx:id="memoryGame" styleClass="memory">
                 </Label>

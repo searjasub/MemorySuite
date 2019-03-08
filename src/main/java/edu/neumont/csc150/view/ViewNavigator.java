@@ -16,6 +16,8 @@ import java.util.Objects;
 public class ViewNavigator implements Serializable {
 
     private MemoryGameController memoryGameController;
+    private MemoryGameView gameView;
+    private MemoryGameSettingsView settingsView;
     private Stage stage;
     private Scene mainMenuScene;
     private Scene memoryGameSettingsScene;
@@ -82,10 +84,10 @@ public class ViewNavigator implements Serializable {
     public void initMemoryGame() throws IOException {
         FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameView.fxml"));
         Parent root = loader.load();
-        MemoryGameView viewController = loader.getController();
-        viewController.init(this, memoryGameController);
+        gameView = loader.getController();
+        gameView.init(this, memoryGameController);
 
-        memoryGameController.switchController(viewController);
+        memoryGameController.switchController(gameView);
         memoryGameScene = new Scene(root);
 
     }
@@ -93,9 +95,9 @@ public class ViewNavigator implements Serializable {
     private void initMemoryGameSettings() throws IOException {
         FXMLLoader loader = new FXMLLoader(this.getClass().getClassLoader().getResource("MemoryGameSettingsView.fxml"));
         Parent root = loader.load();
-        MemoryGameSettingsView viewController = loader.getController();
-        memoryGameController = new MemoryGameController(viewController);
-        viewController.init(this, memoryGameController);
+        settingsView = loader.getController();
+        memoryGameController = new MemoryGameController(settingsView);
+        settingsView.init(this, memoryGameController);
         memoryGameSettingsScene = new Scene(root);
 
     }

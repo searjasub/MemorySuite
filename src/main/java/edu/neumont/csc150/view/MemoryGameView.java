@@ -1,7 +1,6 @@
 package edu.neumont.csc150.view;
 
 import edu.neumont.csc150.controller.MemoryGameController;
-import edu.neumont.csc150.model.CardType;
 import edu.neumont.csc150.model.Coordinate;
 import edu.neumont.csc150.model.MemBoardSquare;
 import edu.neumont.csc150.model.scores.HighscoreManager;
@@ -20,10 +19,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.File;
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.*;
 
 public class MemoryGameView implements Serializable {
@@ -72,7 +70,7 @@ public class MemoryGameView implements Serializable {
     }
 
     private void showCards() {
-      for (int r = 0; r < controller.getBoard().getWidth(); r++) {
+        for (int r = 0; r < controller.getBoard().getWidth(); r++) {
             for (int c = 0; c < controller.getBoard().getHeight(); c++) {
                 MemBoardSquare card = new MemBoardSquare();
                 card.setType(controller.getBoard().getCard(c, r));
@@ -153,12 +151,9 @@ public class MemoryGameView implements Serializable {
                 Image image = new Image(f.toURI().toString());
                 reziseImage(image, toShow);
                 board.add(toShow, coordinate.getRow(), coordinate.getCol());
-
                 MemBoardSquare card = (MemBoardSquare) event.getSource();
                 String[] pieces = card.getId().split("x");
                 card = controller.getBoard().getBoardSquare(controller.getBoard().getBoardSquares(), Integer.parseInt(pieces[0]), Integer.parseInt(pieces[1]));
-
-
                 if (flippedCards[0] == null) {
                     card1 = card;
                     flippedCards[0] = card.getType().toString();
