@@ -70,10 +70,11 @@ public class MemoryGameView {
     }
 
     private void showCards() {
-        for (int r = 0; r < controller.getBoard().getWidth(); r++) {
+      for (int r = 0; r < controller.getBoard().getWidth(); r++) {
             for (int c = 0; c < controller.getBoard().getHeight(); c++) {
                 MemBoardSquare card = new MemBoardSquare();
-                File f = new File(controller.getBoard().getCard(c, r).getUrl());
+                card.setType(controller.getBoard().getCard(c, r));
+                File f = new File(card.getType().getUrl());
                 Image image = new Image(f.toURI().toString());
                 reziseImage(image, card);
                 board.add(card, r, c);
@@ -172,11 +173,11 @@ public class MemoryGameView {
                         System.out.println(totalCards);
                         totalScore += 100 * multiplier;
                         score.setText("Current Score: " + totalScore);
+                        drawBoardAfterwards();
                         if (totalCards == 0) {
                             storeData();
                             resetBoard();
                         }
-                        drawBoardAfterwards();
                     } else {
                         totalLives--;
                         lives.setText("Lives: " + totalLives);
