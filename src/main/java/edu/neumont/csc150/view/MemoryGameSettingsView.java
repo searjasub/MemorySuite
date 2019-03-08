@@ -10,6 +10,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.Serializable;
 
@@ -155,7 +156,7 @@ public class MemoryGameSettingsView implements Serializable {
     }
 
     public void onLoad() {
-
+ 
     }
 
     public void onExit() throws IOException {
