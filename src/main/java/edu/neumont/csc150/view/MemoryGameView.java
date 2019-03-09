@@ -167,11 +167,8 @@ public class MemoryGameView implements Serializable {
                         card1.setMatched(true);
                         card2.setMatched(true);
                         totalCards -= 2;
-                        System.out.println(totalCards);
-                        System.out.println("Before: " + totalScore + "\nMultiplier: " + controller.getPlayer().getMultiplier());
                         totalScore += 100 * controller.getPlayer().getMultiplier();
                         controller.getPlayer().setScore(100 * controller.getPlayer().getMultiplier());
-                        System.out.println("After: " + totalScore);
                         score.setText("Current Score: " + controller.getPlayer().getScore());
                         drawBoardAfterwards();
                         if (totalCards == 0) {
@@ -182,7 +179,7 @@ public class MemoryGameView implements Serializable {
                         totalLives--;
                         lives.setText("Lives: " + totalLives);
                         if (totalLives == 0) {
-                            highscoreManager.addScore(controller.getPlayer().getName(), totalScore);
+                            highscoreManager.addScore(controller.getPlayer().getName(), controller.getPlayer().getScore());
                             top1.setText(highscoreManager.getHighscoreString());
                             Alert alert = new Alert(Alert.AlertType.NONE);
                             alert.setTitle("Game Over");
@@ -190,8 +187,6 @@ public class MemoryGameView implements Serializable {
                             alert.getButtonTypes().clear();
                             ButtonType mainMenuButton = new ButtonType("Start Over");
                             alert.getButtonTypes().add(mainMenuButton);
-                            ButtonType exit = new ButtonType("Exit App");
-                           // alert.getButtonTypes().add(exit);
                             Optional<ButtonType> result = alert.showAndWait();
                             if (result.get() == mainMenuButton) {
                                 try {
@@ -226,19 +221,11 @@ public class MemoryGameView implements Serializable {
         return new Coordinate((Integer.parseInt(pieces[0])), Integer.parseInt(pieces[1]));
     }
 
-    public void setMultiplier(int multiplier) {
-        this.multiplier += multiplier;
-    }
-
-    public void resetMultiplier() {
-        this.multiplier = 1;
-    }
-
     private void registerViewNavigator(ViewNavigator viewNavigator) {
         this.viewNavigator = viewNavigator;
     }
 
-    public void registerController(MemoryGameController controller) {
+    private void registerController(MemoryGameController controller) {
         this.controller = controller;
     }
 
