@@ -125,9 +125,10 @@ public class MemoryGameView implements Serializable {
                 }
                 board.add(card, c, r);
                 if (matched.size() == board.getHeight() * board.getWidth() - 1) {
-                    int savedScore = totalScore;
+                    //TODO last done
+                    //int savedScore = totalScore;
                     init(viewNavigator, controller);
-                    totalScore = savedScore;
+                    //totalScore = savedScore;
                 }
             }
         }
@@ -167,8 +168,11 @@ public class MemoryGameView implements Serializable {
                         card2.setMatched(true);
                         totalCards -= 2;
                         System.out.println(totalCards);
-                        totalScore += 100 * multiplier;
-                        score.setText("Current Score: " + totalScore);
+                        System.out.println("Before: " + totalScore + "\nMultiplier: " + controller.getPlayer().getMultiplier());
+                        totalScore += 100 * controller.getPlayer().getMultiplier();
+                        controller.getPlayer().setScore(100 * controller.getPlayer().getMultiplier());
+                        System.out.println("After: " + totalScore);
+                        score.setText("Current Score: " + controller.getPlayer().getScore());
                         drawBoardAfterwards();
                         if (totalCards == 0) {
                             storeData();
@@ -196,9 +200,6 @@ public class MemoryGameView implements Serializable {
                                     e.printStackTrace();
                                 }
                             }
-//                            else if (result.get() == exit) {
-//                                viewNavigator.closeStage();
-//                            }
                         }
                         PauseTransition wait = new PauseTransition(new Duration(500));
                         wait.setOnFinished(e -> drawBoardAfterwards());
@@ -215,8 +216,7 @@ public class MemoryGameView implements Serializable {
 
     private void storeData() {
         controller.getPlayer().setLives(totalLives);
-        controller.getPlayer().setScore(totalScore);
-        controller.getPlayer().setMultiplier(multiplier);
+        controller.getPlayer().setMultiplier(1);
     }
 
     private Coordinate mouseEventHelper(MouseEvent event) {

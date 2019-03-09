@@ -42,6 +42,6 @@ public class Player implements Serializable {
     }
 
     public void setMultiplier(int multiplier) {
-        this.multiplier = multiplier;
+        this.multiplier += multiplier;
     }
 }
