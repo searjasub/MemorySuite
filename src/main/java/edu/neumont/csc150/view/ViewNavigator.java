@@ -10,10 +10,9 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.Objects;
 
-public class ViewNavigator implements Serializable {
+public class ViewNavigator {
 
     private MemoryGameController memoryGameController;
     private MemoryGameView gameView;

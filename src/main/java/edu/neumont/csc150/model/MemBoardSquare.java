@@ -4,7 +4,7 @@ import javafx.scene.control.Label;
 
 import java.io.Serializable;
 
-public class MemBoardSquare extends Label implements Serializable {
+public class MemBoardSquare extends Label {
 
     private CardType type;
 

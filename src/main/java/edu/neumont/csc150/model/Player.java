@@ -1,8 +1,6 @@
 package edu.neumont.csc150.model;
 
-import java.io.Serializable;
-
-public class Player implements Serializable {
+public class Player {
 
     private String name;
     private int lives;
@@ -23,10 +21,6 @@ public class Player implements Serializable {
 
     public void setScore(int score) {
         this.score += score;
-    }
-
-    public void resetScore() {
-        this.score = 0;
     }
 
     public int getLives() {

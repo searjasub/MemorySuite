@@ -8,19 +8,13 @@ import edu.neumont.csc150.view.MemoryGameView;
 import edu.neumont.csc150.view.ViewNavigator;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-public class MemoryGameController implements Serializable {
+public class MemoryGameController  {
 
-
-    private static final long serialVersionUID = 1L;
-    private static final String directory = "savables";
     private MemoryGameView view;
     private MemoryGameSettingsView settings;
     private ViewNavigator viewNavigator;
@@ -37,13 +31,6 @@ public class MemoryGameController implements Serializable {
 
     public MemoryGameController(ViewNavigator viewNavigator) {
         this.viewNavigator = viewNavigator;
-    }
-
-    public static MemoryGameController loadGame(MemoryGameView gameView, MemoryGameSettingsView settings) throws IOException, ClassNotFoundException {
-        ObjectInputStream in = new ObjectInputStream(new FileInputStream(directory + "\\game_saved.mg"));
-        MemoryGameController controller = (MemoryGameController) in.readObject();
-        //registerLoadedController
-        return controller;
     }
 
     public MemBoard getBoard() {
@@ -189,24 +176,5 @@ public class MemoryGameController implements Serializable {
     public void switchController(MemoryGameView viewController) {
         this.view = viewController;
     }
-
-    public void saveGame() throws IOException {
-        makeDirectory();
-        FileOutputStream fileOutputStream = new FileOutputStream(directory + "\\game_saved.mg");
-        ObjectOutputStream outputStream = new ObjectOutputStream(fileOutputStream);
-        outputStream.writeObject(this);
-        outputStream.close();
-        outputStream.flush();
-        fileOutputStream.close();
-    }
-
-    private void makeDirectory() throws IOException {
-        Path path = Paths.get(directory);
-        if (!Files.exists(path)) {
-            Files.createDirectories(path);
-        }
-    }
-
-
 }
 

@@ -1,9 +1,8 @@
 package edu.neumont.csc150.model;
 
-import java.io.Serializable;
 import java.util.Objects;
 
-public class Coordinate implements Serializable {
+public class Coordinate{
     private int row;
     private int col;
 
@@ -32,7 +31,6 @@ public class Coordinate implements Serializable {
         if (col < 0 || col > 11) {
             System.out.println("invalid column " + col);
         }
-
         this.col = col;
     }
 

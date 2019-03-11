@@ -11,9 +11,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 
 import java.io.IOException;
-import java.io.Serializable;
 
-public class MemoryGameSettingsView implements Serializable {
+public class MemoryGameSettingsView  {
 
     public VBox vbox;
     public HBox settings;
@@ -87,8 +86,6 @@ public class MemoryGameSettingsView implements Serializable {
             boardWidth += 2;
             boardHeight += 1;
         }
-
-
         gridSizeSettings.setText("Grid Size: " + boardWidth + "x" + boardHeight);
     }
 
@@ -154,10 +151,6 @@ public class MemoryGameSettingsView implements Serializable {
         livesSettings.setText("3 lives");
     }
 
-    public void onLoad() throws IOException, ClassNotFoundException {
-        //viewNavigator.loadGame();
-    }
-
     public void onExit() throws IOException {
         viewNavigator.showMainMenu();
     }
@@ -165,5 +158,4 @@ public class MemoryGameSettingsView implements Serializable {
     public void onAbout() {
         viewNavigator.aboutAlert();
     }
-
 }

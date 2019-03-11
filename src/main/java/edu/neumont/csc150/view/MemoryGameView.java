@@ -21,12 +21,10 @@ import javafx.util.Duration;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.*;
 
-public class MemoryGameView implements Serializable {
+public class MemoryGameView  {
 
-    //TODO add right click decrease the numbers from settings
     public GridPane board;
     public Label top1;
     public Label score;
@@ -233,13 +231,8 @@ public class MemoryGameView implements Serializable {
         viewNavigator.showMemoryGameSettings();
     }
 
-    public void onSave(ActionEvent actionEvent) throws IOException {
-        controller.saveGame();
-    }
-
     public void onAbout() {
         viewNavigator.aboutAlert();
     }
-
 
 }

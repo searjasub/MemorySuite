@@ -10,9 +10,8 @@ import javafx.scene.layout.HBox;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.Serializable;
 
-public class MainMenuView implements Serializable {
+public class MainMenuView {
 
     public Label memoryGame;
     public HBox hbox;
@@ -23,7 +22,6 @@ public class MainMenuView implements Serializable {
         hbox.setSpacing(40);
         hbox.setPadding(new Insets(50, 0, 0, 0));
         registerViewNavigator(viewNavigator);
-
 
         memoryGame.setGraphic(new ImageView(new Image(new File("src\\main\\resources\\images\\start.png").toURI().toString())));
         memoryGame.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {

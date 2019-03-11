@@ -5,7 +5,7 @@ import edu.neumont.csc150.view.ViewNavigator;
 import java.io.IOException;
 import java.io.Serializable;
 
-public class ViewNavigatorController implements Serializable {
+public class ViewNavigatorController {
 
     private ViewNavigator viewNavigator;
 
