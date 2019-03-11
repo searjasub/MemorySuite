@@ -2,8 +2,6 @@ package edu.neumont.csc150.model;
 
 import javafx.scene.control.Label;
 
-import java.io.Serializable;
-
 public class MemBoardSquare extends Label {
 
     private CardType type;

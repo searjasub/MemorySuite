@@ -1,6 +1,6 @@
 package edu.neumont.csc150.model;
 
-public enum CardType  {
+public enum CardType {
     DEFAULT("src\\main\\resources\\images\\cards_front\\0.png"),
     ONE("src\\main\\resources\\images\\cards_front\\1.png"),
     TWO("src\\main\\resources\\images\\cards_front\\2.png"),

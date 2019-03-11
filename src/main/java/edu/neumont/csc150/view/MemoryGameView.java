@@ -5,7 +5,6 @@ import edu.neumont.csc150.model.Coordinate;
 import edu.neumont.csc150.model.MemBoardSquare;
 import edu.neumont.csc150.model.scores.HighscoreManager;
 import javafx.animation.PauseTransition;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
@@ -23,7 +22,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
-public class MemoryGameView  {
+public class MemoryGameView {
 
     public GridPane board;
     public Label top1;
@@ -123,10 +122,7 @@ public class MemoryGameView  {
                 }
                 board.add(card, c, r);
                 if (matched.size() == board.getHeight() * board.getWidth() - 1) {
-                    //TODO last done
-                    //int savedScore = totalScore;
                     init(viewNavigator, controller);
-                    //totalScore = savedScore;
                 }
             }
         }
@@ -181,7 +177,7 @@ public class MemoryGameView  {
                             top1.setText(highscoreManager.getHighscoreString());
                             Alert alert = new Alert(Alert.AlertType.NONE);
                             alert.setTitle("Game Over");
-                            alert.setContentText("You ran out of lives, better luck next time!");
+                            alert.setContentText("You ran out of lives, your score was: " + controller.getPlayer().getScore());
                             alert.getButtonTypes().clear();
                             ButtonType mainMenuButton = new ButtonType("Start Over");
                             alert.getButtonTypes().add(mainMenuButton);

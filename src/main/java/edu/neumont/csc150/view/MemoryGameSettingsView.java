@@ -12,7 +12,7 @@ import javafx.scene.text.FontPosture;
 
 import java.io.IOException;
 
-public class MemoryGameSettingsView  {
+public class MemoryGameSettingsView {
 
     public VBox vbox;
     public HBox settings;

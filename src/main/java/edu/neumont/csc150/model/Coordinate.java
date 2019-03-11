@@ -2,7 +2,7 @@ package edu.neumont.csc150.model;
 
 import java.util.Objects;
 
-public class Coordinate{
+public class Coordinate {
     private int row;
     private int col;
 
@@ -39,7 +39,7 @@ public class Coordinate{
     }
 
     public boolean equals(Object o) {
-        Coordinate other = (Coordinate)o;
+        Coordinate other = (Coordinate) o;
         return this.getRow() == other.getRow() && this.getCol() == other.getCol();
     }
 
